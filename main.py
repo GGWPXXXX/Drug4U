@@ -56,8 +56,9 @@ class User:
         print(f'Hi {self.username} welcome to my shop :)')
 
 
-user_file = '../Drug4U/User_file/username_pass.txt'
+user_file = '../Drug4U/User_file/user_username_pass.txt'
 customer_data = (read_external_file(user_file))
+admin_data = read_external_file('../Drug4U/Admin_file/admin_username_password.txt')
 print('''
 ===========================
 Welcome to My DRUG4U Shop!
@@ -70,6 +71,7 @@ check_wheter_customer = check_y_n(check_wheter_customer)
 if check_wheter_customer == 'n' or check_wheter_customer == 'N':
     print("Then you must be an admin :)")
     print("Please login")
+    login(admin_data)
 
 if check_wheter_customer == 'y' or check_wheter_customer == 'Y':
     print('Do you have an account?')
