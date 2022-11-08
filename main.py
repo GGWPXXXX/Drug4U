@@ -50,15 +50,15 @@ def login(data):
 
 class User:
     def __init__(self, username):
-        self.username = username
+        self.__username = username
 
     def welcome_user(self):
-        print(f'Hi {self.username} welcome to my shop :)')
+        print(f'Hi {self.__username} welcome to my shop :)')
 
 
 user_file = '../Drug4U/User_file/user_username_pass.txt'
 customer_data = (read_external_file(user_file))
-admin_data = read_external_file('../Drug4U/Admin_file/admin_username_password.txt')
+# admin_data = read_external_file('../Drug4U/Admin_file/admin_username_password.txt')
 print('''
 ===========================
 Welcome to My DRUG4U Shop!
@@ -69,8 +69,10 @@ check_wheter_customer = input('(y/n): ')
 check_wheter_customer = check_y_n(check_wheter_customer)
 
 if check_wheter_customer == 'n' or check_wheter_customer == 'N':
+    print('============================')
     print("Then you must be an admin :)")
     print("Please login")
+    print('============================')
     login(admin_data)
 
 if check_wheter_customer == 'y' or check_wheter_customer == 'Y':
