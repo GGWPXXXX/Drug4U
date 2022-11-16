@@ -1,10 +1,13 @@
-def read_external_file(file_name):                                        #This fucntion read user's username and password text file
-    file = open(file_name, 'r', encoding='utf-8').read().splitlines()     #then reteturn them as dict.
-    user_list = []
-    for each_line in file:
-        user_list.append(each_line.split(' '))
-    lldict = dict(user_list)
-    return lldict
+import csv
+
+
+def read_external_file(file_name):
+    data_list = []
+    with open(file_name) as temp_var:
+        file = csv.DictReader(temp_var)
+        for each_line in file:
+            data_list.append(each_line)
+    return data_list
 
 
 def create_an_account(filename):
@@ -41,24 +44,36 @@ def login(data):
     username = input('Your username?: ')
     password = input('And password?: ')
     while True:
-        if username in data.keys() and password == data[username]:
-            return username, password
+        for each_dict in data:
+            if username in each_dict['username'] and password in each_dict['password']:
+                return username, password
         print('Sorry your username or pass must be wrong please try again :o')
         username = input('Your username?: ')
         password = input('And password?: ')
 
 
-class User:
-    def __init__(self, username):
+def update_customer_data(data, username, password, address, telephone):
+    with open(data) as file:
+        data_file = csv.DictReader(file)
+        for each_file in data_file:
+            if each_file['username'] == username:
+                each_file['username'] = username
+                each_file['password'] = password
+                each_file['address'] = address
+                each_file['telephone'] = telephone
+
+
+class Customer:
+    def __init__(self, username, password, address, telephone_number):
         self.__username = username
 
     def welcome_user(self):
         print(f'Hi {self.__username} welcome to my shop :)')
 
 
-user_file = '../Drug4U/User_file/user_username_pass.txt'
+user_file = '../Drug4U/User_file/User_data.csv'
 customer_data = (read_external_file(user_file))
-# admin_data = read_external_file('../Drug4U/Admin_file/admin_username_password.txt')
+admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.csv.txt')
 print('''
 ===========================
 Welcome to My DRUG4U Shop!
@@ -73,7 +88,7 @@ if check_wheter_customer == 'n' or check_wheter_customer == 'N':
     print("Then you must be an admin :)")
     print("Please login")
     print('============================')
-    login(admin_data)
+    username, password = login(admin_data)
 
 if check_wheter_customer == 'y' or check_wheter_customer == 'Y':
     print('Do you have an account?')
@@ -81,6 +96,6 @@ if check_wheter_customer == 'y' or check_wheter_customer == 'Y':
     check_account = check_y_n(check_account)
     if check_account == 'n' or check_account == 'N':
         create_an_account(user_file)
-    if check_account == 'y' or check_account == 'Y':
-        username, password = login(customer_data)
-        User = User(username)
+        customer_data = (read_external_file(user_file))
+
+username, password = login(customer_data)
