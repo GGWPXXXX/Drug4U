@@ -73,7 +73,7 @@ class Customer:
 
 user_file = '../Drug4U/User_file/User_data.csv'
 customer_data = (read_external_file(user_file))
-admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.csv.txt')
+admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.csv')
 print('''
 ===========================
 Welcome to My DRUG4U Shop!
