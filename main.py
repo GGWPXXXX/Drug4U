@@ -12,6 +12,7 @@ def create_an_account(file_path):
     print('Hi this is registration form :)')
     print('===============================')
     username = input('What should we call you?: ')
+
     # Check if the username has been used.
     with open(file_path, 'r') as file:
         data_file = json.load(file)
@@ -33,9 +34,12 @@ def create_an_account(file_path):
             "telephone": tel
         }
     }
+    # read an old data then save it in data_file variable
     with open(file_path, 'r') as file:
         data_file = json.load(file)
         data_file.update(new_data)
+
+    # write down new data
     with open(file_path, 'w') as file:
         json.dump(data_file, file, indent=4)
 
@@ -56,6 +60,7 @@ def login(file_path):
     print('Please type in your username and password :)')
     print('========================')
     username = input('Your username?: ')
+
     # check username that if it's in database or not.
     with open(file_path, 'r') as file:
         data_file = json.load(file)
@@ -63,6 +68,7 @@ def login(file_path):
             print(f'Sorry, Username:{username} not found on the system.')
             username = input('Your username?: ')
     password = input('And password?: ')
+
     # check the given password that if it's match with the username or not.
     with open(file_path, 'r') as file:
         data_file = json.load(file)
@@ -88,7 +94,22 @@ class Customer:
 
     # welcome customer text
     def welcome_user(self):
+        print('============================')
         print(f'Hi {self.__username} welcome to my shop :)')
+        print('============================')
+
+    # Show menu
+    def menu(self):
+        print('Please select Menu :)')
+        print('1.Medicine Store')
+        print('2.Setting')
+        menu_choice = int(input('Please input number:) '))
+
+        # Check if user input is the correct menu number or not.
+        while True:
+            if menu_choice == 1 or menu_choice == 2:
+                return menu_choice
+            menu_choice = int(input('Please input the correct number :( '))
 
 
 user_file_path = '../Drug4U/User_file/User_data.json'
@@ -108,7 +129,7 @@ if check_wheter_customer == 'n' or check_wheter_customer == 'N':
     print("Then you must be an admin :)")
     print("Please login")
     print('============================')
-    username, password = login(admin_data)
+    username = login(admin_data)
 
 if check_wheter_customer.lower() == 'y':
     print('Do you have an account?')
@@ -117,6 +138,9 @@ if check_wheter_customer.lower() == 'y':
     if check_account.lower() == 'n':
         create_an_account(user_file_path)
         customer_data = (read_external_file(user_file_path))
-    else:
-        print("Please login")
-        login(user_file_path)
+    print('============================')
+    print("Please login")
+    username = login(user_file_path)
+    customer = Customer(username)
+    customer.welcome_user()
+    customer_choice = customer.menu()
