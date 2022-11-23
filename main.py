@@ -111,6 +111,10 @@ class Customer:
                 return menu_choice
             menu_choice = int(input('Please input the correct number :( '))
 
+    # Show medine menu
+    def show_medicine(self):
+
+
 
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))

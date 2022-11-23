@@ -1,0 +1,34 @@
+{
+  "Digestive system": {
+    "Activated Charcoal": {
+      "uses": ["Food Poisoning. Oral activated charcoal can capture poisons and drugs. It should be given under medical supervision with toxic antidotes."],
+      "side-effect": ["Short-term oral use of activated charcoal is likely safe. Long-term use of activated charcoal could be safe. Constipation and dark stools are regular adverse effects."],
+      "precautions": ["Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common."],
+      "price": 100
+    },
+    "Loperamide": {
+      "uses": ["This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion. This reduces stool frequency and wateriness. Loperamide reduces ileostomy outflow. It's also used to treat IBD-related diarrhea. Loperamide addresses diarrhea symptoms, not causes (such as infection). Doctors should treat other symptoms and establish the source of diarrhea."],
+      "side-effect": ["Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing."],
+      "precautions": ["If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."],
+      "price": 428
+    }
+  },
+
+  "Pain": {
+
+  },
+  "Eye": {
+
+  },
+
+  "Infections and infestations": {
+
+  },
+
+  "Allergic disorders":{
+  },
+
+  "Nutrition": {
+
+  }
+}
