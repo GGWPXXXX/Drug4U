@@ -7,13 +7,13 @@ def read_external_file(file_name):
         return data_file
 
 
-def create_an_account(filename):
+def create_an_account(file_path):
     print('===============================')
     print('Hi this is registration form :)')
     print('===============================')
     username = input('What should we call you?: ')
     # Check if the username has been used.
-    with open(filename, 'r') as file:
+    with open(file_path, 'r') as file:
         data_file = json.load(file)
         while username in data_file:
             print('Sorry, this username has already been used.')
@@ -33,10 +33,10 @@ def create_an_account(filename):
             "telephone": tel
         }
     }
-    with open(filename, 'r') as file:
+    with open(file_path, 'r') as file:
         data_file = json.load(file)
         data_file.update(new_data)
-    with open(filename, 'w') as file:
+    with open(file_path, 'w') as file:
         json.dump(data_file, file, indent=4)
 
 
@@ -50,43 +50,49 @@ def check_y_n(choice):
     return choice
 
 
-def login(data):
+def login(file_path):
     print('========================')
     print('Hi welcome to login page')
     print('Please type in your username and password :)')
     print('========================')
     username = input('Your username?: ')
+    # check username that if it's in database or not.
+    with open(file_path, 'r') as file:
+        data_file = json.load(file)
+        while username not in data_file:
+            print(f'Sorry, Username:{username} not found on the system.')
+            username = input('Your username?: ')
     password = input('And password?: ')
-    while True:
-        for each_dict in data:
-            if username in each_dict['username'] and password in each_dict['password']:
-                return username, password
-        print('Sorry your username or pass must be wrong please try again :o')
-        username = input('Your username?: ')
-        password = input('And password?: ')
-
-
-# def update_customer_data(data, username, password, address, telephone):
-#     with open(data) as file:
-#         data_file = csv.DictReader(file)
-#         for each_file in data_file:
-#             if each_file['username'] == username:
-#                 each_file['username'] = username
-#                 each_file['password'] = password
-#                 each_file['address'] = address
-#                 each_file['telephone'] = telephone
+    # check the given password that if it's match with the username or not.
+    with open(file_path, 'r') as file:
+        data_file = json.load(file)
+        while password != data_file[username]['password']:
+            print(f'Sorry, your given password does not match with the username, Please try again.')
+            password = input('And password?: ')
+    return username
 
 
 class Customer:
-    def __init__(self, username, password, address, telephone_number):
+    def __init__(self, username):
         self.__username = username
 
+    # getter for username
+    @property
+    def username(self):
+        return self.__username
+
+    # setter for username
+    @username.setter
+    def username(self, new_value):
+        self.__username = new_value
+
+    # welcome customer text
     def welcome_user(self):
         print(f'Hi {self.__username} welcome to my shop :)')
 
 
-user_file = '../Drug4U/User_file/User_data.json'
-customer_data = (read_external_file(user_file))
+user_file_path = '../Drug4U/User_file/User_data.json'
+customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
 print('''
 ===========================
@@ -109,7 +115,8 @@ if check_wheter_customer.lower() == 'y':
     check_account = input('(y/n): ')
     check_account = check_y_n(check_account)
     if check_account.lower() == 'n':
-        create_an_account(user_file)
-        customer_data = (read_external_file(user_file))
-
-username, password = login(customer_data)
+        create_an_account(user_file_path)
+        customer_data = (read_external_file(user_file_path))
+    else:
+        print("Please login")
+        login(user_file_path)
