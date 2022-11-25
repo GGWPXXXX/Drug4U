@@ -1,7 +1,7 @@
 {
   "Digestive system": {
 
-    "Activated Charcoal": {
+    "Nature's Bounty Activated Charcoal 260 mg, 100 Capsules": {
 
       "uses":
         "Food Poisoning. Oral activated charcoal can capture poisons and drugs. It should be given under medical supervision with toxic antidotes."
@@ -12,11 +12,11 @@
       "precautions":
         "Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common."
       ,
-      "price": 100
+      "price": 350
     },
-    "Loperamide": {
+    "Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count": {
       "uses":
-        "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion. This reduces stool frequency and wateriness. Loperamide reduces ileostomy outflow. It's also used to treat IBD-related diarrhea. Loperamide addresses diarrhea symptoms, not causes (such as infection). Doctors should treat other symptoms and establish the source of diarrhea."
+        "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion.Take this medication by mouth, usually after each loose stool or as directed by your doctor. Doctors should treat other symptoms and establish the source of diarrhea."
       ,
       "side-effect":
         "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing."
@@ -24,12 +24,12 @@
       "precautions":
         "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
       ,
-      "price": 428
+      "price": 250
     },
-    "Tagamet Tablet": {
+    "Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
 
       "uses":
-        "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD)."
+        "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor."
       ,
       "side-effect":
         "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects."
@@ -37,7 +37,7 @@
       "precautions":
         "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help."
       ,
-      "price": 1140
+      "price": 300
     }
   },
 
