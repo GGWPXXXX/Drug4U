@@ -111,4 +111,4 @@ if check_wheter_customer.lower() == 'y':
     username = login(user_file_path)
     customer = Customer(username)
     customer.welcome_user()
-    customer_choice = customer.show_chose_menu()
+    customer_choice = customer.main()

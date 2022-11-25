@@ -22,7 +22,7 @@ class Medicine:
             choice = input('Which one would you like to see the information ? ')
 
             # list that counting how many medicine in that specific categories.
-            num_med_list = [str(x) for x in range(1, len(data[menu_num_list[user_choice]].keys())+1)]
+            num_med_list = [str(num) for num in range(1, len(data[menu_num_list[user_choice]].keys())+1)]
 
             # check that choice is correct or not.
             while True:
@@ -40,22 +40,22 @@ class Medicine:
             for medicine in medi_data[chose_categories]:
                 if int(medicine[0]) == int(chose_medicine_num):
                     print('===========================================')
-                    print('---> Please read the prescription very carefully!.')
+                    print('---> Please read the prescription very carefully!. <---')
                     print('===========================================')
                     print()
                     print('---> What When and How to use this medication.')
                     print('===========================================')
                     print(medi_data[chose_categories][medicine]['uses'])
                     print()
-                    print('---> This is side-effect of this medication.')
+                    print('---> This is side-effect of this medication. <---')
                     print('===========================================')
                     print(medi_data[chose_categories][medicine]['side-effect'])
                     print()
-                    print('---> This is the precautions of this medication.')
+                    print('---> This is the precautions of this medication. <---')
                     print('===========================================')
                     print(medi_data[chose_categories][medicine]['precautions'])
                     print()
-                    print('---> This is the price :)')
+                    print('---> This is the price :) <---')
                     print('===========================================')
                     print(f"{medi_data[chose_categories][medicine]['price']} Baht")
 
