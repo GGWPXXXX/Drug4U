@@ -154,14 +154,55 @@
       "price": 500
     },
     "Major Allergy Loratadine 10mg, 300 Tablets": {
-      "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
-      "side-effects": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
-      "precautions": "At appropriate dosages, loratadine seldom causes drowsiness. Do not drive, operate equipment, or conduct any activity requiring awareness until you can do so safely.",
+      "uses":
+        "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor."
+      ,
+      "side-effects":
+        "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly."
+      ,
+      "precautions":
+        "At appropriate dosages, loratadine seldom causes drowsiness. Do not drive, operate equipment, or conduct any activity requiring awareness until you can do so safely."
+      ,
       "price": 400
     }
   },
 
   "Nutrition": {
-
+    "Amazon Elements Vitamin C 1000mg 300 Tablets": {
+      "uses":
+        "Body development and function require vitamin C. It boosts immunity. Most experts advise receiving vitamin C from food, and supplements. Sources include oranges and orange juice."
+      ,
+      "side-effects":
+        "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches."
+      ,
+      "precautions":
+        "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18."
+      ,
+      "price": 1000
+    },
+    "Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
+      "uses":
+        "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system."
+      ,
+      "side-effects":
+        "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit."
+      ,
+      "precautions":
+        "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit."
+      ,
+      "price": 200
+    },
+    "Nature’s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets": {
+      "uses":
+        "Nature’s Bounty Super B-Complex is a great way to increase your intake of these important vitamins for immune and antioxidant support while Folic Acid may help with energy metabolism and promotes the health of pregnant women"
+      ,
+      "side-effects":
+        "Stomach upset or flushing may occur. These effects are usually temporary and fade as your body adjusts. Tell your doctor or pharmacist if any of these symptoms last or worsen."
+      ,
+      "precautions":
+        "Consult your doctor or pharmacist before taking this product if you have: Diabetes, liver disease, B12 lack (pernicious anemia)."
+      ,
+      "price": 700
+    }
   }
 }
