@@ -1,208 +1,102 @@
 {
-  "Digestive system": {
-
-    "Nature's Bounty Activated Charcoal 260 mg, 100 Capsules": {
-
-      "uses":
-        "Food Poisoning. Oral activated charcoal can capture poisons and drugs. It should be given under medical supervision with toxic antidotes."
-      ,
-      "side-effect":
-        "Short-term oral use of activated charcoal is likely safe. Long-term use of activated charcoal could be safe. Constipation and dark stools are regular adverse effects."
-      ,
-      "precautions":
-        "Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common."
-      ,
-      "price": 350
+    "Digestive system": {
+        "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules": {
+            "uses": "Food Poisoning. Oral activated charcoal can capture poisons and drugs. It should be given under medical supervision with toxic antidotes.",
+            "side-effect": "Short-term oral use of activated charcoal is likely safe. Long-term use of activated charcoal could be safe. Constipation and dark stools are regular adverse effects.",
+            "precautions": "Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common.",
+            "price": 350
+        },
+        "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count": {
+            "uses": "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion.Take this medication by mouth, usually after each loose stool or as directed by your doctor. Doctors should treat other symptoms and establish the source of diarrhea.",
+            "side-effect": "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing.",
+            "precautions": "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 250
+        },
+        "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
+            "uses": "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor.",
+            "side-effect": "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects.",
+            "precautions": "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 300
+        }
     },
-    "Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count": {
-      "uses":
-        "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion.Take this medication by mouth, usually after each loose stool or as directed by your doctor. Doctors should treat other symptoms and establish the source of diarrhea."
-      ,
-      "side-effect":
-        "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing."
-      ,
-      "precautions":
-        "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 250
+    "Pain": {
+        "1.Aspirin 81mg 60 Enteric Coated Tablets": {
+            "uses": "Aspirin relieves mild to moderate discomfort from muscular pains, toothaches, colds, and headaches. It reduces arthritic pain and swelling. Aspirin is an anti-inflammatory salicylate (NSAID).",
+            "side-effect": "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly.",
+            "precautions": "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 266
+        },
+        "2.Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
+            "uses": "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset.",
+            "side-effect": "Stomach upset, nausea, vomiting, headache, diarrhea, constipation, dizziness, sleepiness. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
+            "precautions": "Tell your doctor or pharmacist if you're allergic to ibuprofen, aspirin, or other NSAIDs (such as naproxen, celecoxib). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 105
+        },
+        "3.Sara Paracetamol Caplets 500mg": {
+            "uses": "This drug is used to treat mild to moderate pain (from headaches, menstrual periods, toothaches, backaches, osteoarthritis, or cold/flu aches and pains) and to reduce fever.",
+            "side-effect": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
+            "precautions": "If you're allergic to acetaminophen, tell your doctor or pharmacist. Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 14
+        }
     },
-    "Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
-
-      "uses":
-        "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor."
-      ,
-      "side-effect":
-        "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects."
-      ,
-      "precautions":
-        "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 300
+    "Infections and infestations": {
+        "1.Amoxicillin 500mg 21 Capsules": {
+            "uses": "Amoxicillin treats bacterial illnesses. Penicillin-type antibiotic. Take this drug by mouth as instructed, generally every 8 or 12 hours. Dosage depends on medical condition and treatment response.",
+            "side-effects": "Diarrhea, nausea, and vomiting may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
+            "precautions": "Before using amoxicillin, notify your doctor or pharmacist if you're allergic to it, penicillin, cephalosporins, or other antibiotics. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 50
+        },
+        "2.Clindamycin 300mg Capsules 14 capsules": {
+            "uses": "Clindamycin treats bacterial infections. Take this medicine by mouth 4 times a day (every 6 hours), or as instructed by your doctor. Unless your doctor tells you differently, take it with 8 ounces of water.",
+            "side-effects": "Nausea, vomiting, or diarrhea may occur. If any of these effects persist or worsen, tell your doctor or pharmacist promptly.",
+            "precautions": "Before taking clindamycin, tell your doctor or pharmacist if you're allergic to it or lincomycin. Inactive chemicals in this product may cause allergic reactions or other issues.",
+            "price": 400
+        },
+        "3.Tetracycline 250mg 100 pills": {
+            "uses": "Tetracycline treats acne and other infections. The antibiotic stops bacteria development. Tetracycline works best 1 hour before or 2 hours after a meal.",
+            "side-effects": "Nausea, vomiting, diarrhea, appetite loss, mouth sores, hairy tongue, sore throat, dizziness, headache, or rectal pain may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
+            "precautions": "Before using this drug, notify your doctor or pharmacist about any kidney, liver, swallowing, or esophageal difficulties (such as hiatal hernia, reflux disease-GERD).",
+            "price": 750
+        }
+    },
+    "Allergic disorders": {
+        "1.Major Pharmaceuticals Chlorpheniramine Maleate 4 mg Anti-Allergy Tablets, 1000 Count": {
+            "uses": "Chlorpheniramine relieves allergy, hay fever, and cold symptoms. With or without meals, take the pill, capsule, or liquid. Follow label instructions or your doctor's orders.",
+            "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
+            "precautions": "This medicine may cause dizziness, drowsiness, or visual blurring. Alcohol and marijuana can cause dizziness and sleepiness. Drive, operate machinery, or do anything that requires attentiveness or clear eyesight only when safe",
+            "price": 500
+        },
+        "2.Benadryl Ultratabs 100 tablets": {
+            "uses": "Diphenhydramine relieves allergy, hay fever, and cold symptoms. To prevent motion sickness, take your dose 30 minutes before starting activity such as travel. Take your dosage 30 minutes before bed. If you can't sleep for 2 weeks, see a doctor.",
+            "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
+            "precautions": "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
+            "price": 500
+        },
+        "3.Major Allergy Loratadine 10mg, 300 Tablets": {
+            "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
+            "side-effects": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
+            "precautions": "At appropriate dosages, loratadine seldom causes drowsiness. Do not drive, operate equipment, or conduct any activity requiring awareness until you can do so safely.",
+            "price": 400
+        }
+    },
+    "Nutrition": {
+        "1.Amazon Elements Vitamin C 1000mg 300 Tablets": {
+            "uses": "Body development and function require vitamin C. It boosts immunity. Most experts advise receiving vitamin C from food, and supplements. Sources include oranges and orange juice.",
+            "side-effects": "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches.",
+            "precautions": "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18.",
+            "price": 1000
+        },
+        "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
+            "uses": "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system.",
+            "side-effects": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
+            "precautions": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
+            "price": 200
+        },
+        "3.Nature\u2019s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets": {
+            "uses": "Nature\u2019s Bounty Super B-Complex is a great way to increase your intake of these important vitamins for immune and antioxidant support while Folic Acid may help with energy metabolism and promotes the health of pregnant women",
+            "side-effects": "Stomach upset or flushing may occur. These effects are usually temporary and fade as your body adjusts. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
+            "precautions": "Consult your doctor or pharmacist before taking this product if you have: Diabetes, liver disease, B12 lack (pernicious anemia).",
+            "price": 700
+        }
     }
-  },
-
-  "Pain": {
-
-    "Aspirin 81mg 60 Enteric Coated Tablets": {
-
-      "uses":
-        "Aspirin relieves mild to moderate discomfort from muscular pains, toothaches, colds, and headaches. It reduces arthritic pain and swelling. Aspirin is an anti-inflammatory salicylate (NSAID)."
-      ,
-      "side-effect":
-        "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly."
-      ,
-      "precautions":
-        "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 266
-    },
-    "Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
-
-      "uses":
-        "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset."
-      ,
-      "side-effect":
-        "Stomach upset, nausea, vomiting, headache, diarrhea, constipation, dizziness, sleepiness. Tell your doctor or pharmacist if any of these symptoms last or worsen."
-      ,
-      "precautions":
-        "Tell your doctor or pharmacist if you're allergic to ibuprofen, aspirin, or other NSAIDs (such as naproxen, celecoxib). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 105
-    },
-    "Sara Paracetamol Caplets 500mg": {
-
-
-      "uses":
-        "This drug is used to treat mild to moderate pain (from headaches, menstrual periods, toothaches, backaches, osteoarthritis, or cold/flu aches and pains) and to reduce fever."
-      ,
-      "side-effect":
-        "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly."
-      ,
-      "precautions":
-        "If you're allergic to acetaminophen, tell your doctor or pharmacist. Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 14
-    }
-  },
-
-  "Infections and infestations": {
-
-    "Amoxicillin 500mg 21 Capsules": {
-
-      "uses":
-        "Amoxicillin treats bacterial illnesses. Penicillin-type antibiotic. Take this drug by mouth as instructed, generally every 8 or 12 hours. Dosage depends on medical condition and treatment response."
-      ,
-      "side-effects":
-        "Diarrhea, nausea, and vomiting may occur. Tell your doctor or pharmacist if any of these problems persist or worsen."
-      ,
-      "precautions":
-        "Before using amoxicillin, notify your doctor or pharmacist if you're allergic to it, penicillin, cephalosporins, or other antibiotics. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 50
-    },
-    "Clindamycin 300mg Capsules 14 capsules": {
-
-      "uses":
-        "Clindamycin treats bacterial infections. Take this medicine by mouth 4 times a day (every 6 hours), or as instructed by your doctor. Unless your doctor tells you differently, take it with 8 ounces of water."
-      ,
-      "side-effects":
-        "Nausea, vomiting, or diarrhea may occur. If any of these effects persist or worsen, tell your doctor or pharmacist promptly."
-      ,
-      "precautions":
-        "Before taking clindamycin, tell your doctor or pharmacist if you're allergic to it or lincomycin. Inactive chemicals in this product may cause allergic reactions or other issues."
-      ,
-      "price": 400
-    },
-    "Tetracycline 250mg 100 pills": {
-
-      "uses":
-        "Tetracycline treats acne and other infections. The antibiotic stops bacteria development. Tetracycline works best 1 hour before or 2 hours after a meal."
-      ,
-      "side-effects":
-        "Nausea, vomiting, diarrhea, appetite loss, mouth sores, hairy tongue, sore throat, dizziness, headache, or rectal pain may occur. Tell your doctor or pharmacist if any of these problems persist or worsen."
-      ,
-      "precautions":
-        "Before using this drug, notify your doctor or pharmacist about any kidney, liver, swallowing, or esophageal difficulties (such as hiatal hernia, reflux disease-GERD)."
-      ,
-      "price": 750
-    }
-  },
-  "Allergic disorders":{
-
-    "Major Pharmaceuticals Chlorpheniramine Maleate 4 mg Anti-Allergy Tablets, 1000 Count": {
-      "uses":
-        "Chlorpheniramine relieves allergy, hay fever, and cold symptoms. With or without meals, take the pill, capsule, or liquid. Follow label instructions or your doctor's orders."
-      ,
-      "side-effects":
-        "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen."
-      ,
-      "precautions":
-        "This medicine may cause dizziness, drowsiness, or visual blurring. Alcohol and marijuana can cause dizziness and sleepiness. Drive, operate machinery, or do anything that requires attentiveness or clear eyesight only when safe"
-      ,
-      "price": 500
-    },
-    "Benadryl Ultratabs 100 tablets": {
-      "uses":
-        "Diphenhydramine relieves allergy, hay fever, and cold symptoms. To prevent motion sickness, take your dose 30 minutes before starting activity such as travel. Take your dosage 30 minutes before bed. If you can't sleep for 2 weeks, see a doctor."
-      ,
-      "side-effects":
-        "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen."
-      ,
-      "precautions":
-        "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help."
-      ,
-      "price": 500
-    },
-    "Major Allergy Loratadine 10mg, 300 Tablets": {
-      "uses":
-        "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor."
-      ,
-      "side-effects":
-        "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly."
-      ,
-      "precautions":
-        "At appropriate dosages, loratadine seldom causes drowsiness. Do not drive, operate equipment, or conduct any activity requiring awareness until you can do so safely."
-      ,
-      "price": 400
-    }
-  },
-
-  "Nutrition": {
-    "Amazon Elements Vitamin C 1000mg 300 Tablets": {
-      "uses":
-        "Body development and function require vitamin C. It boosts immunity. Most experts advise receiving vitamin C from food, and supplements. Sources include oranges and orange juice."
-      ,
-      "side-effects":
-        "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches."
-      ,
-      "precautions":
-        "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18."
-      ,
-      "price": 1000
-    },
-    "Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
-      "uses":
-        "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system."
-      ,
-      "side-effects":
-        "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit."
-      ,
-      "precautions":
-        "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit."
-      ,
-      "price": 200
-    },
-    "Nature’s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets": {
-      "uses":
-        "Nature’s Bounty Super B-Complex is a great way to increase your intake of these important vitamins for immune and antioxidant support while Folic Acid may help with energy metabolism and promotes the health of pregnant women"
-      ,
-      "side-effects":
-        "Stomach upset or flushing may occur. These effects are usually temporary and fade as your body adjusts. Tell your doctor or pharmacist if any of these symptoms last or worsen."
-      ,
-      "precautions":
-        "Consult your doctor or pharmacist before taking this product if you have: Diabetes, liver disease, B12 lack (pernicious anemia)."
-      ,
-      "price": 700
-    }
-  }
 }

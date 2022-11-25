@@ -1,4 +1,6 @@
 import json
+# import class Customer from Customer.py
+from Customer import Customer
 
 
 def read_external_file(file_name):
@@ -78,44 +80,6 @@ def login(file_path):
     return username
 
 
-class Customer:
-    def __init__(self, username):
-        self.__username = username
-
-    # getter for username
-    @property
-    def username(self):
-        return self.__username
-
-    # setter for username
-    @username.setter
-    def username(self, new_value):
-        self.__username = new_value
-
-    # welcome customer text
-    def welcome_user(self):
-        print('============================')
-        print(f'Hi {self.__username} welcome to my shop :)')
-        print('============================')
-
-    # Show menu
-    def menu(self):
-        print('Please select Menu :)')
-        print('1.Medicine Store')
-        print('2.Setting')
-        menu_choice = int(input('Please input number:) '))
-
-        # Check if user input is the correct menu number or not.
-        while True:
-            if menu_choice == 1 or menu_choice == 2:
-                return menu_choice
-            menu_choice = int(input('Please input the correct number :( '))
-
-    # Show medine menu
-    def show_medicine(self):
-
-
-
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -147,4 +111,4 @@ if check_wheter_customer.lower() == 'y':
     username = login(user_file_path)
     customer = Customer(username)
     customer.welcome_user()
-    customer_choice = customer.menu()
+    customer_choice = customer.show_chose_menu()
