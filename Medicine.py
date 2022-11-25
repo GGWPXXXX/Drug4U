@@ -16,8 +16,7 @@ class Medicine:
             for each_medicine_in_data, information in data[menu_num_list[user_choice]].items():
                 print('====================')
                 print(f"{each_medicine_in_data}")
-                print()
-                print(f"The price is {information['price']} Baht.")
+                print(f"---> The price is {information['price']} Baht. <---")
             print('====================')
             choice = input('Which one would you like to see the information ? ')
 

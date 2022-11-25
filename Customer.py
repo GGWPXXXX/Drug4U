@@ -24,7 +24,7 @@ class Customer:
 
     # Show all menu
     def menu(self):
-        print('---> Please select Menu :)')
+        print('---> Please select Menu :) <---')
         print('==========================')
         print('1.Digestive system')
         print('2.Pain')
