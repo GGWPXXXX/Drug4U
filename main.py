@@ -1,6 +1,7 @@
 import json
 # import class Customer from Customer.py
 from Customer import Customer
+from Medicine import Medicine
 
 
 def read_external_file(file_name):
