@@ -46,25 +46,35 @@ class Customer:
             else:
                 return int(menu_choice)
 
+    # Add new item into the cart.json
     def add_to_cart(self, med_name, price):
-
-        new_order_for_accout_not_in_sys = {
-                self.__username: {
-                    med_name: price
-                }
-            }
-        new_order_for_account_already_in_system = {
-            med_name: price
-        }
         with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
             cart = json.load(cart_data)
+            new_order_for_accout_not_in_sys = {
+                    self.__username: {
+                        med_name: price
+                    }
+                }
+            new_order_for_account_already_in_system = {
+                med_name: price
+            }
+            new_order_for_same_product = {
+                med_name: cart[self.__username][med_name] + price
+            }
+
             # Check if account in the cart database or not.
             if self.__username in cart:
-                cart[self.__username].update(new_order_for_account_already_in_system)
+
+                # Check if med already in user's cart (meaning buy same product more than one)
+                if med_name in cart[self.__username]:
+                    cart[self.__username].update(new_order_for_same_product)
+                else:
+                    cart[self.__username].update(new_order_for_account_already_in_system)
             else:
                 cart.update(new_order_for_accout_not_in_sys)
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
+
         print(f'{med_name} was added to your cart :)')
 
     def main(self):
