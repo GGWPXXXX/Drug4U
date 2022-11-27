@@ -37,7 +37,7 @@ def create_an_account(file_path):
             "telephone": tel
         }
     }
-    # read an old data then save it in data_file variable
+    # Read an old data then save it in data_file variable
     with open(file_path, 'r') as file:
         data_file = json.load(file)
         data_file.update(new_data)
@@ -112,4 +112,7 @@ if check_wheter_customer.lower() == 'y':
     username = login(user_file_path)
     customer = Customer(username)
     customer.welcome_user()
+    chose_menu = customer.menu()
+    if chose_menu == 6:
+        customer.setting()
     customer_choice = customer.main()

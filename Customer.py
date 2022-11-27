@@ -46,7 +46,9 @@ class Customer:
     def setting(self):
         while True:
             menu_dict_num = {1: "password", 2: "address", 3: "tel"}
+            print('==============================')
             print('What would you like to change?')
+            print('==============================')
             print('1.password')
             print('2.address')
             print('3.telephone number')
@@ -94,6 +96,7 @@ class Customer:
             print('Do you want to change anything else?')
             ask_final_choice = input('(y/n): ')
             check_list = ['y', 'n']
+
             # Check if user type in the wrong choice.
             while True:
                 if ask_final_choice not in check_list:
@@ -158,5 +161,5 @@ class Customer:
             self.add_to_cart(chosen_med, price)
 
 
-c = Customer('GG_WPX')
-c.setting()
+# c = Customer('GG_WPX')
+# c.setting()
