@@ -41,22 +41,73 @@ class Customer:
             else:
                 return int(menu_choice)
 
-    def setting(self):
-        print('What would you like to change?')
-        print('''
-        1.password
-        2.address
-        3.telephone number''')
-        choice = int(input('Please type in menu number :) '))
-        new_information = {
-            self.__username: {
-                "password"
-            }
-        }
-        with open('../Drug4U/User_file/User_data.json', 'r')as data_file:
-            data = json.load(data_file)
+    # Setting method for the customer.
 
-        data[self.__username].update()
+    def setting(self):
+        while True:
+            menu_dict_num = {1: "password", 2: "address", 3: "tel"}
+            print('What would you like to change?')
+            print('1.password')
+            print('2.address')
+            print('3.telephone number')
+            choice = int(input('Please type in menu number :) '))
+
+            # Check if user type in the wrong choice.
+            while choice not in menu_dict_num.keys():
+                print('Wrong choice!!')
+                choice = int(input('Please type in menu number :) '))
+            change_to = input('Change it to? : ')
+            with open('../Drug4U/User_file/User_data.json', 'r')as old_data_file:
+                old_data = json.load(old_data_file)
+                if choice == 1:
+                    new_information = {
+                        self.__username: {
+                            menu_dict_num[choice]: change_to,
+                            "address": old_data[self.__username]["address"],
+                            "tel": old_data[self.__username]["tel"]
+                        }
+                    }
+                elif choice == 2:
+                    new_information = {
+                        self.__username: {
+                            "password": old_data[self.__username]["password"],
+                            menu_dict_num[choice]: change_to,
+                            "tel": old_data[self.__username]["tel"]
+                        }
+                    }
+                else:
+                    new_information = {
+                        self.__username: {
+                            "password": old_data[self.__username]["password"],
+                            "address": old_data[self.__username]["address"],
+                            menu_dict_num[choice]: change_to
+                        }
+                    }
+
+            with open('../Drug4U/User_file/User_data.json', 'r')as data_file:
+                data = json.load(data_file)
+                data.update(new_information)
+            with open('../Drug4U/User_file/User_data.json', 'w')as data_file:
+                json.dump(data, data_file, indent=4)
+
+            # Check if user want to change anything else.
+            print('Do you want to change anything else?')
+            ask_final_choice = input('(y/n): ')
+            check_list = ['y', 'n']
+            # Check if user type in the wrong choice.
+            while True:
+                if ask_final_choice not in check_list:
+                    print('Wrong Choice!!!!')
+                    ask_final_choice = input('Please type y/n!: ')
+                else:
+                    break
+            if ask_final_choice == 'n'.lower():
+                print(f'Your {menu_dict_num[choice]} is now changed to {change_to}')
+                break
+
+            elif ask_final_choice == 'y'.lower():
+                print(f'Your {menu_dict_num[choice]} is now changed to {change_to}')
+                continue
 
     # Add new item into the cart.json
     def add_to_cart(self, med_name, price):
