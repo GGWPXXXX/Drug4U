@@ -12,11 +12,6 @@ class Customer:
     def username(self):
         return self.__username
 
-    # setter for username
-    @username.setter
-    def username(self, new_value):
-        self.__username = new_value
-
     # welcome customer text
     def welcome_user(self):
         print('============================')
@@ -46,11 +41,28 @@ class Customer:
             else:
                 return int(menu_choice)
 
+    def setting(self):
+        print('What would you like to change?')
+        print('''
+        1.password
+        2.address
+        3.telephone number''')
+        choice = int(input('Please type in menu number :) '))
+        new_information = {
+            self.__username: {
+                "password"
+            }
+        }
+        with open('../Drug4U/User_file/User_data.json', 'r')as data_file:
+            data = json.load(data_file)
+
+        data[self.__username].update()
+
     # Add new item into the cart.json
     def add_to_cart(self, med_name, price):
         with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
             cart = json.load(cart_data)
-            new_order_for_accout_not_in_sys = {
+            new_order_for_account_not_in_sys = {
                     self.__username: {
                         med_name: price
                     }
@@ -71,20 +83,22 @@ class Customer:
                 else:
                     cart[self.__username].update(new_order_for_account_already_in_system)
             else:
-                cart.update(new_order_for_accout_not_in_sys)
+                cart.update(new_order_for_account_not_in_sys)
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
-
         print(f'{med_name} was added to your cart :)')
 
+    # The main method for customer class.
     def main(self):
         menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
                          5: "Nutrition", 6: "Setting"}
 
         # show all categories then return chosen choice.
         menu_num = self.menu()
+
         # This method allow user to choose each medicine from the chosen categories.
         chose_medicine_num = Medicine.show_medicine_from_user_choice(self.__username, menu_num)
+
         # Show information about the very specific medicine that user chose from categories.
         chosen_med, price = Medicine.show_detail_of_medicine(self.__username, menu_num_list[menu_num],
                                                              chose_medicine_num)
@@ -93,8 +107,5 @@ class Customer:
             self.add_to_cart(chosen_med, price)
 
 
-
-
-
-# c = Customer('GG_WPX')
-# c.show_chose_menu()
+c = Customer('GG_WPX')
+c.setting()
