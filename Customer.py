@@ -115,22 +115,47 @@ class Customer:
                 continue
 
     # Add new item into the cart.json
-    def add_to_cart(self, med_name, price):
+    def add_to_cart(self, med_name, price, med_type):
 
         with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
             cart = json.load(cart_data)
 
-            self.__cart_med_name_list.append(med_name)
-            self.__cart_med_name_list.append(price)
-            for i in cart[self.__username]:
-                print(i)
-            try:
-                cart[self.__username].append(self.__cart_med_name_list)
-            except KeyError:
-                new_order = {
-                    self.__username: self.__cart_med_name_list
+            new_order_for_account_not_in_sys = {
+                self.__username: {
+                    0: {med_name: price}
                 }
-                cart.update(new_order)
+            }
+
+            if self.__username in cart:
+                new_order_for_account_in_sys = {
+                    len(max(cart[self.__username]))+1: {med_name: price}
+
+                }
+                cart[self.__username].update(new_order_for_account_in_sys)
+            else:
+                cart.update(new_order_for_account_not_in_sys)
+
+            # new_order_for_med_type_not_in_account = {
+            #     self.__username: {
+            #         med_type: [med_name, price]
+            #     }
+            # }
+            #
+            # new_order_for_med_type_already_in_system = {
+            #     med_type: [[med_name, price]]
+            # }
+            #
+            # if self.__username in cart:
+            #     if med_type in cart[self.__username]:
+            #         new_order_for_same_medtype = {
+            #             med_type: cart[self.__username][med_type].append([med_name, price])
+            #         }
+            #         cart[self.__username].update(new_order_for_same_medtype)
+            #     cart[self.__username].update(new_order_for_med_type_already_in_system)
+            #
+            # else:
+            #     cart.update(new_order_for_med_type_not_in_account)
+
             # new_order_for_account_not_in_sys = {
             #         self.__username: {
             #             med_name: price
@@ -155,7 +180,6 @@ class Customer:
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name} was added to your cart :)')
-        self.__cart_med_name_list.clear()
 
     # The main method for customer class.
     def main(self):
@@ -173,7 +197,7 @@ class Customer:
                                                              chose_medicine_num)
         put_to_cart_or_not = Medicine.ask_user_they_like_products(self.__username)
         if put_to_cart_or_not == 0:
-            self.add_to_cart(chosen_med, price)
+            self.add_to_cart(chosen_med, price, menu_num_list[menu_num])
 
     def checkout(self):
         print('=================================')
@@ -189,5 +213,7 @@ class Customer:
 
 
 c = Customer('GG_WPX')
-c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700)
-c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300)
+c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700, "Digestive system")
+c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300, "Pain")
+c.add_to_cart("1.Amazon Elements Vitamin C 1000mg 300 Tablets", 1000, "Nutrition")
+c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500, "Nutrition")

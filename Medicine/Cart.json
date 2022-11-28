@@ -1,74 +1,13 @@
 {
-    "GG_WPX": [
-        "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-        700,
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ],
-        [
-            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-            700
-        ],
-        [
-            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
-            300
-        ]
-    ]
+    "GG_WPX": {
+        "0": {
+            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules": 700
+        },
+        "2": {
+            "1.Amazon Elements Vitamin C 1000mg 300 Tablets": 1000
+        },
+        "2": {
+            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": 500
+        }
+    }
 }
