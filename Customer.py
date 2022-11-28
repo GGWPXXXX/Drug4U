@@ -1,11 +1,13 @@
 
 import json
 from Medicine import Medicine
+import textwrap
 
 
 class Customer:
     def __init__(self, username):
         self.__username = username
+        self.__cart_med_name_list = []
 
     # getter for username
     @property
@@ -114,33 +116,46 @@ class Customer:
 
     # Add new item into the cart.json
     def add_to_cart(self, med_name, price):
+
         with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
             cart = json.load(cart_data)
-            new_order_for_account_not_in_sys = {
-                    self.__username: {
-                        med_name: price
-                    }
+
+            self.__cart_med_name_list.append(med_name)
+            self.__cart_med_name_list.append(price)
+            for i in cart[self.__username]:
+                print(i)
+            try:
+                cart[self.__username].append(self.__cart_med_name_list)
+            except KeyError:
+                new_order = {
+                    self.__username: self.__cart_med_name_list
                 }
-            new_order_for_account_already_in_system = {
-                med_name: price
-            }
-            new_order_for_same_product = {
-                med_name: cart[self.__username][med_name] + price
-            }
-
+                cart.update(new_order)
+            # new_order_for_account_not_in_sys = {
+            #         self.__username: {
+            #             med_name: price
+            #         }
+            #     }
+            # new_order_for_account_already_in_system = {
+            #     med_name: price
+            # }
+            # new_order_for_same_product = {
+            #     med_name: cart[self.__username][med_name] + price
+            # }
             # Check if account in the cart database or not.
-            if self.__username in cart:
-
-                # Check if med already in user's cart (meaning buy same product more than one)
-                if med_name in cart[self.__username]:
-                    cart[self.__username].update(new_order_for_same_product)
-                else:
-                    cart[self.__username].update(new_order_for_account_already_in_system)
-            else:
-                cart.update(new_order_for_account_not_in_sys)
+            # if self.__username in cart:
+            #
+            #     # Check if med already in user's cart (meaning buy same product more than one)
+            #     if med_name in cart[self.__username]:
+            #         cart[self.__username].update(new_order_for_same_product)
+            #     else:
+            #         cart[self.__username].update(new_order_for_account_already_in_system)
+            # else:
+            #     cart.update(new_order_for_account_not_in_sys)
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name} was added to your cart :)')
+        self.__cart_med_name_list.clear()
 
     # The main method for customer class.
     def main(self):
@@ -160,6 +175,19 @@ class Customer:
         if put_to_cart_or_not == 0:
             self.add_to_cart(chosen_med, price)
 
+    def checkout(self):
+        print('=================================')
+        print("You're order(s) are the following :)")
+        print('=================================')
+        with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
+            data_from_cart = json.load(cart_data)
+            count = 0
+            count += 1
+            for item in self.__cart_med_name_list:
+                print(item.replace(item[:2], ''))
+                print(f'---> Price {data_from_cart[self.__username][item]} <---')
 
-# c = Customer('GG_WPX')
-# c.setting()
+
+c = Customer('GG_WPX')
+c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700)
+c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300)
