@@ -31,12 +31,36 @@
         "7": [
             "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
             500
+        ],
+        "8": [
+            "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
+            700
+        ],
+        "9": [
+            "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count",
+            300
+        ],
+        "10": [
+            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
+            500
         ]
     },
     "a123": {
         "0": [
             "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
             500
+        ],
+        "1": [
+            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
+            500
+        ],
+        "2": [
+            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
+            500
+        ],
+        "3": [
+            "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count",
+            250
         ]
     }
 }

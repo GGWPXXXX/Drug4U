@@ -81,10 +81,6 @@ def login(file_path):
     return username
 
 
-class User(Customer):
-    pass
-
-
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -114,9 +110,21 @@ if check_wheter_customer.lower() == 'y':
     print('============================')
     print("Please login")
     username = login(user_file_path)
+    # Declare customer class from Customer.py
     customer = Customer(username)
     customer.welcome_user()
+    # show all categories then return chosen choice.
     chose_menu = customer.menu()
     if chose_menu == 6:
         customer.setting()
-    customer_choice = customer.main()
+    menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
+                     5: "Nutrition", 6: "Setting"}
+    # Declare Medicine class from Medicine.py
+    medicine = Medicine(username)
+    # This method allow user to choose each medicine from the chosen categories.
+    chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
+    # Show information about the very specific medicine that user chose from categories.
+    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
+    put_to_cart_or_not = medicine.ask_user_they_like_products()
+    if put_to_cart_or_not == 0:
+        customer.add_to_cart(chosen_med, price)

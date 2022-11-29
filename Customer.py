@@ -142,24 +142,6 @@ class Customer:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name} was added to your cart :)')
 
-    # The main method for customer class.
-    def main(self):
-        menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                         5: "Nutrition", 6: "Setting"}
-
-        # show all categories then return chosen choice.
-        menu_num = self.menu()
-
-        # This method allow user to choose each medicine from the chosen categories.
-        chose_medicine_num = Medicine.show_medicine_from_user_choice(self.__username, menu_num)
-
-        # Show information about the very specific medicine that user chose from categories.
-        chosen_med, price = Medicine.show_detail_of_medicine(self.__username, menu_num_list[menu_num],
-                                                             chose_medicine_num)
-        put_to_cart_or_not = Medicine.ask_user_they_like_products(self.__username)
-        if put_to_cart_or_not == 0:
-            self.add_to_cart(chosen_med, price)
-
     def checkout(self):
         print('=================================')
         print("You're order(s) are the following :)")
@@ -173,10 +155,10 @@ class Customer:
                 print(f'---> Price {data_from_cart[self.__username][item]} <---')
 
 
-c = Customer('GG_WPX')
-c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700)
-c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300)
-c.add_to_cart("1.Amazon Elements Vitamin C 1000mg 300 Tablets", 1000 )
-c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
-c = Customer('a123')
-c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
+# c = Customer('GG_WPX')
+# c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700)
+# c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300)
+# c.add_to_cart("1.Amazon Elements Vitamin C 1000mg 300 Tablets", 1000 )
+# c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
+# c = Customer('a123')
+# c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
