@@ -81,6 +81,10 @@ def login(file_path):
     return username
 
 
+class User(Customer):
+    pass
+
+
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
