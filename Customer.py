@@ -29,12 +29,13 @@ class Customer:
         print('4.Allergic disorders')
         print('5.Nutrition')
         print('6.Setting')
+        print('7.Exit')
         print('==========================')
         menu_choice = input('Please input number:) ')
 
         # Check if user input is the correct menu number or not.
         menu_num_list = {'1': "Digestive system", '2': "Pain", '3': "Infections and infestations",
-                         '4': "Allergic disorders", '5': "Nutrition", '6': "Setting"}
+                         '4': "Allergic disorders", '5': "Nutrition", '6': "Setting", '7': "Exit"}
         while True:
             if menu_choice not in menu_num_list.keys() or menu_choice == '':
                 print('---> Are you blind? <---')

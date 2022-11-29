@@ -15,6 +15,13 @@ def clear():
     print('\n'*40)
 
 
+def load_animation(time):
+    print("Retrieving data please wait ", end='')
+    for count in range(0, time):
+        print('.', end='')
+        sleep(0.5)
+
+
 def create_an_account(file_path):
     print('===============================')
     print('Hi this is registration form :)')
@@ -125,28 +132,32 @@ print('============================')
 print("Please login")
 username = login(user_file_path)
 clear()
-
+load_animation(5)
 # Animation for loading data
-print("Retrieving data please wait ", end='')
-for time in range(0, 10):
-    print('.', end='')
-    sleep(0.5)
+
+
 clear()
 # Declare customer class from Customer.py
 customer = Customer(username)
 customer.welcome_user()
 # show all categories then return chosen choice.
-chose_menu = customer.menu()
-if chose_menu == 6:
-    customer.setting()
-menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                 5: "Nutrition", 6: "Setting"}
-# Declare Medicine class from Medicine.py
-medicine = Medicine(username)
-# This method allow user to choose each medicine from the chosen categories.
-chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
-# Show information about the very specific medicine that user chose from categories.
-chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
-put_to_cart_or_not = medicine.ask_user_they_like_products()
-if put_to_cart_or_not == 0:
-    customer.add_to_cart(chosen_med, price)
+while True:
+    chose_menu = customer.menu()
+    if chose_menu == 6:
+        customer.setting()
+    elif chose_menu == 7:
+        exit()
+    menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
+                     5: "Nutrition", 6: "Setting"}
+    # Declare Medicine class from Medicine.py
+    medicine = Medicine(username)
+    # This method allow user to choose each medicine from the chosen categories.
+    clear()
+    chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
+    clear()
+    # Show information about the very specific medicine that user chose from categories.
+    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
+    put_to_cart_or_not = medicine.ask_user_they_like_products()
+    if put_to_cart_or_not == 0:
+        customer.add_to_cart(chosen_med, price)
+    clear()
