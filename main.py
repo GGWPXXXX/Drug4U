@@ -48,7 +48,7 @@ def create_an_account(file_path):
         username: {
             "password": password,
             "address": address,
-            "telephone": tel,
+            "tel": tel,
             "email": email
         }
     }
@@ -73,10 +73,10 @@ def check_y_n(choice):
 
 
 def login(file_path):
-    print('========================')
+    print('============================')
     print('Hi welcome to login page')
     print('Please type in your username and password :)')
-    print('========================')
+    print('============================')
     username = input('Your username?: ')
 
     # check username that if it's in database or not.
@@ -94,8 +94,6 @@ def login(file_path):
             print(f'Sorry, your given password does not match with the username, Please try again.')
             password = input('And password?: ')
     return username
-
-
 
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
@@ -126,6 +124,13 @@ if check_wheter_customer.lower() == 'y':
 print('============================')
 print("Please login")
 username = login(user_file_path)
+clear()
+
+# Animation for loading data
+print("Retrieving data please wait ", end='')
+for time in range(0, 10):
+    print('.', end='')
+    sleep(0.5)
 clear()
 # Declare customer class from Customer.py
 customer = Customer(username)
