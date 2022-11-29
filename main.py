@@ -1,13 +1,18 @@
 import json
-# import class Customer from Customer.py
 from Customer import Customer
 from Medicine import Medicine
+import os
+from time import sleep
 
 
 def read_external_file(file_name):
     with open(file_name, 'r') as file:
         data_file = json.load(file)
         return data_file
+
+
+def clear():
+    print('\n'*40)
 
 
 def create_an_account(file_path):
@@ -27,14 +32,24 @@ def create_an_account(file_path):
     print(f'Hi {username} Nice to meet ya :)')
     print('===============================')
     password = input('And what will your password be?: ')
-    print('PETFECTOOOO!!')
+    print('PERFECTOOOO!!')
     address = input('Now the address for your shipping: ')
     tel = input('Your telephone number please:) ')
+    email = input('And your email please :) ')
+
+    # Check if input email are correct or not by check @ in input.
+    while True:
+        if '@' not in email:
+            print('Ehhh Wrong! Please check your email and type again ( ˘︹˘ )')
+            email = input('Your email please! :( ')
+        else:
+            break
     new_data = {
         username: {
             "password": password,
             "address": address,
-            "telephone": tel
+            "telephone": tel,
+            "email": email
         }
     }
     # Read an old data then save it in data_file variable
@@ -81,6 +96,7 @@ def login(file_path):
     return username
 
 
+
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -107,24 +123,25 @@ if check_wheter_customer.lower() == 'y':
     if check_account.lower() == 'n':
         create_an_account(user_file_path)
         customer_data = (read_external_file(user_file_path))
-    print('============================')
-    print("Please login")
-    username = login(user_file_path)
-    # Declare customer class from Customer.py
-    customer = Customer(username)
-    customer.welcome_user()
-    # show all categories then return chosen choice.
-    chose_menu = customer.menu()
-    if chose_menu == 6:
-        customer.setting()
-    menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                     5: "Nutrition", 6: "Setting"}
-    # Declare Medicine class from Medicine.py
-    medicine = Medicine(username)
-    # This method allow user to choose each medicine from the chosen categories.
-    chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
-    # Show information about the very specific medicine that user chose from categories.
-    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
-    put_to_cart_or_not = medicine.ask_user_they_like_products()
-    if put_to_cart_or_not == 0:
-        customer.add_to_cart(chosen_med, price)
+print('============================')
+print("Please login")
+username = login(user_file_path)
+clear()
+# Declare customer class from Customer.py
+customer = Customer(username)
+customer.welcome_user()
+# show all categories then return chosen choice.
+chose_menu = customer.menu()
+if chose_menu == 6:
+    customer.setting()
+menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
+                 5: "Nutrition", 6: "Setting"}
+# Declare Medicine class from Medicine.py
+medicine = Medicine(username)
+# This method allow user to choose each medicine from the chosen categories.
+chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
+# Show information about the very specific medicine that user chose from categories.
+chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
+put_to_cart_or_not = medicine.ask_user_they_like_products()
+if put_to_cart_or_not == 0:
+    customer.add_to_cart(chosen_med, price)

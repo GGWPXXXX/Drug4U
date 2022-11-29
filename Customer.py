@@ -7,7 +7,6 @@ import textwrap
 class Customer:
     def __init__(self, username):
         self.__username = username
-        self.__cart_med_name_list = []
 
     # getter for username
     @property
@@ -142,17 +141,13 @@ class Customer:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name} was added to your cart :)')
 
-    def checkout(self):
-        print('=================================')
-        print("You're order(s) are the following :)")
-        print('=================================')
-        with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
-            data_from_cart = json.load(cart_data)
-            count = 0
-            count += 1
-            for item in self.__cart_med_name_list:
-                print(item.replace(item[:2], ''))
-                print(f'---> Price {data_from_cart[self.__username][item]} <---')
+    # def checkout(self):
+        # print('=================================')
+        # print("You're order(s) are the following :)")
+        # print('=================================')
+        # with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
+        #     data_from_cart = json.load(cart_data)
+        #     print(f'---> Price {data_from_cart[self.__username][item]} <---')
 
 
 # c = Customer('GG_WPX')
