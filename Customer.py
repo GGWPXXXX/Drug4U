@@ -70,6 +70,9 @@ class Customer:
                 choice = input('Please type in menu number :) ')
 
             change_to = input('Change it to? : ')
+            while change_to == '' or change_to == ' ':
+                print('Wrong choice!!')
+                change_to = input('Change it to? :( ')
             with open('../Drug4U/User_file/User_data.json', 'r')as old_data_file:
                 old_data = json.load(old_data_file)
                 if choice == '1':

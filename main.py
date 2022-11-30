@@ -95,9 +95,11 @@ def login(file_path):
 
 def settings_checkout_exit_bundle(chose_menu):
     if chose_menu == 6:
+        clear()
         customer.setting()
         clear()
     elif chose_menu == 7:
+        clear()
         customer.checkout()
         clear()
     elif chose_menu == 8:

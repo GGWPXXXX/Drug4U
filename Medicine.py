@@ -1,6 +1,5 @@
 import json
 import textwrap
-from Customer import Customer
 
 
 class Medicine:
@@ -73,17 +72,17 @@ class Medicine:
                     print('---> Please read the prescription very carefully!. <---')
                     print('===========================================')
                     print()
-                    print('---> What When and How to use this medication.')
+                    print('---> What When and How to use this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['uses']), 100)
+                    print(textwrap.fill(medi_data[chose_categories][medicine]['uses'])), 100
                     print()
                     print('---> This is side-effect of this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['side-effects']), 100)
+                    print(textwrap.fill(medi_data[chose_categories][medicine]['side-effects'])), 100
                     print()
                     print('---> This is the precautions of this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['precautions']), 100)
+                    print(textwrap.fill(medi_data[chose_categories][medicine]['precautions'])), 100
                     print()
                     print('---> This is the price :) <---')
                     print('===========================================')
