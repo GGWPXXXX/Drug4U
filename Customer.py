@@ -75,6 +75,8 @@ class Customer:
                 change_to = input('Change it to? :( ')
             with open('../Drug4U/User_file/User_data.json', 'r')as old_data_file:
                 old_data = json.load(old_data_file)
+
+                # Use this code if user want to change password.
                 if choice == '1':
                     new_information = {
                         self.__username: {
@@ -83,6 +85,8 @@ class Customer:
                             "tel": old_data[self.__username]["tel"]
                         }
                     }
+
+                # Use this code if user want to change Address.
                 elif choice == '2':
                     new_information = {
                         self.__username: {
@@ -92,6 +96,8 @@ class Customer:
 
                         }
                     }
+
+                # Use this code if user want to change Telephone number.
                 elif choice == '3':
                     new_information = {
                         self.__username: {

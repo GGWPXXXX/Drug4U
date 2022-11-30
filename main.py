@@ -59,16 +59,6 @@ def create_an_account(file_path):
         json.dump(data_file, file, indent=4)
 
 
-def check_y_n(choice):
-    choice_list = ['n', 'N', 'y', 'Y']
-    while choice not in choice_list:
-        print('Please type (y/n)')
-        choice = input('(y/n): ')
-        if choice in choice_list:
-            return choice
-    return choice
-
-
 def login(file_path):
     print('============================')
     print('Hi welcome to login page')
@@ -116,7 +106,9 @@ Welcome to My DRUG4U Shop!
 ''')
 print('Are you a customer?')
 check_wheter_customer = input('(y/n): ')
-check_wheter_customer = check_y_n(check_wheter_customer)
+while check_wheter_customer.lower() != 'y' and check_wheter_customer.lower() != 'n':
+    print('Please type (y/n)')
+    check_wheter_customer = input('(y/n): ')
 
 if check_wheter_customer == 'n' or check_wheter_customer == 'N':
     print('============================')
@@ -128,7 +120,9 @@ if check_wheter_customer == 'n' or check_wheter_customer == 'N':
 if check_wheter_customer.lower() == 'y':
     print('Do you have an account?')
     check_account = input('(y/n): ')
-    check_account = check_y_n(check_account)
+    while check_account.lower() != 'y' and check_account.lower() != 'n':
+        print('Please type (y/n)')
+        check_account = input('(y/n): ')
     if check_account.lower() == 'n':
         create_an_account(user_file_path)
         customer_data = (read_external_file(user_file_path))
