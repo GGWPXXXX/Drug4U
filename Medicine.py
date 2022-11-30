@@ -1,5 +1,6 @@
 import json
 import textwrap
+from Customer import Customer
 
 
 class Medicine:
@@ -14,7 +15,12 @@ class Medicine:
     def show_medicine_from_user_choice(self, user_choice):
         availble_med = []
         menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                         5: "Nutrition", 6: "Setting"}
+                         5: "Nutrition", 6: "Setting", 7: "Checkout", 8: "Exit"}
+        if user_choice == 7:
+            customer = Customer(self.__username)
+            customer.checkout()
+        elif user_choice == 8:
+            exit()
         print('====================')
         print(menu_num_list[user_choice])
         print('====================')

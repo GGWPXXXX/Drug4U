@@ -1,7 +1,6 @@
 
 import json
 from time import sleep
-from Medicine import Medicine
 import textwrap
 
 
@@ -20,6 +19,11 @@ class Customer:
         print('============================')
         print(f'Hi {self.__username} welcome to my shop :)')
         print('============================')
+
+    def take_to_menu_animation(self):
+        for time in range(5, 0, -1):
+            print(f"We'll take you back in main menu in {time}")
+            sleep(1)
 
     # Show all menu
     def menu(self):
@@ -51,14 +55,13 @@ class Customer:
 
     def setting(self):
         while True:
-            menu_dict_num = {1: "password", 2: "address", 3: "tel", 4: "email"}
+            menu_dict_num = {1: "password", 2: "address", 3: "tel"}
             print('==============================')
             print('What would you like to change?')
             print('==============================')
             print('1.Password')
             print('2.Address')
             print('3.Telephone number')
-            print('4.Email')
             choice = int(input('Please type in menu number :) '))
 
             # Check if user type in the wrong choice.
@@ -73,8 +76,7 @@ class Customer:
                         self.__username: {
                             menu_dict_num[choice]: change_to,
                             "address": old_data[self.__username]["address"],
-                            "tel": old_data[self.__username]["tel"],
-                            "email": old_data[self.__username]["email"]
+                            "tel": old_data[self.__username]["tel"]
                         }
                     }
                 elif choice == 2:
@@ -82,8 +84,7 @@ class Customer:
                         self.__username: {
                             "password": old_data[self.__username]["password"],
                             menu_dict_num[choice]: change_to,
-                            "tel": old_data[self.__username]["tel"],
-                            "email": old_data[self.__username]["email"]
+                            "tel": old_data[self.__username]["tel"]
 
                         }
                     }
@@ -92,25 +93,10 @@ class Customer:
                         self.__username: {
                             "password": old_data[self.__username]["password"],
                             "address": old_data[self.__username]["address"],
-                            menu_dict_num[choice]: change_to,
-                            "email": old_data[self.__username]["email"]
-                        }
-                    }
-                else:
-                    while True:
-                        if '@' not in change_to:
-                            print('Ehhh Wrong! Please check your email and type again ( ˘︹˘ )')
-                            change_to = input('Your email please! :( ')
-                        else:
-                            break
-                    new_information = {
-                        self.__username: {
-                            "password": old_data[self.__username]["password"],
-                            "address": old_data[self.__username]["address"],
-                            "tel": old_data[self.__username]["tel"],
                             menu_dict_num[choice]: change_to
                         }
                     }
+
             with open('../Drug4U/User_file/User_data.json', 'r')as data_file:
                 data = json.load(data_file)
                 data.update(new_information)
@@ -130,6 +116,7 @@ class Customer:
                 else:
                     break
             if ask_final_choice == 'n'.lower():
+                self.take_to_menu_animation()
                 break
 
             elif ask_final_choice == 'y'.lower():
@@ -161,7 +148,8 @@ class Customer:
 
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
-        print(f'{med_name} was added to your cart :)')
+        print(f'{med_name[2:]} was added to your cart :)')
+        self.take_to_menu_animation()
 
     # This method allow user to check out of the store.
     def checkout(self):
@@ -194,9 +182,8 @@ class Customer:
             print("===============================")
             print("There's nothing in your cart :)")
             print("===============================")
-            for time in range(5, 0, -1):
-                print(f"We'll take you back in main menu in {time}")
-                sleep(1)
+            self.take_to_menu_animation()
+
 
 
 # c = Customer('GG_WPX')

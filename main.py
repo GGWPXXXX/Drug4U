@@ -41,21 +41,12 @@ def create_an_account(file_path):
     print('PERFECTOOOO!!')
     address = input('Now the address for your shipping: ')
     tel = input('Your telephone number please:) ')
-    email = input('And your email please :) ')
 
-    # Check if input email are correct or not by check @ in input.
-    while True:
-        if '@' not in email:
-            print('Ehhh Wrong! Please check your email and type again ( ˘︹˘ )')
-            email = input('Your email please! :( ')
-        else:
-            break
     new_data = {
         username: {
             "password": password,
             "address": address,
             "tel": tel,
-            "email": email
         }
     }
     # Read an old data then save it in data_file variable
@@ -145,6 +136,8 @@ while True:
     chose_menu = customer.menu()
     if chose_menu == 6:
         customer.setting()
+        clear()
+        chose_menu = customer.menu()
     elif chose_menu == 7:
         customer.checkout()
         clear()
