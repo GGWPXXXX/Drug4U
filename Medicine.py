@@ -79,8 +79,5 @@ class Medicine:
 
 
 
-
-
-
 # a = Medicine('GG_WPX')
 # a.show_detail_of_medicine("Digestive system", 2)
