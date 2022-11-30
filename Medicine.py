@@ -31,7 +31,7 @@ class Medicine:
                 count += 1
                 print(f"---> The price is {information['price']} Baht. <---")
             print('====================')
-            choice = int(input('Which one would you like to see the information ? '))
+            choice = input('Which one would you like to see the information ? ')
 
             # list that counting how many medicine in that specific categories.
             num_med_list = []
@@ -40,7 +40,11 @@ class Medicine:
                 if data[menu_num_list[user_choice]][each_med]["amount"] > 0:
                     num_med_list.append(count)
                     count += 1
-
+            # check that choice is blank or not.
+            while choice == '' or choice == ' ':
+                print("Wrong Choice!!")
+                choice = input('Which one would you like to see the information ? ')
+            choice = int(choice)
             # check that choice is correct or not.
             while True:
                 if choice not in num_med_list:
@@ -86,7 +90,7 @@ class Medicine:
                     print()
                     print('---> This is the price :) <---')
                     print('===========================================')
-                    print(f"{medi_data[chose_categories][medicine]['price']} Baht")
+                    print(f"---> {medi_data[chose_categories][medicine]['price']} Baht <---")
                     print('===========================================')
                     return medicine, medi_data[chose_categories][medicine]['price']
 
