@@ -1,5 +1,6 @@
 
 import json
+from time import sleep
 from Medicine import Medicine
 import textwrap
 
@@ -7,6 +8,7 @@ import textwrap
 class Customer:
     def __init__(self, username):
         self.__username = username
+        self.__list_for_total_price = []
 
     # getter for username
     @property
@@ -29,13 +31,15 @@ class Customer:
         print('4.Allergic disorders')
         print('5.Nutrition')
         print('6.Setting')
-        print('7.Exit')
+        print('7.Checkout')
+        print('8.Exit')
         print('==========================')
         menu_choice = input('Please input number:) ')
-
+        print('==========================')
+        print()
         # Check if user input is the correct menu number or not.
         menu_num_list = {'1': "Digestive system", '2': "Pain", '3': "Infections and infestations",
-                         '4': "Allergic disorders", '5': "Nutrition", '6': "Setting", '7': "Exit"}
+                         '4': "Allergic disorders", '5': "Nutrition", '6': "Setting", '7': "Checkout", '8': "Exit"}
         while True:
             if menu_choice not in menu_num_list.keys() or menu_choice == '':
                 print('---> Are you blind? <---')
@@ -159,19 +163,41 @@ class Customer:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name} was added to your cart :)')
 
-    # def checkout(self):
-        # print('=================================')
-        # print("You're order(s) are the following :)")
-        # print('=================================')
-        # with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
-        #     data_from_cart = json.load(cart_data)
-        #     print(f'---> Price {data_from_cart[self.__username][item]} <---')
+    # This method allow user to check out of the store.
+    def checkout(self):
+        # Try this and check if there's any error.
+        try:
+            with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
+                data_from_cart = json.load(cart_data)
+
+                # This variable trigger_error made to trigger key error i.e.check if this user have any
+                # product in cart.json
+                trigger_error = data_from_cart[self.__username]
+                print('=================================')
+                print("You're order(s) are the following :)")
+                print('=================================')
+                for num_of_item in data_from_cart[self.__username].keys():
+                    print(f'{int(num_of_item)+1}. {data_from_cart[self.__username][num_of_item][0][2:]}.')
+                    print(f'---> {data_from_cart[self.__username][num_of_item][1]} Baht. <---')
+                    self.__list_for_total_price.append(int(data_from_cart[self.__username][num_of_item][1]))
+                print('-------------')
+                print(f"Your total is {sum(self.__list_for_total_price)} Baht.", end=',')
+                print('-------------')
+                self.__list_for_total_price.clear()
+            with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
+                data_from_cart.pop(self.__username)
+                data_from_cart.update()
+                json.dump(data_from_cart, cart_data, indent=4)
+                exit()
+        # If there's an error the program will execute this code.
+        except KeyError:
+            print("===============================")
+            print("There's nothing in your cart :)")
+            print("===============================")
+            for time in range(5, 0, -1):
+                print(f"We'll take you back in main menu in {time}")
+                sleep(1)
 
 
-# c = Customer('GG_WPX')
-# c.add_to_cart("1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules", 700)
-# c.add_to_cart("3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count", 300)
-# c.add_to_cart("1.Amazon Elements Vitamin C 1000mg 300 Tablets", 1000 )
-# c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
-# c = Customer('a123')
-# c.add_to_cart("2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels", 500 )
+c = Customer('GG_WPX')
+c.checkout()

@@ -1,7 +1,6 @@
 import json
 from Customer import Customer
 from Medicine import Medicine
-import os
 from time import sleep
 
 
@@ -102,6 +101,7 @@ def login(file_path):
             password = input('And password?: ')
     return username
 
+
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -146,9 +146,13 @@ while True:
     if chose_menu == 6:
         customer.setting()
     elif chose_menu == 7:
+        customer.checkout()
+        clear()
+        chose_menu = customer.menu()
+    elif chose_menu == 8:
         exit()
     menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                     5: "Nutrition", 6: "Setting"}
+                     5: "Nutrition", 6: "Setting", 7: "Checkout", 8: "Exit"}
     # Declare Medicine class from Medicine.py
     medicine = Medicine(username)
     # This method allow user to choose each medicine from the chosen categories.
