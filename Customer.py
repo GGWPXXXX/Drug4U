@@ -199,5 +199,5 @@ class Customer:
                 sleep(1)
 
 
-c = Customer('GG_WPX')
-c.checkout()
+# c = Customer('GG_WPX')
+# c.checkout()
