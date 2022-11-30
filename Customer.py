@@ -8,6 +8,7 @@ class Customer:
     def __init__(self, username):
         self.__username = username
         self.__list_for_total_price = []
+        self.__total_price_list = []
 
     # getter for username
     @property
@@ -133,21 +134,21 @@ class Customer:
                 continue
 
     # Add new item into the cart.json
-    def add_to_cart(self, med_name, price):
+    def add_to_cart(self, med_name, price, med_amount):
 
         with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
             cart = json.load(cart_data)
 
             new_order_for_account_not_in_sys = {
                 self.__username: {
-                    0: [med_name, price]
+                    0: [med_name, price, med_amount]
                 }
             }
 
             # if account already in cart database use the following code.
             try:
                 new_order_for_account_in_sys = {
-                    int(max(cart[self.__username]))+1: [med_name, price]
+                    int(max(cart[self.__username]))+1: [med_name, price, med_amount]
 
                 }
                 cart[self.__username].update(new_order_for_account_in_sys)
@@ -174,18 +175,27 @@ class Customer:
                 print("You're order(s) are the following :)")
                 print('=================================')
                 for num_of_item in data_from_cart[self.__username].keys():
-                    print(f'{int(num_of_item)+1}. {data_from_cart[self.__username][num_of_item][0][2:]}.')
+                    print(f'{int(num_of_item)+1}. {data_from_cart[self.__username][num_of_item][0][2:]}. x '
+                          f'{data_from_cart[self.__username][num_of_item][2]}')
+
                     print(f'---> {data_from_cart[self.__username][num_of_item][1]} Baht. <---')
-                    self.__list_for_total_price.append(int(data_from_cart[self.__username][num_of_item][1]))
+                    self.__list_for_total_price.append([int(data_from_cart[self.__username][num_of_item][1]),
+                                                        int(data_from_cart[self.__username][num_of_item][2])])
                 print('-------------')
-                print(f"Your total is {sum(self.__list_for_total_price)} Baht.")
+                # This is list for compute price of each item from the customer.
+                # each_item[0] mean price per one product.
+                # each_item[1] mean how many product customer want to buy.
+                self.__total_price_list = [each_item[0] * each_item[1] for each_item in self.__list_for_total_price]
+                print(f"Your total is {sum(self.__total_price_list)} Baht.")
                 print('-------------')
                 self.__list_for_total_price.clear()
+                self.__total_price_list.clear()
             with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
                 data_from_cart.pop(self.__username)
                 data_from_cart.update()
                 json.dump(data_from_cart, cart_data, indent=4)
                 exit()
+
         # If there's an error the program will execute this code.
         except KeyError:
             print("===============================")

@@ -156,7 +156,7 @@ while True:
     put_to_cart_or_not = medicine.ask_user_customer_like_products()
 
     if put_to_cart_or_not == 0:
-        customer.add_to_cart(chosen_med, price)
-        medicine.ask_customer_want_buy_how_many(menu_num_list[chose_menu], chose_med_name)
+        customer_amount = medicine.ask_customer_want_buy_how_many(menu_num_list[chose_menu], chose_med_name)
+        customer.add_to_cart(chosen_med, price ,customer_amount)
 
     clear()

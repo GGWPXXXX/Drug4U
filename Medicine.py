@@ -107,6 +107,7 @@ class Medicine:
         # Import class customer to use take_to_menu_animation method.
         customer = Customer(self.__username)
         customer.take_to_menu_animation()
+        return customer_amount
 
     # Show information about the very specific medicine that user chose from categories.
     def show_detail_of_medicine(self, chose_categories, chose_med_name):
