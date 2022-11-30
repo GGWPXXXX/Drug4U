@@ -12,14 +12,14 @@
             "side-effects": "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing.",
             "precautions": "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 250,
-            "amount": 10
+            "amount": 0
         },
         "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
             "uses": "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor.",
             "side-effects": "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects.",
             "precautions": "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 300,
-            "amount": 10
+            "amount": 7
         }
     },
     "Pain": {
@@ -97,7 +97,7 @@
             "side-effects": "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches.",
             "precautions": "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18.",
             "price": 1000,
-            "amount": 10
+            "amount": 0
         },
         "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
             "uses": "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system.",

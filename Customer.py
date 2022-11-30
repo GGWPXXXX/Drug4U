@@ -159,7 +159,6 @@ class Customer:
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name[2:]} was added to your cart :)')
-        self.take_to_menu_animation()
 
     # This method allow user to check out of the store.
     def checkout(self):

@@ -1,6 +1,6 @@
 import json
 import textwrap
-
+from Customer import Customer
 
 class Medicine:
     def __init__(self, username):
@@ -55,22 +55,64 @@ class Medicine:
                     return availble_med[choice-1]
 
     # This method ask user that they would like to continue with this product or not.
-    def ask_user_they_like_products(self):
+    def ask_user_customer_like_products(self):
         print('---> Do you like this product? <---')
         print('type 0 to add to the cart')
         print('type 1 to go back to main menu')
-        like_it = int(input(':) '))
+        like_it = input(':) ')
         while True:
-            if like_it == 1 or like_it == 0:
-                return like_it
+            if like_it == '1' or like_it == '0':
+                return int(like_it)
             print('please type 0 or 1 :( ')
             like_it = int(input(':( '))
+
+    # Ask customer how many do they want to buy the product and calculate the rest of the stock.
+    def ask_customer_want_buy_how_many(self, chose_categories, chose_med_name):
+        print("===============================")
+        customer_amount = input('How many do you want to buy? ')
+        print("===============================")
+
+        # Check that choice is blank or not.
+        while customer_amount == '' or customer_amount == ' ':
+            print("You have to type in something !")
+            customer_amount = input('How many do you want to buy? ')
+
+        # Check that choice is zero or not.
+        customer_amount = int(customer_amount)
+        while customer_amount == 0:
+            print("Can't be zero !")
+            customer_amount = int(input("How many do you want to buy? "))
+
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+            med_data = json.load(medicine_data)
+            while med_data[chose_categories][chose_med_name]["amount"] < customer_amount:
+                print("Sorry Insufficient supplies.")
+                print(f"For {chose_med_name} there are {med_data[chose_categories][chose_med_name]['amount']} in stock.")
+                customer_amount = int(input('How many do you want to buy? '))
+
+        new_data_for_used_information = {
+            chose_med_name: {
+                "uses": med_data[chose_categories][chose_med_name]["uses"],
+                "side-effects": med_data[chose_categories][chose_med_name]["side-effects"],
+                "precautions": med_data[chose_categories][chose_med_name]["precautions"],
+                "price": med_data[chose_categories][chose_med_name]["price"],
+                "amount": med_data[chose_categories][chose_med_name]['amount'] - customer_amount
+            }
+        }
+
+        med_data[chose_categories].update(new_data_for_used_information)
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as new_med_data:
+            json.dump(med_data, new_med_data, indent=4)
+
+        # Import class customer to use take_to_menu_animation method.
+        customer = Customer(self.__username)
+        customer.take_to_menu_animation()
 
     # Show information about the very specific medicine that user chose from categories.
     def show_detail_of_medicine(self, chose_categories, chose_med_name):
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
-            medi_data = json.load(medicine_data)
-            for medicine in medi_data[chose_categories]:
+            med_data = json.load(medicine_data)
+            for medicine in med_data[chose_categories]:
                 if medicine == chose_med_name:
                     print('===========================================')
                     print('---> Please read the prescription very carefully!. <---')
@@ -78,20 +120,23 @@ class Medicine:
                     print()
                     print('---> What When and How to use this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['uses'])), 100
+                    print(textwrap.fill(med_data[chose_categories][medicine]['uses'])), 100
                     print()
                     print('---> This is side-effect of this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['side-effects'])), 100
+                    print(textwrap.fill(med_data[chose_categories][medicine]['side-effects'])), 100
                     print()
                     print('---> This is the precautions of this medication. <---')
                     print('===========================================')
-                    print(textwrap.fill(medi_data[chose_categories][medicine]['precautions'])), 100
+                    print(textwrap.fill(med_data[chose_categories][medicine]['precautions'])), 100
                     print()
                     print('---> This is the price :) <---')
                     print('===========================================')
-                    print(f"---> {medi_data[chose_categories][medicine]['price']} Baht <---")
+                    print(f"---> {med_data[chose_categories][medicine]['price']} Baht <---")
                     print('===========================================')
-                    return medicine, medi_data[chose_categories][medicine]['price']
+                    return medicine, med_data[chose_categories][medicine]['price']
 
-
+#
+# medicine = Medicine("nake")
+# medicine.ask_customer_want_buy_how_many("Digestive system", "2.Amazon Basic Care Loperamide Hydrochloride "
+#                                                             "Tablets, 2 mg, Anti-Diarrheal, 24 Count")

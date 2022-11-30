@@ -153,7 +153,10 @@ while True:
     clear()
     # Show information about the very specific medicine that user chose from categories.
     chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_med_name)
-    put_to_cart_or_not = medicine.ask_user_they_like_products()
+    put_to_cart_or_not = medicine.ask_user_customer_like_products()
+
     if put_to_cart_or_not == 0:
         customer.add_to_cart(chosen_med, price)
+        medicine.ask_customer_want_buy_how_many(menu_num_list[chose_menu], chose_med_name)
+
     clear()
