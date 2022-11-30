@@ -55,23 +55,24 @@ class Customer:
 
     def setting(self):
         while True:
-            menu_dict_num = {1: "password", 2: "address", 3: "tel"}
+            menu_dict_num = {'1': "password", '2': "address", '3': "tel"}
             print('==============================')
             print('What would you like to change?')
             print('==============================')
             print('1.Password')
             print('2.Address')
             print('3.Telephone number')
-            choice = int(input('Please type in menu number :) '))
+            choice = input('Please type in menu number :) ')
 
             # Check if user type in the wrong choice.
             while choice not in menu_dict_num.keys():
                 print('Wrong choice!!')
-                choice = int(input('Please type in menu number :) '))
+                choice = input('Please type in menu number :) ')
+
             change_to = input('Change it to? : ')
             with open('../Drug4U/User_file/User_data.json', 'r')as old_data_file:
                 old_data = json.load(old_data_file)
-                if choice == 1:
+                if choice == '1':
                     new_information = {
                         self.__username: {
                             menu_dict_num[choice]: change_to,
@@ -79,7 +80,7 @@ class Customer:
                             "tel": old_data[self.__username]["tel"]
                         }
                     }
-                elif choice == 2:
+                elif choice == '2':
                     new_information = {
                         self.__username: {
                             "password": old_data[self.__username]["password"],
@@ -88,7 +89,7 @@ class Customer:
 
                         }
                     }
-                elif choice == 3:
+                elif choice == '3':
                     new_information = {
                         self.__username: {
                             "password": old_data[self.__username]["password"],

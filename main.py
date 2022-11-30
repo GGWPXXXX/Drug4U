@@ -93,6 +93,17 @@ def login(file_path):
     return username
 
 
+def settings_checkout_exit_bundle(chose_menu):
+    if chose_menu == 6:
+        customer.setting()
+        clear()
+    elif chose_menu == 7:
+        customer.checkout()
+        clear()
+    elif chose_menu == 8:
+        exit()
+
+
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -125,8 +136,6 @@ username = login(user_file_path)
 clear()
 load_animation(5)
 # Animation for loading data
-
-
 clear()
 # Declare customer class from Customer.py
 customer = Customer(username)
@@ -134,16 +143,10 @@ customer.welcome_user()
 # show all categories then return chosen choice.
 while True:
     chose_menu = customer.menu()
-    if chose_menu == 6:
-        customer.setting()
-        clear()
+    while chose_menu == 6 or chose_menu == 7 or chose_menu == 8:
+        settings_checkout_exit_bundle(chose_menu)
         chose_menu = customer.menu()
-    elif chose_menu == 7:
-        customer.checkout()
-        clear()
-        chose_menu = customer.menu()
-    elif chose_menu == 8:
-        exit()
+
     menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
                      5: "Nutrition", 6: "Setting", 7: "Checkout", 8: "Exit"}
     # Declare Medicine class from Medicine.py
