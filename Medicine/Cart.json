@@ -1,26 +1,4 @@
 {
-    "a123": {
-        "0": [
-            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
-            500
-        ],
-        "1": [
-            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
-            500
-        ],
-        "2": [
-            "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels",
-            500
-        ],
-        "3": [
-            "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count",
-            250
-        ],
-        "4": [
-            "1.Aspirin 81mg 60 Enteric Coated Tablets",
-            266
-        ]
-    },
     "a": {
         "0": [
             "3.Nature\u2019s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets",
@@ -35,6 +13,12 @@
         "0": [
             "1.Aspirin 81mg 60 Enteric Coated Tablets",
             266
+        ]
+    },
+    "a123": {
+        "0": [
+            "1.Major Pharmaceuticals Chlorpheniramine Maleate 4 mg Anti-Allergy Tablets, 1000 Count",
+            500
         ]
     }
 }

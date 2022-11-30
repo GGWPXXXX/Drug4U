@@ -181,7 +181,7 @@ class Customer:
                     print(f'---> {data_from_cart[self.__username][num_of_item][1]} Baht. <---')
                     self.__list_for_total_price.append(int(data_from_cart[self.__username][num_of_item][1]))
                 print('-------------')
-                print(f"Your total is {sum(self.__list_for_total_price)} Baht.", end=',')
+                print(f"Your total is {sum(self.__list_for_total_price)} Baht.")
                 print('-------------')
                 self.__list_for_total_price.clear()
             with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:

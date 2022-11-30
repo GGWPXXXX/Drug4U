@@ -157,10 +157,10 @@ while True:
     medicine = Medicine(username)
     # This method allow user to choose each medicine from the chosen categories.
     clear()
-    chose_medicine_num = medicine.show_medicine_from_user_choice(chose_menu)
+    chose_med_name = medicine.show_medicine_from_user_choice(chose_menu)
     clear()
     # Show information about the very specific medicine that user chose from categories.
-    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_medicine_num)
+    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_med_name)
     put_to_cart_or_not = medicine.ask_user_they_like_products()
     if put_to_cart_or_not == 0:
         customer.add_to_cart(chosen_med, price)
