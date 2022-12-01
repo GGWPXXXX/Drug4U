@@ -19,7 +19,7 @@
             "side-effects": "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects.",
             "precautions": "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 300,
-            "amount": 7
+            "amount": 4
         }
     },
     "Pain": {
@@ -28,14 +28,14 @@
             "side-effects": "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly.",
             "precautions": "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 266,
-            "amount": 8
+            "amount": 3
         },
         "2.Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
             "uses": "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset.",
             "side-effects": "Stomach upset, nausea, vomiting, headache, diarrhea, constipation, dizziness, sleepiness. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to ibuprofen, aspirin, or other NSAIDs (such as naproxen, celecoxib). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 105,
-            "amount": 8
+            "amount": 6
         },
         "3.Sara Paracetamol Caplets 500mg": {
             "uses": "This drug is used to treat mild to moderate pain (from headaches, menstrual periods, toothaches, backaches, osteoarthritis, or cold/flu aches and pains) and to reduce fever.",
@@ -81,7 +81,7 @@
             "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 500,
-            "amount": 8
+            "amount": 2
         },
         "3.Major Allergy Loratadine 10mg, 300 Tablets": {
             "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
@@ -104,14 +104,14 @@
             "side-effects": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
             "precautions": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
             "price": 200,
-            "amount": 10
+            "amount": 6
         },
         "3.Nature\u2019s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets": {
             "uses": "Nature\u2019s Bounty Super B-Complex is a great way to increase your intake of these important vitamins for immune and antioxidant support while Folic Acid may help with energy metabolism and promotes the health of pregnant women",
             "side-effects": "Stomach upset or flushing may occur. These effects are usually temporary and fade as your body adjusts. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Consult your doctor or pharmacist before taking this product if you have: Diabetes, liver disease, B12 lack (pernicious anemia).",
             "price": 700,
-            "amount": 10
+            "amount": 6
         }
     }
 }

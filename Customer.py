@@ -188,13 +188,49 @@ class Customer:
                 self.__total_price_list = [each_item[0] * each_item[1] for each_item in self.__list_for_total_price]
                 print(f"Your total is {sum(self.__total_price_list)} Baht.")
                 print('-------------')
+
+                # Add products from user cart into Order.json
+        #################################################
+                # [0] = Name of the product.
+                # [2] = Amount of product.
+                # [1] = Price of the product.
+                order_form_for_acc_not_in_order_database = {
+                    self.__username: {
+                        0: [data_from_cart[self.__username][num_of_item][0],
+                            data_from_cart[self.__username][num_of_item][2],
+                            data_from_cart[self.__username][num_of_item][1]],
+                        "status": "Ordered"
+                    }
+                }
+
+                # If account already in cart database use the following code.
+                try:
+                    order_form_in_order_database = {
+                        int(max(data_from_cart[self.__username])) + 1: [data_from_cart[self.__username][num_of_item][0],
+                                                                        data_from_cart[self.__username][num_of_item][2],
+                                                                        data_from_cart[self.__username][num_of_item][1]],
+                        "status": "Ordered"
+
+                    }
+                    data_from_cart[self.__username].update(order_form_in_order_database)
+
+                # If not use this following update
+                except KeyError:
+                    data_from_cart.update(order_form_for_acc_not_in_order_database)
+
+                with open('../Drug4U/Admin_file/Orders.json', 'w') as orders:
+                    json.dump(data_from_cart, orders, indent=4)
+
+                # Clear all the list to use in the next customer.
                 self.__list_for_total_price.clear()
                 self.__total_price_list.clear()
-            with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
-                data_from_cart.pop(self.__username)
-                data_from_cart.update()
-                json.dump(data_from_cart, cart_data, indent=4)
-                exit()
+
+                # Delete order from cart database after checkout
+                with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
+                    data_from_cart.pop(self.__username)
+                    data_from_cart.update()
+                    json.dump(data_from_cart, cart_data, indent=4)
+                    exit()
 
         # If there's an error the program will execute this code.
         except KeyError:

@@ -64,7 +64,7 @@ class Medicine:
             if like_it == '1' or like_it == '0':
                 return int(like_it)
             print('please type 0 or 1 :( ')
-            like_it = int(input(':( '))
+            like_it = input(':( ')
 
     # Ask customer how many do they want to buy the product and calculate the rest of the stock.
     def ask_customer_want_buy_how_many(self, chose_categories, chose_med_name):
