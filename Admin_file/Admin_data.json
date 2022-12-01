@@ -1,5 +1,14 @@
 {
   "admin": {
-    "password": "admin123"
+    "password": "admin123",
+    "role": "Admin"
+  },
+  "stock": {
+    "password": "admin",
+    "role": "Stock_manager"
+  },
+  "sender": {
+    "password": "123",
+    "role": "sender"
   }
 }
