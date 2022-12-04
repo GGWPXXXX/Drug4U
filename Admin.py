@@ -18,6 +18,13 @@ class Admin:
     def clear(self):
         print('\n'*40)
 
+    def add_new_categories(self):
+        print('What is the name of the new category?')
+        category = input(': ')
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+            med_data = json.load(med)
+
+
     def modify_stock(self):
         print('==================================')
         print("Which stock do you want to modify? ")
@@ -54,10 +61,13 @@ class Admin:
                 print('WRONG NUMBER !')
                 this_med = input("Type in number :( ")
             self.clear()
+
             print('What do you want to do')
             print(f'1. Check remaining stock')
             print(f'2. Modify the product')
             want_to_do = input(': ')
+
+            # Check in case of input is wrong menu number.
             while want_to_do != '1' and want_to_do != '2':
                 print('WRONG NUMBER !')
                 want_to_do = input(': ')
