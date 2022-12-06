@@ -85,6 +85,7 @@ class Medicine:
 
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
             med_data = json.load(medicine_data)
+            # Notify customers if that medicines are not enough for the customer.
             while med_data[chose_categories][chose_med_name]["amount"] < customer_amount:
                 print("Sorry Insufficient supplies.")
                 print(f"For {chose_med_name} there are {med_data[chose_categories][chose_med_name]['amount']} in stock.")

@@ -1,4 +1,5 @@
 import json
+from time import sleep
 
 
 class Admin:
@@ -15,6 +16,11 @@ class Admin:
                   f"Your role is {admin_data[self.__username]['role']}")
             print('=======================')
 
+    def take_to_menu_animation(self):
+        for time in range(5, 0, -1):
+            print(f"We'll take you back in main menu in {time}")
+            sleep(1)
+
     def clear(self):
         print('\n'*40)
 
@@ -23,7 +29,6 @@ class Admin:
         category = input(': ')
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
             med_data = json.load(med)
-
 
     def modify_stock(self):
         print('==================================')
@@ -109,12 +114,8 @@ class Admin:
                             modify_to = int(modify_to)
                         med_data[modify_this_categories][each_med][want_to_modify_this] = modify_to
 
-
             with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
                 json.dump(med_data, med, indent=4)
-
-
-
 
     def admin_menu(self):
         with open('../Drug4U/Admin_file/Admin_data.json', 'r')as data:
@@ -129,10 +130,6 @@ class Admin:
         print(order_data)
 
 
-
-
-
-
-
 admin = Admin('stock')
+admin.welcome_admin()
 admin.modify_stock()
