@@ -24,11 +24,89 @@ class Admin:
     def clear(self):
         print('\n'*40)
 
-    def add_new_categories(self):
-        print('What is the name of the new category?')
-        category = input(': ')
+    def add_new_category(self):
+        print('What is the name of new category?')
+        category_name = input(': ')
+        while category_name == "" or category_name == ' ':
+            print('Type something bruh :( ')
+            category_name = input(': ')
+        new_category = {
+            category_name: {
+
+            }
+        }
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
             med_data = json.load(med)
+            med_data.update(new_category)
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+            json.dump(med_data, med, indent=4)
+
+    def add_new_product(self):
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+            med_data = json.load(med)
+            for each_categories in med_data.keys():
+                print(f'{each_categories}')
+            print()
+            print("Please type in name of the category.")
+            add_to_this_categories = input(': ')
+
+            # Check whether the categories input was right.
+            while add_to_this_categories not in med_data.keys():
+                print("Wrong Stock!!!")
+                add_to_this_categories = input(': ')
+            print('Name of the medicine?')
+            name_of_med = input(': ')
+
+            while name_of_med == "" or name_of_med == ' ':
+                print('Type something bruh :( ')
+                name_of_med = input(': ')
+
+            print("Uses?")
+            uses = input(': ')
+            while uses == "" or uses == ' ':
+                print('Type something bruh :( ')
+                uses = input(': ')
+
+            print("Side-effects?")
+            side_effect = input(': ')
+            while side_effect == "" or side_effect == ' ':
+                print('Type something bruh :( ')
+                side_effect = input(': ')
+
+            print("Precautions?")
+            pre_caution = input(': ')
+            while pre_caution == "" or pre_caution == ' ':
+                print('Type something bruh :( ')
+                pre_caution = input(': ')
+
+            print("Price?")
+            price = input(': ')
+            self.clear()
+            while price == "" or price == ' ':
+                print('Type something bruh :( ')
+                price = input(': ')
+
+            print("Amount of medicine?")
+            amount = input(': ')
+            while amount == "" or amount == ' ':
+                print('Type something bruh :( ')
+                amount = input(': ')
+
+            new_product = {
+                add_to_this_categories:{
+                    name_of_med:{
+                        "uses": uses,
+                        "side-effects": side_effect,
+                        "precautions": pre_caution,
+                        "price": int(price),
+                        "amount": int(amount)
+                    }
+                }
+            }
+            med_data.update(new_product)
+            with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+                json.dump(med_data, med, indent=4)
+            self.clear()
 
     def modify_stock(self):
         print('==================================')
@@ -117,6 +195,8 @@ class Admin:
             with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
                 json.dump(med_data, med, indent=4)
 
+
+
     def admin_menu(self):
         with open('../Drug4U/Admin_file/Admin_data.json', 'r')as data:
             admin_data = json.load(data)
@@ -132,4 +212,4 @@ class Admin:
 
 admin = Admin('stock')
 admin.welcome_admin()
-admin.modify_stock()
+admin.add_new_product()

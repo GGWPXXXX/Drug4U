@@ -113,5 +113,14 @@
             "price": 700,
             "amount": 5
         }
+    },
+    "Lotion": {
+        "Calamine lotion 120ml ": {
+            "uses": "This drug soothes mild skin irritations such poison ivy, oak, and sumac. It also reduces plant irritation's oozing and weeping.",
+            "side-effects": "Tell your doctor right away if this unlikely side effect occurs: skin irritation.",
+            "precautions": "If you are allergic to calamine or have other allergies, notify your doctor or pharmacist before taking it. Inactive substances may cause allergic responses or other issues. Consult your pharmacist.",
+            "price": 50,
+            "amount": 10
+        }
     }
 }

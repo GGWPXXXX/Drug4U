@@ -83,19 +83,6 @@ def login(file_path):
     return username
 
 
-def settings_checkout_exit_bundle(chose_menu):
-    if chose_menu == 6:
-        clear()
-        customer.setting()
-        clear()
-    elif chose_menu == 7:
-        clear()
-        customer.checkout()
-        clear()
-    elif chose_menu == 8:
-        exit()
-
-
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
 admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
@@ -140,7 +127,16 @@ customer.welcome_user()
 while True:
     chose_menu = customer.menu()
     while chose_menu == 6 or chose_menu == 7 or chose_menu == 8:
-        settings_checkout_exit_bundle(chose_menu)
+        if chose_menu == 6:
+            clear()
+            customer.setting()
+            clear()
+        elif chose_menu == 7:
+            clear()
+            customer.checkout()
+            clear()
+        elif chose_menu == 8:
+            exit()
         chose_menu = customer.menu()
 
     menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
