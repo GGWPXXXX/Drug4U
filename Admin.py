@@ -42,58 +42,63 @@ class Admin:
             json.dump(med_data, med, indent=4)
 
     def add_new_product(self):
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
-            med_data = json.load(med)
-            for each_categories in med_data.keys():
-                print(f'{each_categories}')
-            print()
-            print("Please type in name of the category.")
-            add_to_this_categories = input(': ')
+        while True:
+            with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+                med_data = json.load(med)
+                for each_categories in med_data.keys():
+                    print(f'{each_categories}')
 
-            # Check whether the categories input was right.
-            while add_to_this_categories not in med_data.keys():
-                print("Wrong Stock!!!")
+                print("Please type in name of the category.")
                 add_to_this_categories = input(': ')
-            print('Name of the medicine?')
-            name_of_med = input(': ')
 
-            while name_of_med == "" or name_of_med == ' ':
-                print('Type something bruh :( ')
+                # Check whether the categories input was the correct name of the categories.
+                while add_to_this_categories not in med_data.keys():
+                    print("Wrong Stock!!!")
+                    add_to_this_categories = input(': ')
+                print('Name of the medicine?')
                 name_of_med = input(': ')
 
-            print("Uses?")
-            uses = input(': ')
-            while uses == "" or uses == ' ':
-                print('Type something bruh :( ')
+                # Check in case that input is blank.
+                while name_of_med == "" or name_of_med == ' ':
+                    print('Type something bruh :( ')
+                    name_of_med = input(': ')
+
+                # Ask and check the uses of medication in case it was blank.
+                print("Uses?")
                 uses = input(': ')
+                while uses == "" or uses == ' ':
+                    print('Type something bruh :( ')
+                    uses = input(': ')
 
-            print("Side-effects?")
-            side_effect = input(': ')
-            while side_effect == "" or side_effect == ' ':
-                print('Type something bruh :( ')
+                # Ask and check the side effects of medication in case it was blank.
+                print("Side-effects?")
                 side_effect = input(': ')
+                while side_effect == "" or side_effect == ' ':
+                    print('Type something bruh :( ')
+                    side_effect = input(': ')
 
-            print("Precautions?")
-            pre_caution = input(': ')
-            while pre_caution == "" or pre_caution == ' ':
-                print('Type something bruh :( ')
+                # Ask and check the precaution of medication in case it was blank.
+                print("Precautions?")
                 pre_caution = input(': ')
+                while pre_caution == "" or pre_caution == ' ':
+                    print('Type something bruh :( ')
+                    pre_caution = input(': ')
 
-            print("Price?")
-            price = input(': ')
-            self.clear()
-            while price == "" or price == ' ':
-                print('Type something bruh :( ')
+                # Ask and check the price of medication in case it was blank.
+                print("Price?")
                 price = input(': ')
+                while price == "" or price == ' ':
+                    print('Type something bruh :( ')
+                    price = input(': ')
 
-            print("Amount of medicine?")
-            amount = input(': ')
-            while amount == "" or amount == ' ':
-                print('Type something bruh :( ')
+                # Ask and check the amount of medication in case it was blank.
+                print("Amount of medicine?")
                 amount = input(': ')
+                while amount == "" or amount == ' ':
+                    print('Type something bruh :( ')
+                    amount = input(': ')
 
-            new_product = {
-                add_to_this_categories:{
+                new_product = {
                     name_of_med:{
                         "uses": uses,
                         "side-effects": side_effect,
@@ -102,11 +107,27 @@ class Admin:
                         "amount": int(amount)
                     }
                 }
-            }
-            med_data.update(new_product)
-            with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
-                json.dump(med_data, med, indent=4)
-            self.clear()
+
+                med_data[add_to_this_categories].update(new_product)
+                with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+                    json.dump(med_data, med, indent=4)
+
+                #Ask and check whether admin want to add anything else.
+                print('Do you want to add anything else?')
+                add_more_or_not = input(': ')
+                while add_more_or_not == ' ' and add_more_or_not == '':
+                    print('Type something bruh :( ')
+                    add_more_or_not = input(': ')
+                while add_more_or_not.lower() != 'y' and add_more_or_not.lower() != 'n':
+                    print('Type (Y or N) only! :( ')
+                    add_more_or_not = input(': ')
+
+                if add_more_or_not == 'n'.lower():
+                    self.take_to_menu_animation()
+                    break
+                else:
+                    self.clear()
+
 
     def modify_stock(self):
         print('==================================')
@@ -120,7 +141,7 @@ class Admin:
             print("Please type in name of the category.")
             modify_this_categories = input(': ')
 
-            # Check whether the categories input was right.
+            # Check whether the categories input was wrong.
             while modify_this_categories not in med_data.keys():
                 print("Wrong Stock!!!")
                 modify_this_categories = input(': ')
