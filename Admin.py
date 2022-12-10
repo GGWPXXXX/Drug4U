@@ -369,6 +369,108 @@ class Admin:
         self.take_to_menu_animation()
         self.clear()
 
+    # This method allow sender to delete specific order from specific customer.
+    def delete_order(self):
+        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+            order_data = json.load(order)
+        print("Retrieving data please wait ", end='')
+        for time in range(0, 5):
+            print(".", end='')
+            sleep(0.5)
+        self.clear()
+
+        # Display all the order.
+        print("All of the order are the following :)\n")
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+              f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
+        print('=========================================================================='
+              '========================================================================='
+              '======================================================')
+        with open('../Drug4U/User_file/User_data.json', 'r') as user:
+            user_file = json.load(user)
+        for user_name, info in order_data.items():
+            for num in info.keys():
+                for order_num in order_data[user_name][num]:
+                    print(f'{user_name:>8}', end='')
+                    print(f'{num:>11}', end='')
+                    print(f'{order_data[user_name][num][order_num][0]:^100}', end='')
+                    print(f'{str(order_data[user_name][num][order_num][1]).rjust(3)}', end='')
+                    print(f'{str(order_data[user_name][num][order_num][2]).rjust(10)}', end='')
+                    print(user_file[user_name]["address"].rjust(21), end='')
+                    print(user_file[user_name]["tel"].rjust(30))
+            print('----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '---------------------------')
+        print()
+        print('==========================================================')
+        print("Please type in username of the order you want to delete :)")
+        print('==========================================================')
+
+        # Check username in case it not in database.
+        username = input(": ")
+        while username not in order_data:
+            print(f"{username} not in order database!")
+            print("Please check and try again.")
+            username = input(":( ")
+        print('===================================================================')
+        print(f"Please type Order no. you want to delete from account {username} :)")
+        print('===================================================================')
+
+        # Check order number in case it not match with order of username.
+        order_num = input(": ")
+        while order_num not in order_data[username]:
+            print(f"Order no.{order_num} not in order {username} database!")
+            print("Please check and try again.")
+            order_num = input(":( ")
+
+        # Delete order from user then update into Order.json
+        order_data[username].pop(order_num)
+        order_data.update()
+        with open('../Drug4U/Admin_file/Orders.json', 'w') as new_data:
+            json.dump(order_data, new_data, indent=4)
+
+        print()
+        print("Order Deleted! \n")
+        sleep(2)
+        print("Retrieving data please wait ", end='')
+        for time in range(0, 5):
+            print(".", end='')
+            sleep(0.5)
+        self.clear()
+
+
+        # Display all the remaining orders.
+        print("All of the order are the following :)\n")
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+              f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
+        print('=========================================================================='
+              '========================================================================='
+              '======================================================')
+        with open('../Drug4U/User_file/User_data.json', 'r') as user:
+            user_file = json.load(user)
+        for user_name, info in order_data.items():
+            for num in info.keys():
+                for order_num in order_data[user_name][num]:
+                    print(f'{user_name:>8}', end='')
+                    print(f'{num:>11}', end='')
+                    print(f'{order_data[user_name][num][order_num][0]:^100}', end='')
+                    print(f'{str(order_data[user_name][num][order_num][1]).rjust(3)}', end='')
+                    print(f'{str(order_data[user_name][num][order_num][2]).rjust(10)}', end='')
+                    print(user_file[user_name]["address"].rjust(21), end='')
+                    print(user_file[user_name]["tel"].rjust(30))
+            print('----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '---------------------------')
+        print('==============================')
+        print("Type back when you're ready :)")
+        print('==============================')
+        back = input(': ')
+        while back.lower() != 'back':
+            print("Type BACK when you're READY.")
+            back = input(': ')
+
 class Stock_Manager(Admin):
     def __init__(self, admin_name):
         super().__init__(admin_name)
@@ -387,7 +489,7 @@ class Stock_Manager(Admin):
             print('Please type in menu number :)')
             menu_num = input(': ')
             while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
-                    menu_num != '4' and menu_num != '5':
+                    menu_num != '4':
                 print("Wrong menu!")
                 menu_num = input(': ')
             if menu_num == '4':
@@ -402,6 +504,43 @@ class Stock_Manager(Admin):
                 self.clear()
                 self.add_new_product()
 
+class Sender(Admin):
+    def __init__(self, admin_name):
+        super().__init__(admin_name)
 
-stock = Stock_Manager('stock')
-stock.operate()
+    def operate(self):
+        self.welcome_admin()
+        while True:
+            print('==============================')
+            print("Your Menu are the following :)")
+            print('==============================')
+            print("1.Show all orders")
+            print("2.Show the specific order")
+            print("3.Delete order")
+            print("4.Exit")
+            print('==============================')
+            print('Please type in menu number :)')
+            menu_num = input(': ')
+            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
+                    menu_num != '4':
+                print("Wrong menu!")
+                menu_num = input(': ')
+            if menu_num == '4':
+                exit()
+            elif menu_num == '1':
+                self.clear()
+                self.show_all_orders()
+            elif menu_num == '2':
+                self.clear()
+                self.show_specific_order()
+            elif menu_num == '3':
+                self.clear()
+                self.delete_order()
+
+
+
+
+# admin = Admin('broke')
+# admin.delete_order()
+sender = Sender("sender")
+sender.operate()

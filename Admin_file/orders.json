@@ -1,12 +1,5 @@
 {
     "a123": {
-        "1": {
-            "1": [
-                "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
-                350,
-                1
-            ]
-        },
         "2": {
             "1": [
                 "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
@@ -20,13 +13,5 @@
             ]
         }
     },
-    "pattadon": {
-        "1": {
-            "1": [
-                "2.Clindamycin 300mg Capsules 14 capsules",
-                400,
-                1
-            ]
-        }
-    }
+    "pattadon": {}
 }
