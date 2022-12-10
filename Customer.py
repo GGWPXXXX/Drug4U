@@ -194,11 +194,15 @@ class Customer:
                 print(f"Your total is {sum(self.__total_price_list)} Baht.")
                 print('-------------')
 
+                # Clear both list for next customer.
+                self.__total_price_list.clear()
+                self.__list_for_total_price.clear()
+
                 with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
                     order_file = json.load(order)
 
-                # if account already in orders.json
-                if self.__username in order_file:
+                # If account already in orders.json
+                try:
                     order = {
                         int(max(order_file[self.__username].keys()))+1: data_from_cart[self.__username]
                     }
@@ -206,8 +210,8 @@ class Customer:
                     with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
                         json.dump(order_file, new_order, indent=4)
 
-                #if not
-                else:
+                #If not
+                except KeyError:
                     order = {
                         self.__username:{
                             1: data_from_cart[self.__username]
@@ -216,6 +220,12 @@ class Customer:
                     order_file.update(order)
                     with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
                         json.dump(order_file, new_order, indent=4)
+
+            # Delete order that ordered from the cart database.
+                data_from_cart.pop(self.__username)
+                data_from_cart.update()
+            with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
+                json.dump(data_from_cart, cart_data, indent=4)
 
 
         # If there's an error the program will execute this code.
