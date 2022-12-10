@@ -210,11 +210,16 @@ class Customer:
                     with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
                         json.dump(order_file, new_order, indent=4)
 
-                #If not
+
+                #If not program will run this code.
                 except KeyError:
+                    with open('../Drug4U/User_file/User_data.json', 'r') as data:
+                        customer_data = json.load(data)
                     order = {
                         self.__username:{
+                            0: [customer_data[self.__username]["address"], customer_data[self.__username]["tel"]],
                             1: data_from_cart[self.__username]
+
                         }
                     }
                     order_file.update(order)
@@ -228,6 +233,7 @@ class Customer:
                 json.dump(data_from_cart, cart_data, indent=4)
 
 
+
         # If there's an error the program will execute this code.
         except KeyError:
             print("===============================")
@@ -235,9 +241,11 @@ class Customer:
             print("===============================")
             self.take_to_menu_animation()
 
+        exit()
 
 
 
-
-c = Customer('a123')
-c.checkout()
+#
+#
+# c = Customer('a123')
+# c.checkout()

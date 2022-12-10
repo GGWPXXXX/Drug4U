@@ -114,13 +114,13 @@ class Admin:
 
                 #Ask and check whether admin want to add anything else.
                 print('Do you want to add anything else?')
-                add_more_or_not = input(': ')
+                add_more_or_not = input('(y/n): ')
                 while add_more_or_not == ' ' and add_more_or_not == '':
                     print('Type something bruh :( ')
-                    add_more_or_not = input(': ')
+                    add_more_or_not = input('(y/n): ')
                 while add_more_or_not.lower() != 'y' and add_more_or_not.lower() != 'n':
                     print('Type (Y or N) only! :( ')
-                    add_more_or_not = input(': ')
+                    add_more_or_not = input('(y/n): ')
 
                 if add_more_or_not == 'n'.lower():
                     self.take_to_menu_animation()
@@ -228,9 +228,27 @@ class Admin:
     def show_and_modify_orders(self):
         with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
             order_data = json.load(order)
-        print(order_data)
+        print("All of the order are the following :)")
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'Price':>45}")
+        print('=========================================================================='
+              '=========================================================================')
+        for user_name, info in order_data.items():
+            for num in info.keys():
+                if num == '0':
+                    pass
+                else:
+                    for order_num in order_data[user_name][num]:
+                        print(f'{user_name:>8}', end='')
+                        print(f'{num:>11}', end='')
+                        print(f'                   '
+                              f'{order_data[user_name][num][order_num][0]}',end='')
+                        print(f'{str(order_data[user_name][num][order_num][1]).center(60, " ")}')
+
+                    # for each_med in order_data[user_name][num]:
+                    #     print(f'{user_name:>5} {num:>10}           {order_data[user_name][num][each_med][0]} {order_data[user_name][num][each_med][1]:>300}')
+
 
 
 admin = Admin('stock')
 admin.welcome_admin()
-admin.add_new_product()
+admin.show_and_modify_orders()
