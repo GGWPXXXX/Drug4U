@@ -1,10 +1,5 @@
 {
     "a123": {
-        "0": [
-            "fuck boii st.",
-            "0943483861",
-            "ordered"
-        ],
         "1": {
             "1": [
                 "1.Nature's Bounty Activated Charcoal 260 mg, 100 Capsules",
@@ -21,6 +16,15 @@
             "2": [
                 "3.Sara Paracetamol Caplets 500mg",
                 14,
+                1
+            ]
+        }
+    },
+    "pattadon": {
+        "1": {
+            "1": [
+                "2.Clindamycin 300mg Capsules 14 capsules",
+                400,
                 1
             ]
         }

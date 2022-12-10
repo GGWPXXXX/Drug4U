@@ -217,7 +217,6 @@ class Customer:
                         customer_data = json.load(data)
                     order = {
                         self.__username:{
-                            0: [customer_data[self.__username]["address"], customer_data[self.__username]["tel"]],
                             1: data_from_cart[self.__username]
 
                         }

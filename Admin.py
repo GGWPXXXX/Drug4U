@@ -216,7 +216,97 @@ class Admin:
             with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
                 json.dump(med_data, med, indent=4)
 
+    # Show all confirmed orders from customers.
+    def show_all_orders(self):
+        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+            order_data = json.load(order)
 
+        # Loading animation
+        print("Retrieving data please wait ",end='')
+        for time in range(0, 5):
+            print(".", end='')
+            sleep(0.5)
+        self.clear()
+        print("All of the order are the following :)\n")
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+              f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
+        print('=========================================================================='
+              '========================================================================='
+              '======================================================')
+        with open('../Drug4U/User_file/User_data.json', 'r')as user:
+            user_file = json.load(user)
+        for user_name, info in order_data.items():
+            for num in info.keys():
+                for order_num in order_data[user_name][num]:
+                    print(f'{user_name:>8}', end='')
+                    print(f'{num:>11}', end='')
+                    print(f'{order_data[user_name][num][order_num][0]:^100}',end='')
+                    print(f'{str(order_data[user_name][num][order_num][1]).rjust(3)}',end='')
+                    print(f'{str(order_data[user_name][num][order_num][2]).rjust(10)}',end='')
+                    print(user_file[user_name]["address"].rjust(21),end='')
+                    print(user_file[user_name]["tel"].rjust(30))
+            print('----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '---------------------------')
+        print("Type 'back' to go back to the main menu :) ")
+        back = input(': ')
+        while back.lower() != "back":
+            print("Type back bruh :(")
+            back = input(': ')
+
+    # Show order from username.
+    def show_specific_order(self):
+        with open('../Drug4U/User_file/User_data.json', 'r')as user:
+            user_file = json.load(user)
+
+        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+            order_data = json.load(order)
+
+        print("Please type in username")
+        username = input(":) ")
+
+        while username not in user_file or username not in order_data:
+            print(f"{username} not in the system.")
+            print(f"Please try again.")
+            username = input(":) ")
+            while username not in order_data:
+                print(f"{username} not ordering anything yet.")
+                print(f"Please try again.")
+                username = input(":) ")
+
+
+        print("Retrieving data please wait ",end='')
+        for time in range(0, 5):
+            print(".", end='')
+            sleep(0.5)
+        self.clear()
+        print("All of the order are the following :)\n")
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+              f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
+        print('=========================================================================='
+              '========================================================================='
+              '======================================================')
+
+        for keys, info in order_data[username].items():
+            for each_info in info.values():
+                print(f'{username:>8}', end='')
+                print(f'{keys:>11}', end='')
+                print(f'{each_info[0]:^100}',end='')
+                print(f'{str(each_info[1]).rjust(3)}',end='')
+                print(f'{str(each_info[2]).rjust(10)}',end='')
+                print(user_file[username]["address"].rjust(21),end='')
+                print(user_file[username]["tel"].rjust(30))
+            print('----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '---------------------------')
+        print('\n')
+        print("Type 'back' to go back to the main menu :) ")
+        back = input(': ')
+        while back.lower() != "back":
+            print("Type back bruh :(")
+            back = input(': ')
 
     def admin_menu(self):
         with open('../Drug4U/Admin_file/Admin_data.json', 'r')as data:
@@ -225,30 +315,7 @@ class Admin:
             if admin_data[self.__username]['role'] == 'Stock_manager':
                 print("")
 
-    def show_and_modify_orders(self):
-        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
-            order_data = json.load(order)
-        print("All of the order are the following :)")
-        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'Price':>45}")
-        print('=========================================================================='
-              '=========================================================================')
-        for user_name, info in order_data.items():
-            for num in info.keys():
-                if num == '0':
-                    pass
-                else:
-                    for order_num in order_data[user_name][num]:
-                        print(f'{user_name:>8}', end='')
-                        print(f'{num:>11}', end='')
-                        print(f'                   '
-                              f'{order_data[user_name][num][order_num][0]}',end='')
-                        print(f'{str(order_data[user_name][num][order_num][1]).center(60, " ")}')
-
-                    # for each_med in order_data[user_name][num]:
-                    #     print(f'{user_name:>5} {num:>10}           {order_data[user_name][num][each_med][0]} {order_data[user_name][num][each_med][1]:>300}')
-
-
 
 admin = Admin('stock')
 admin.welcome_admin()
-admin.show_and_modify_orders()
+admin.show_all_orders()
