@@ -1,14 +1,14 @@
 {
-  "admin": {
-    "password": "admin123",
-    "role": "Admin"
-  },
-  "stock": {
-    "password": "admin",
-    "role": "Stock_manager"
-  },
-  "sender": {
-    "password": "123",
-    "role": "Sender"
-  }
+    "admin": {
+        "password": "admin123",
+        "role": "Supreme-Admin"
+    },
+    "stock": {
+        "password": "admin",
+        "role": "Stock_Manager"
+    },
+    "sender": {
+        "password": "123",
+        "role": "Sender"
+    }
 }

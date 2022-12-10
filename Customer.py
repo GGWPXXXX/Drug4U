@@ -213,8 +213,6 @@ class Customer:
 
                 #If not program will run this code.
                 except KeyError:
-                    with open('../Drug4U/User_file/User_data.json', 'r') as data:
-                        customer_data = json.load(data)
                     order = {
                         self.__username:{
                             1: data_from_cart[self.__username]

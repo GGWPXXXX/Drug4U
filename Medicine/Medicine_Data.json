@@ -120,7 +120,16 @@
             "side-effects": "Tell your doctor right away if this unlikely side effect occurs: skin irritation.",
             "precautions": "If you are allergic to calamine or have other allergies, notify your doctor or pharmacist before taking it. Inactive substances may cause allergic responses or other issues. Consult your pharmacist.",
             "price": 50,
-            "amount": 0
+            "amount": 100
+        }
+    },
+    "Condom": {
+        "condom": {
+            "uses": "idk",
+            "side-effects": "no",
+            "precautions": "no",
+            "price": 2500,
+            "amount": 100
         }
     }
 }

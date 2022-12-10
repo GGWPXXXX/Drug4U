@@ -3,18 +3,19 @@ from time import sleep
 
 
 class Admin:
-    def __init__(self, username):
-        self.__username = username
+    def __init__(self, admin_name):
+        self.__admin_name = admin_name
         self.__med_num = []
 
     def welcome_admin(self):
         with open('../Drug4U/Admin_file/Admin_data.json', 'r') as data:
             admin_data = json.load(data)
-            print('=======================')
-            print(f"Hello {self.__username} :) \n"
+            print('==============================')
+            print(f"Hello {self.__admin_name} :) \n"
                   f"Welcome to admin panel ! \n"
-                  f"Your role is {admin_data[self.__username]['role']}")
-            print('=======================')
+                  f"Your role is {admin_data[self.__admin_name]['role']}")
+            print('==============================')
+            print()
 
     def take_to_menu_animation(self):
         for time in range(5, 0, -1):
@@ -41,13 +42,20 @@ class Admin:
         with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
             json.dump(med_data, med, indent=4)
 
+        print(f'{category_name} added!')
+        self.take_to_menu_animation()
+        self.clear()
+
     def add_new_product(self):
         while True:
+            print('===============================')
+            print("Categories are the following :)")
+            print('===============================')
             with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
                 med_data = json.load(med)
                 for each_categories in med_data.keys():
                     print(f'{each_categories}')
-
+                print('===================================')
                 print("Please type in name of the category.")
                 add_to_this_categories = input(': ')
 
@@ -124,6 +132,7 @@ class Admin:
 
                 if add_more_or_not == 'n'.lower():
                     self.take_to_menu_animation()
+                    self.clear()
                     break
                 else:
                     self.clear()
@@ -215,6 +224,9 @@ class Admin:
 
             with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
                 json.dump(med_data, med, indent=4)
+        print("DONE!!")
+        self.take_to_menu_animation()
+        self.clear()
 
     # Show all confirmed orders from customers.
     def show_all_orders(self):
@@ -254,6 +266,8 @@ class Admin:
         while back.lower() != "back":
             print("Type back bruh :(")
             back = input(': ')
+        self.take_to_menu_animation()
+        self.clear()
 
     # Show order from username.
     def show_specific_order(self):
@@ -307,15 +321,87 @@ class Admin:
         while back.lower() != "back":
             print("Type back bruh :(")
             back = input(': ')
+        self.take_to_menu_animation()
+        self.clear()
 
-    def admin_menu(self):
+    # Create new admin account only role "Admin" can use this method.
+    def create_admin(self):
+        print('===================================')
+        print('What role of this account would be?')
+        print('===================================')
+        print('Supreme-Admin')
+        print('Stock_Manager')
+        print('Sender')
+        print('===================================')
+        role = input(': ')
+        while role.lower() != 'admin' and role.lower() != 'sender'.lower() \
+            and role.lower() != 'stock_manager':
+            print("Wrong choice !!")
+            print("Please try again :(")
+            role = input(': ')
+
+        print("And what should we call him/her?")
+        name = input(': ')
+        while name == " " or name == "":
+            print("Name blank?")
+            print("Please try again :(")
+            name = input(': ')
+
+        print("Password? ")
+        password = input(': ')
+        while password == " " or password == "":
+            print("Password blank?")
+            print("Please try again :(")
+            password = input(': ')
+
+        new_acc  = {
+            name: {
+                "password": password,
+                "role": role
+            }
+        }
         with open('../Drug4U/Admin_file/Admin_data.json', 'r')as data:
-            admin_data = json.load(data)
-            print(admin_data)
-            if admin_data[self.__username]['role'] == 'Stock_manager':
-                print("")
+            old_data = json.load(data)
+            old_data.update(new_acc)
+        with open('../Drug4U/Admin_file/Admin_data.json', 'w')as new_data:
+            json.dump(old_data, new_data, indent=4)
+        print("Complete the account created :)")
+        self.take_to_menu_animation()
+        self.clear()
+
+class Stock_Manager(Admin):
+    def __init__(self, admin_name):
+        super().__init__(admin_name)
+
+    def operate(self):
+        self.welcome_admin()
+        while True:
+            print('==============================')
+            print("Your Menu are the following :)")
+            print('==============================')
+            print("1.Modify stock")
+            print("2.Add new category")
+            print("3.Add new product")
+            print("4.Exit")
+            print('==============================')
+            print('Please type in menu number :)')
+            menu_num = input(': ')
+            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
+                    menu_num != '4' and menu_num != '5':
+                print("Wrong menu!")
+                menu_num = input(': ')
+            if menu_num == '4':
+                exit()
+            elif menu_num == '1':
+                self.clear()
+                self.modify_stock()
+            elif menu_num == '2':
+                self.clear()
+                self.add_new_category()
+            elif menu_num == '3':
+                self.clear()
+                self.add_new_product()
 
 
-admin = Admin('stock')
-admin.welcome_admin()
-admin.show_all_orders()
+stock = Stock_Manager('stock')
+stock.operate()
