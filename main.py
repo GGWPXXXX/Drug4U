@@ -124,23 +124,30 @@ clear()
 customer = Customer(username)
 customer.welcome_user()
 # show all categories then return chosen choice.
+
+menu_num_dict = {}
+with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+    med_data = json.load(medicine_data)
+    count = 1
+    for each_categories in med_data.keys():
+        menu_num_dict[count] = each_categories
+        count += 1
+
 while True:
     chose_menu = customer.menu()
-    while chose_menu == 6 or chose_menu == 7 or chose_menu == 8:
-        if chose_menu == 6:
+    while chose_menu == count or chose_menu == count+1 or chose_menu == count+2:
+        if chose_menu == count:
             clear()
             customer.setting()
             clear()
-        elif chose_menu == 7:
+        elif chose_menu == count+1:
             clear()
             customer.checkout()
             clear()
-        elif chose_menu == 8:
+        elif chose_menu == count+2:
             exit()
         chose_menu = customer.menu()
 
-    menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                     5: "Nutrition", 6: "Setting", 7: "Checkout", 8: "Exit"}
     # Declare Medicine class from Medicine.py
     medicine = Medicine(username)
     # This method allow user to choose each medicine from the chosen categories.
@@ -148,11 +155,11 @@ while True:
     chose_med_name = medicine.show_medicine_from_user_choice(chose_menu)
     clear()
     # Show information about the very specific medicine that user chose from categories.
-    chosen_med, price = medicine.show_detail_of_medicine(menu_num_list[chose_menu], chose_med_name)
+    chosen_med, price = medicine.show_detail_of_medicine(menu_num_dict[chose_menu], chose_med_name)
     put_to_cart_or_not = medicine.ask_user_customer_like_products()
 
     if put_to_cart_or_not == 0:
-        customer_amount = medicine.ask_customer_want_buy_how_many(menu_num_list[chose_menu], chose_med_name)
+        customer_amount = medicine.ask_customer_want_buy_how_many(menu_num_dict[chose_menu], chose_med_name)
         customer.add_to_cart(chosen_med, price, customer_amount)
 
     clear()

@@ -5,21 +5,21 @@
             "side-effects": "Short-term oral use of activated charcoal is likely safe. Long-term use of activated charcoal could be safe. Constipation and dark stools are regular adverse effects.",
             "precautions": "Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common.",
             "price": 350,
-            "amount": 0
+            "amount": 57
         },
         "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count": {
             "uses": "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion.Take this medication by mouth, usually after each loose stool or as directed by your doctor. Doctors should treat other symptoms and establish the source of diarrhea.",
             "side-effects": "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing.",
             "precautions": "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 250,
-            "amount": 0
+            "amount": 90
         },
         "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
             "uses": "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor.",
             "side-effects": "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects.",
             "precautions": "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 300,
-            "amount": 1
+            "amount": 97
         }
     },
     "Pain": {
@@ -28,21 +28,21 @@
             "side-effects": "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly.",
             "precautions": "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 266,
-            "amount": 10
+            "amount": 0
         },
         "2.Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
             "uses": "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset.",
             "side-effects": "Stomach upset, nausea, vomiting, headache, diarrhea, constipation, dizziness, sleepiness. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to ibuprofen, aspirin, or other NSAIDs (such as naproxen, celecoxib). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 105,
-            "amount": 8
+            "amount": 0
         },
         "3.Sara Paracetamol Caplets 500mg": {
             "uses": "This drug is used to treat mild to moderate pain (from headaches, menstrual periods, toothaches, backaches, osteoarthritis, or cold/flu aches and pains) and to reduce fever.",
             "side-effects": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
             "precautions": "If you're allergic to acetaminophen, tell your doctor or pharmacist. Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 14,
-            "amount": 100
+            "amount": 98
         }
     },
     "Infections and infestations": {
@@ -51,7 +51,7 @@
             "side-effects": "Diarrhea, nausea, and vomiting may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
             "precautions": "Before using amoxicillin, notify your doctor or pharmacist if you're allergic to it, penicillin, cephalosporins, or other antibiotics. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 50,
-            "amount": 10
+            "amount": 1
         },
         "2.Clindamycin 300mg Capsules 14 capsules": {
             "uses": "Clindamycin treats bacterial infections. Take this medicine by mouth 4 times a day (every 6 hours), or as instructed by your doctor. Unless your doctor tells you differently, take it with 8 ounces of water.",
@@ -65,7 +65,7 @@
             "side-effects": "Nausea, vomiting, diarrhea, appetite loss, mouth sores, hairy tongue, sore throat, dizziness, headache, or rectal pain may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
             "precautions": "Before using this drug, notify your doctor or pharmacist about any kidney, liver, swallowing, or esophageal difficulties (such as hiatal hernia, reflux disease-GERD).",
             "price": 750,
-            "amount": 10
+            "amount": 9
         }
     },
     "Allergic disorders": {
@@ -74,21 +74,21 @@
             "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "This medicine may cause dizziness, drowsiness, or visual blurring. Alcohol and marijuana can cause dizziness and sleepiness. Drive, operate machinery, or do anything that requires attentiveness or clear eyesight only when safe",
             "price": 500,
-            "amount": 10
+            "amount": 6
         },
         "2.Benadryl Ultratabs 100 tablets": {
             "uses": "Diphenhydramine relieves allergy, hay fever, and cold symptoms. To prevent motion sickness, take your dose 30 minutes before starting activity such as travel. Take your dosage 30 minutes before bed. If you can't sleep for 2 weeks, see a doctor.",
             "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 500,
-            "amount": 1
+            "amount": 0
         },
         "3.Major Allergy Loratadine 10mg, 300 Tablets": {
             "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
             "side-effects": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
             "precautions": "At appropriate dosages, loratadine seldom causes drowsiness. Do not drive, operate equipment, or conduct any activity requiring awareness until you can do so safely.",
             "price": 400,
-            "amount": 10
+            "amount": 9
         }
     },
     "Nutrition": {
@@ -104,14 +104,14 @@
             "side-effects": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
             "precautions": "Vitamin A is safe in doses below 10,000 units (3,000 mcg) daily. Vitamin A comes in two forms: retinol and provitamin A. (carotenoids). Only pre-formed vitamin A counts toward the daily limit.",
             "price": 200,
-            "amount": 6
+            "amount": 0
         },
         "3.Nature\u2019s Bounty Super B Complex with Vitamin C & Folic Acid, Immune & Energy Support, 150 tablets": {
             "uses": "Nature\u2019s Bounty Super B-Complex is a great way to increase your intake of these important vitamins for immune and antioxidant support while Folic Acid may help with energy metabolism and promotes the health of pregnant women",
             "side-effects": "Stomach upset or flushing may occur. These effects are usually temporary and fade as your body adjusts. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Consult your doctor or pharmacist before taking this product if you have: Diabetes, liver disease, B12 lack (pernicious anemia).",
             "price": 700,
-            "amount": 5
+            "amount": 4
         }
     },
     "Lotion": {
@@ -120,7 +120,7 @@
             "side-effects": "Tell your doctor right away if this unlikely side effect occurs: skin irritation.",
             "precautions": "If you are allergic to calamine or have other allergies, notify your doctor or pharmacist before taking it. Inactive substances may cause allergic responses or other issues. Consult your pharmacist.",
             "price": 50,
-            "amount": 10
+            "amount": 0
         }
     }
 }

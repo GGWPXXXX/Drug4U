@@ -28,29 +28,32 @@ class Customer:
 
     # Show all menu
     def menu(self):
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+            med_data = json.load(med)
         print('---> Please select Menu :) <---')
         print('==========================')
-        print('1.Digestive system')
-        print('2.Pain')
-        print('3.Infections and infestations')
-        print('4.Allergic disorders')
-        print('5.Nutrition')
-        print('6.Setting')
-        print('7.Checkout')
-        print('8.Exit')
+        count = 1
+        for each_category in med_data.keys():
+            print(f'{count}.{each_category}')
+            count += 1
+        print('==========================')
+        print(f'{count}.Setting')
+        print(f'{count+1}.Checkout')
+        print(f'{count+2}.Exit')
+        count += 3
         print('==========================')
         menu_choice = input('Please input number:) ')
         print('==========================')
         print()
         # Check if user input is the correct menu number or not.
-        menu_num_list = {'1': "Digestive system", '2': "Pain", '3': "Infections and infestations",
-                         '4': "Allergic disorders", '5': "Nutrition", '6': "Setting", '7': "Checkout", '8': "Exit"}
-        while True:
-            if menu_choice not in menu_num_list.keys() or menu_choice == '':
-                print('---> Are you blind? <---')
-                menu_choice = input('Please input the correct number :( ')
-            else:
-                return int(menu_choice)
+        num_of_menu = [str(x) for x in range(1, count+1)]
+        while menu_choice not in num_of_menu:
+            print("Wrong category :(")
+            menu_choice = input('Please input the correct number :( ')
+        while menu_choice == "" and menu_choice == " ":
+            print("Type in something bruh.")
+            menu_choice = input('Please input the correct number :( ')
+        return int(menu_choice)
 
     # Setting method for the customer.
 
@@ -141,14 +144,14 @@ class Customer:
 
             new_order_for_account_not_in_sys = {
                 self.__username: {
-                    0: [med_name, price, med_amount]
+                    1: [med_name, price, med_amount]
                 }
             }
 
             # if account already in cart database use the following code.
             try:
                 new_order_for_account_in_sys = {
-                    int(max(cart[self.__username]))+1: [med_name, price, med_amount]
+                    int(max(cart[self.__username])) + 1: [med_name, price, med_amount]
 
                 }
                 cart[self.__username].update(new_order_for_account_in_sys)
@@ -160,6 +163,7 @@ class Customer:
         with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name[2:]} was added to your cart :)')
+
 
     # This method allow user to check out of the store.
     def checkout(self):
@@ -175,13 +179,14 @@ class Customer:
                 print("You're order(s) are the following :)")
                 print('=================================')
                 for num_of_item in data_from_cart[self.__username].keys():
-                    print(f'{int(num_of_item)+1}. {data_from_cart[self.__username][num_of_item][0][2:]}. x '
+                    print(f'{int(num_of_item)}. {data_from_cart[self.__username][num_of_item][0][2:]}. x '
                           f'{data_from_cart[self.__username][num_of_item][2]}')
 
                     print(f'---> {data_from_cart[self.__username][num_of_item][1]} Baht. <---')
                     self.__list_for_total_price.append([int(data_from_cart[self.__username][num_of_item][1]),
                                                         int(data_from_cart[self.__username][num_of_item][2])])
                 print('-------------')
+
                 # This is list for compute price of each item from the customer.
                 # each_item[0] mean price per one product.
                 # each_item[1] mean how many product customer want to buy.
@@ -189,48 +194,29 @@ class Customer:
                 print(f"Your total is {sum(self.__total_price_list)} Baht.")
                 print('-------------')
 
-                # Add products from user cart into Order.json
-        #################################################
-                # [0] = Name of the product.
-                # [2] = Amount of product.
-                # [1] = Price of the product.
-                order_form_for_acc_not_in_order_database = {
-                    self.__username: {
-                        0: [data_from_cart[self.__username][num_of_item][0],
-                            data_from_cart[self.__username][num_of_item][2],
-                            data_from_cart[self.__username][num_of_item][1]],
-                        "status": "Ordered"
+                with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+                    order_file = json.load(order)
+
+                # if account already in orders.json
+                if self.__username in order_file:
+                    order = {
+                        int(max(order_file[self.__username].keys()))+1: data_from_cart[self.__username]
                     }
-                }
+                    order_file[self.__username].update(order)
+                    with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
+                        json.dump(order_file, new_order, indent=4)
 
-                # If account already in cart database use the following code.
-                try:
-                    order_form_in_order_database = {
-                        int(max(data_from_cart[self.__username])) + 1: [data_from_cart[self.__username][num_of_item][0],
-                                                                        data_from_cart[self.__username][num_of_item][2],
-                                                                        data_from_cart[self.__username][num_of_item][1]],
-                        "status": "Ordered"
-
+                #if not
+                else:
+                    order = {
+                        self.__username:{
+                            1: data_from_cart[self.__username]
+                        }
                     }
-                    data_from_cart[self.__username].update(order_form_in_order_database)
+                    order_file.update(order)
+                    with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
+                        json.dump(order_file, new_order, indent=4)
 
-                # If not use this following update
-                except KeyError:
-                    data_from_cart.update(order_form_for_acc_not_in_order_database)
-
-                with open('../Drug4U/Admin_file/Orders.json', 'w') as orders:
-                    json.dump(data_from_cart, orders, indent=4)
-
-                # Clear all the list to use in the next customer.
-                self.__list_for_total_price.clear()
-                self.__total_price_list.clear()
-
-                # Delete order from cart database after checkout
-                with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
-                    data_from_cart.pop(self.__username)
-                    data_from_cart.update()
-                    json.dump(data_from_cart, cart_data, indent=4)
-                    exit()
 
         # If there's an error the program will execute this code.
         except KeyError:
@@ -241,5 +227,7 @@ class Customer:
 
 
 
-# c = Customer('GG_WPX')
-# c.checkout()
+
+
+c = Customer('a123')
+c.checkout()

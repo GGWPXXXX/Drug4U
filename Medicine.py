@@ -12,16 +12,19 @@ class Medicine:
 
     # This method allow user to choose each medicine from the chosen categories.
     def show_medicine_from_user_choice(self, user_choice):
-        availble_med = []
-        menu_num_list = {1: "Digestive system", 2: "Pain", 3: "Infections and infestations", 4: "Allergic disorders",
-                         5: "Nutrition", 6: "Setting", 7: "Checkout", 8: "Exit"}
-        print('====================')
-        print(menu_num_list[user_choice])
-        print('====================')
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
-            data = json.load(medicine_data)
+            med_data = json.load(medicine_data)
+            availble_med = []
+            menu_num_dict = {}
             count = 1
-            for each_medicine_in_data, information in data[menu_num_list[user_choice]].items():
+            for each_categories in med_data.keys():
+                menu_num_dict[count] = each_categories
+                count += 1
+            print('====================')
+            print(menu_num_dict[user_choice])
+            print('====================')
+            count = 1
+            for each_medicine_in_data, information in med_data[menu_num_dict[user_choice]].items():
 
                 # Check stock of each that if it's lesser or equal to 0 it will not show that medicine.
                 if information["amount"] <= 0:
@@ -36,8 +39,8 @@ class Medicine:
             # list that counting how many medicine in that specific categories.
             num_med_list = []
             count = 1
-            for each_med in data[menu_num_list[user_choice]].keys():
-                if data[menu_num_list[user_choice]][each_med]["amount"] > 0:
+            for each_med in med_data[menu_num_dict[user_choice]].keys():
+                if med_data[menu_num_dict[user_choice]][each_med]["amount"] > 0:
                     num_med_list.append(count)
                     count += 1
             # check that choice is blank or not.
