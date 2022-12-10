@@ -470,6 +470,8 @@ class Admin:
         while back.lower() != 'back':
             print("Type BACK when you're READY.")
             back = input(': ')
+        self.take_to_menu_animation()
+        self.clear()
 
 class Stock_Manager(Admin):
     def __init__(self, admin_name):
@@ -537,10 +539,60 @@ class Sender(Admin):
                 self.clear()
                 self.delete_order()
 
+class Supreme_Admin(Admin):
+    def __init__(self, admin_name):
+        super().__init__(admin_name)
 
-
+    def operate(self):
+        self.welcome_admin()
+        while True:
+            print('==============================')
+            print("Your Menu are the following :)")
+            print('==============================')
+            print("1.Show all orders")
+            print("2.Show the specific order")
+            print("3.Delete order")
+            print("4.Modify stock")
+            print("5.Add new category")
+            print("6.Add new product")
+            print("7.Create new admin")
+            print("8.Exit")
+            print('==============================')
+            print('Please type in menu number :)')
+            menu_num = input(': ')
+            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
+                    menu_num != '4' and menu_num != '5'and menu_num != '6'and \
+                    menu_num != '7'and menu_num != '8':
+                print("Wrong menu!")
+                menu_num = input(': ')
+            if menu_num == '8':
+                exit()
+            elif menu_num == '1':
+                self.clear()
+                self.show_all_orders()
+            elif menu_num == '2':
+                self.clear()
+                self.show_specific_order()
+            elif menu_num == '3':
+                self.clear()
+                self.delete_order()
+            elif menu_num == '4':
+                self.clear()
+                self.modify_stock()
+            elif menu_num == '5':
+                self.clear()
+                self.add_new_category()
+            elif menu_num == '6':
+                self.clear()
+                self.add_new_product()
+            elif menu_num == '7':
+                self.clear()
+                self.create_admin()
 
 # admin = Admin('broke')
 # admin.delete_order()
-sender = Sender("sender")
-sender.operate()
+# sender = Sender("sender")
+# sender.operate()
+# admin = Supreme_Admin("admin")
+# admin.operate()
+
