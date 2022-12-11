@@ -1,10 +1,11 @@
 # Drug4U
 ## Overview
-This program is an online drug store system which have customer, medicine and admin class
+This program is an online drug store system which have customer, medicine and admin class.
 
   --- Developed by GG_WPX (Under MIT-LICENSE) ---
 
 ## Requirements.txt
+Please the module in requirement.txt
 >pip install -r requirements.txt
 
 ## Main.py

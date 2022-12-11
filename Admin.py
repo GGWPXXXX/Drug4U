@@ -449,6 +449,12 @@ class Admin:
 
         # Delete order from user then update into Order.json
         order_data[username].pop(order_num)
+
+        # If that user have no order left in Order.json the program will delete such
+        # account from Orders.json to prevent any error.
+        if len(order_data[username].keys()) <= 0:
+            order_data.pop(username)
+
         order_data.update()
         with open('../Drug4U/Admin_file/Orders.json', 'w', encoding='utf-8') as new_data:
             json.dump(order_data, new_data, indent=4)
@@ -461,6 +467,7 @@ class Admin:
             print(".", end='')
             sleep(0.5)
         self._clear()
+
 
         # Display all the remaining orders.
         print("All of the order are the following :)\n")

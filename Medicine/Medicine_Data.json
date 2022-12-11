@@ -5,14 +5,14 @@
             "side-effects": "Short-term oral use of activated charcoal is likely safe. Long-term use of activated charcoal could be safe. Constipation and dark stools are regular adverse effects.",
             "precautions": "Activated charcoal is safe for short-term oral usage. Activated charcoal may be safe long-term. Constipation and dark stools are common.",
             "price": 350,
-            "amount": 51
+            "amount": 50
         },
         "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count": {
             "uses": "This drug treats abrupt diarrhea (traveler's diarrhea). It slows digestion.Take this medication by mouth, usually after each loose stool or as directed by your doctor. Doctors should treat other symptoms and establish the source of diarrhea.",
             "side-effects": "Constipation, dizziness, and fatigue may occur. Tell your doctor if any of these symptoms persist or worsen. This medication seldom causes severe allergic reactions. Get medical attention if you get a rash, itching/swelling (particularly of the face/tongue/throat), severe dizziness, or difficulties breathing.",
             "precautions": "If you're allergic to loperamide, inform your doctor or pharmacist. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 250,
-            "amount": 90
+            "amount": 88
         },
         "3.Tagamet Acid Reducer, 200mg, 30-count Tablets, 30 Count": {
             "uses": "Cimetidine treats and prevents stomach and intestinal ulcers. This medicine also treats stomach and throat (esophagus) issues caused by too much stomach acid (Zollinger-Ellison syndrome, erosive esophagitis) or a backward flow of stomach acid into the esophagus (acid reflux disease/GERD). Take this medication by mouth with or without food as directed by your doctor.",
@@ -28,7 +28,7 @@
             "side-effects": "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly.",
             "precautions": "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 266,
-            "amount": 10
+            "amount": 7
         },
         "2.Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
             "uses": "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset.",
@@ -51,7 +51,7 @@
             "side-effects": "Diarrhea, nausea, and vomiting may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
             "precautions": "Before using amoxicillin, notify your doctor or pharmacist if you're allergic to it, penicillin, cephalosporins, or other antibiotics. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 50,
-            "amount": 8
+            "amount": 6
         },
         "2.Clindamycin 300mg Capsules 14 capsules": {
             "uses": "Clindamycin treats bacterial infections. Take this medicine by mouth 4 times a day (every 6 hours), or as instructed by your doctor. Unless your doctor tells you differently, take it with 8 ounces of water.",
@@ -81,7 +81,7 @@
             "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 500,
-            "amount": 6
+            "amount": 2
         },
         "3.Major Allergy Loratadine 10mg, 300 Tablets": {
             "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
@@ -97,7 +97,7 @@
             "side-effects": "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches.",
             "precautions": "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18.",
             "price": 1000,
-            "amount": 9
+            "amount": 8
         },
         "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
             "uses": "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system.",
@@ -120,8 +120,7 @@
             "side-effects": "Tell your doctor right away if this unlikely side effect occurs: skin irritation.",
             "precautions": "If you are allergic to calamine or have other allergies, notify your doctor or pharmacist before taking it. Inactive substances may cause allergic responses or other issues. Consult your pharmacist.",
             "price": 50,
-            "amount": 100
+            "amount": 96
         }
     }
-
 }

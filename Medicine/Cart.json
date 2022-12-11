@@ -1,1 +1,35 @@
-{}
+{
+    "a123": {
+        "1": [
+            "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count",
+            250,
+            2
+        ],
+        "2": [
+            "1.Amazon Elements Vitamin C 1000mg 300 Tablets",
+            1000,
+            1
+        ]
+    },
+    "a": {
+        "1": [
+            "2.Benadryl Ultratabs 100 tablets",
+            500,
+            3
+        ]
+    },
+    "nake": {
+        "1": [
+            "1.Aspirin 81mg 60 Enteric Coated Tablets",
+            266,
+            3
+        ]
+    },
+    "nakenat12": {
+        "1": [
+            "2.Benadryl Ultratabs 100 tablets",
+            500,
+            1
+        ]
+    }
+}
