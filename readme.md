@@ -5,7 +5,7 @@ This program is an online drug store system which have customer, medicine and ad
   --- Developed by GG_WPX (Under MIT-LICENSE) ---
 
 ## Requirements.txt
->pip install textwrap3
+>pip install -r requirements.txt
 
 ## Main.py
 The file named "Main.py" is the "main" that brings together the three classes and two subclasses from the three different Python files.
