@@ -64,6 +64,8 @@ def create_an_account(file_path):
 
 
 def login(file_path):
+    """This function is a login page for the program."""
+
     print('============================')
     print('Hi welcome to login page')
     print('Please type in your username and password :)')

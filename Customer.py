@@ -1,7 +1,5 @@
-
 import json
 from time import sleep
-import textwrap
 
 
 class Customer:
@@ -10,25 +8,27 @@ class Customer:
         self.__list_for_total_price = []
         self.__total_price_list = []
 
-    # getter for username
     @property
     def username(self):
+        """ getter for username. """
         return self.__username
 
-    # welcome customer text
     def welcome_user(self):
+        """This method show welcome sign to the customer after login page."""
         print('============================')
         print(f'Hi {self.__username} welcome to my shop :)')
         print('============================')
 
     def take_to_menu_animation(self):
+        """This method is a little animation before take customer back to the main menu."""
         for time in range(5, 0, -1):
             print(f"We'll take you back in main menu in {time}")
             sleep(1)
 
-    # Show all menu
     def menu(self):
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+        """This method show all the menu that customer can choose."""
+
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as med:
             med_data = json.load(med)
         print('---> Please select Menu :) <---')
         print('==========================')
@@ -45,6 +45,7 @@ class Customer:
         menu_choice = input('Please input number:) ')
         print('==========================')
         print()
+
         # Check if user input is the correct menu number or not.
         num_of_menu = [str(x) for x in range(1, count+1)]
         while menu_choice not in num_of_menu:
@@ -55,9 +56,8 @@ class Customer:
             menu_choice = input('Please input the correct number :( ')
         return int(menu_choice)
 
-    # Setting method for the customer.
-
     def setting(self):
+        """Setting method for customer to change password address or telephone"""
         while True:
             menu_dict_num = {'1': "password", '2': "address", '3': "tel"}
             print('==============================')
@@ -74,10 +74,10 @@ class Customer:
                 choice = input('Please type in menu number :) ')
 
             change_to = input('Change it to? : ')
-            while change_to == '' or change_to == ' ':
+            while change_to in ('', ' '):
                 print('Wrong choice!!')
                 change_to = input('Change it to? :( ')
-            with open('../Drug4U/User_file/User_data.json', 'r')as old_data_file:
+            with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as old_data_file:
                 old_data = json.load(old_data_file)
 
                 # Use this code if user want to change password.
@@ -111,10 +111,10 @@ class Customer:
                         }
                     }
 
-            with open('../Drug4U/User_file/User_data.json', 'r')as data_file:
+            with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as data_file:
                 data = json.load(data_file)
                 data.update(new_information)
-            with open('../Drug4U/User_file/User_data.json', 'w')as data_file:
+            with open('../Drug4U/User_file/User_data.json', 'w', encoding='utf-8')as data_file:
                 json.dump(data, data_file, indent=4)
             print(f'Your {menu_dict_num[choice]} is now changed to {change_to}')
             # Check if user want to change anything else.
@@ -136,10 +136,10 @@ class Customer:
             elif ask_final_choice == 'y'.lower():
                 continue
 
-    # Add new item into the cart.json
     def add_to_cart(self, med_name, price, med_amount):
+        """This method will add chose item from customer to cart.json"""
 
-        with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
+        with open('../Drug4U/Medicine/Cart.json', 'r', encoding='utf-8') as cart_data:
             cart = json.load(cart_data)
 
             new_order_for_account_not_in_sys = {
@@ -160,37 +160,43 @@ class Customer:
             except KeyError:
                 cart.update(new_order_for_account_not_in_sys)
 
-        with open('../Drug4U/Medicine/Cart.json', 'w') as new_cart:
+        with open('../Drug4U/Medicine/Cart.json', 'w', encoding='utf-8') as new_cart:
             json.dump(cart, new_cart, indent=4)
         print(f'{med_name[2:]} was added to your cart :)')
 
 
-    # This method allow user to check out of the store.
     def checkout(self):
+        """This method allow user to checkout of the store. it will write detail
+        of the order into order.json so admin cen see them and delete order in cart.json"""
+
         # Try this and check if there's any error.
         try:
-            with open('../Drug4U/Medicine/Cart.json', 'r') as cart_data:
+            with open('../Drug4U/Medicine/Cart.json', 'r', encoding='utf-8') as cart_data:
                 data_from_cart = json.load(cart_data)
 
-                # This variable trigger_error made to trigger key error i.e.check if this user have any
-                # product in cart.json
+                # This variable trigger_error made to trigger key error
+                # i.e.check if this user have any product in cart.json
                 trigger_error = data_from_cart[self.__username]
                 print('=================================')
                 print("You're order(s) are the following :)")
                 print('=================================')
                 for num_of_item in data_from_cart[self.__username].keys():
-                    print(f'{int(num_of_item)}. {data_from_cart[self.__username][num_of_item][0][2:]}. x '
+                    print(f'{int(num_of_item)}. '
+                          f'{data_from_cart[self.__username][num_of_item][0][2:]}'
+                          f'. x '
                           f'{data_from_cart[self.__username][num_of_item][2]}')
 
                     print(f'---> {data_from_cart[self.__username][num_of_item][1]} Baht. <---')
-                    self.__list_for_total_price.append([int(data_from_cart[self.__username][num_of_item][1]),
-                                                        int(data_from_cart[self.__username][num_of_item][2])])
+                    self.__list_for_total_price.append([int(
+                        data_from_cart[self.__username][num_of_item][1]),
+                        int(data_from_cart[self.__username][num_of_item][2])])
                 print('-------------')
 
                 # This is list for compute price of each item from the customer.
                 # each_item[0] mean price per one product.
                 # each_item[1] mean how many product customer want to buy.
-                self.__total_price_list = [each_item[0] * each_item[1] for each_item in self.__list_for_total_price]
+                self.__total_price_list = [each_item[0] * each_item[1] for
+                                           each_item in self.__list_for_total_price]
                 print(f"Your total is {sum(self.__total_price_list)} Baht.")
                 print('-------------')
 
@@ -198,16 +204,18 @@ class Customer:
                 self.__total_price_list.clear()
                 self.__list_for_total_price.clear()
 
-                with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+                with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
                     order_file = json.load(order)
 
                 # If account already in orders.json
                 try:
                     order = {
-                        int(max(order_file[self.__username].keys()))+1: data_from_cart[self.__username]
+                        int(max(order_file[self.__username].keys()))+1:
+                            data_from_cart[self.__username]
                     }
                     order_file[self.__username].update(order)
-                    with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
+                    with open('../Drug4U/Admin_file/Orders.json', 'w',
+                              encoding='utf-8') as new_order:
                         json.dump(order_file, new_order, indent=4)
 
 
@@ -220,13 +228,14 @@ class Customer:
                         }
                     }
                     order_file.update(order)
-                    with open('../Drug4U/Admin_file/Orders.json', 'w') as new_order:
+                    with open('../Drug4U/Admin_file/Orders.json', 'w',
+                              encoding='utf-8') as new_order:
                         json.dump(order_file, new_order, indent=4)
 
             # Delete order that ordered from the cart database.
                 data_from_cart.pop(self.__username)
                 data_from_cart.update()
-            with open('../Drug4U/Medicine/Cart.json', 'w') as cart_data:
+            with open('../Drug4U/Medicine/Cart.json', 'w', encoding='utf-8') as cart_data:
                 json.dump(data_from_cart, cart_data, indent=4)
 
 
@@ -239,10 +248,3 @@ class Customer:
             self.take_to_menu_animation()
 
         exit()
-
-
-
-#
-#
-# c = Customer('a123')
-# c.checkout()
