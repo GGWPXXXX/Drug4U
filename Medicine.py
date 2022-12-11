@@ -3,7 +3,7 @@ import textwrap
 from Customer import Customer
 
 class Medicine:
-    """This class is a class for medicine all the methods about medication are in here.
+    """This class is a class for medicine, all the methods about medication are in here.
     such as show detail of the specific product that customer chose etc."""
 
     def __init__(self, username):
@@ -93,12 +93,13 @@ class Medicine:
 
         # Check that choice is zero or not.
         customer_amount = int(customer_amount)
-        while customer_amount == 0:
-            print("Can't be zero !")
+        while customer_amount <= 0:
+            print("Can't be zero or less than that !")
             customer_amount = int(input("How many do you want to buy? "))
 
         with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as medicine_data:
             med_data = json.load(medicine_data)
+
             # Notify customers if that medicines are not enough for the customer.
             while med_data[chose_categories][chose_med_name]["amount"] < customer_amount:
                 print("Sorry Insufficient supplies.")

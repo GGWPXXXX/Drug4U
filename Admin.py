@@ -2,6 +2,7 @@ import json
 from time import sleep
 
 class Admin:
+    """This class is the parent class of all admin."""
     def __init__(self, admin_name):
         self.__admin_name = admin_name
         self.__med_num = []
@@ -31,7 +32,7 @@ class Admin:
         print('\n'*40)
 
     def _add_new_category(self):
-        """This method allow admin to add new category to the Medicine.py"""
+        """This method allow admin to add new category to the Medicine_Data.json"""
 
         print('What is the name of new category?')
         category_name = input(': ')
