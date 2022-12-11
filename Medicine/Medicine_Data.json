@@ -28,7 +28,7 @@
             "side-effects": "Upset stomach and heartburn may occur. If either of these effects last or get worse, tell your doctor or pharmacist promptly.",
             "precautions": "Before using aspirin, notify your doctor or pharmacist if you're sensitive to it, other salicylates (such as choline salicylate), or pain relievers or fever reducers (NSAIDs such as ibuprofen, naproxen). Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 266,
-            "amount": 0
+            "amount": 10
         },
         "2.Gofen 400 (Ibuprofen 400 mg) 10 softgel capsule": {
             "uses": "Take this drug by mouth every 4 to 6 hours with a full glass of water (8 ounces/240 milliliters). After taking this medicine, don't lie down for 10 minutes. Take this medication with food, milk, or an antacid if you have stomach upset.",
@@ -51,7 +51,7 @@
             "side-effects": "Diarrhea, nausea, and vomiting may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
             "precautions": "Before using amoxicillin, notify your doctor or pharmacist if you're allergic to it, penicillin, cephalosporins, or other antibiotics. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 50,
-            "amount": 0
+            "amount": 8
         },
         "2.Clindamycin 300mg Capsules 14 capsules": {
             "uses": "Clindamycin treats bacterial infections. Take this medicine by mouth 4 times a day (every 6 hours), or as instructed by your doctor. Unless your doctor tells you differently, take it with 8 ounces of water.",
@@ -81,7 +81,7 @@
             "side-effects": "Dry mouth/nose/throat, drowsiness, dizziness, constipation, stomach trouble, blurred vision may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.",
             "precautions": "Tell your doctor or pharmacist if you're allergic to diphenhydramine or dimenhydrinate. Inactive chemicals in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 500,
-            "amount": 0
+            "amount": 6
         },
         "3.Major Allergy Loratadine 10mg, 300 Tablets": {
             "uses": "This antihistamine cures hay fever and associated allergy symptoms include itching, runny nose, watery eyes, and sneezing. Take this medicine by mouth once day or as prescribed by your doctor.",
@@ -97,7 +97,7 @@
             "side-effects": "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches.",
             "precautions": "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18.",
             "price": 1000,
-            "amount": 0
+            "amount": 9
         },
         "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
             "uses": "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system.",
@@ -122,14 +122,6 @@
             "price": 50,
             "amount": 100
         }
-    },
-    "Condom": {
-        "condom": {
-            "uses": "idk",
-            "side-effects": "no",
-            "precautions": "no",
-            "price": 2500,
-            "amount": 100
-        }
     }
+
 }
