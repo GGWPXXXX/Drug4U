@@ -1,11 +1,12 @@
 import json
+from time import sleep
 from Customer import Customer
 from Medicine import Medicine
-from time import sleep
+
 
 
 def read_external_file(file_name):
-    with open(file_name, 'r') as file:
+    with open(file_name, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
         return data_file
 
@@ -16,7 +17,7 @@ def clear():
 
 def load_animation(time):
     print("Retrieving data please wait ", end='')
-    for count in range(0, time):
+    for count_time in range(0, time):
         print('.', end='')
         sleep(0.5)
 
@@ -25,17 +26,17 @@ def create_an_account(file_path):
     print('===============================')
     print('Hi this is registration form :)')
     print('===============================')
-    username = input('What should we call you?: ')
+    user_name = input('What should we call you?: ')
 
     # Check if the username has been used.
     with open(file_path, 'r') as file:
         data_file = json.load(file)
         while username in data_file:
             print('Sorry, this username has already been used.')
-            username = input('What should we call you?: ')
+            user_name = input('What should we call you?: ')
 
     print('===============================')
-    print(f'Hi {username} Nice to meet ya :)')
+    print(f'Hi {user_name} Nice to meet ya :)')
     print('===============================')
     password = input('And what will your password be?: ')
     print('PERFECTOOOO!!')
@@ -43,20 +44,23 @@ def create_an_account(file_path):
     tel = input('Your telephone number please:) ')
 
     new_data = {
-        username: {
+        user_name: {
             "password": password,
             "address": address,
             "tel": tel,
         }
     }
     # Read an old data then save it in data_file variable
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
         data_file.update(new_data)
 
     # write down new data
-    with open(file_path, 'w') as file:
+    with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data_file, file, indent=4)
+
+    print("Account Created !!!")
+    load_animation(3)
 
 
 def login(file_path):
@@ -64,23 +68,23 @@ def login(file_path):
     print('Hi welcome to login page')
     print('Please type in your username and password :)')
     print('============================')
-    username = input('Your username?: ')
+    user_name = input('Your username?: ')
 
     # check username that if it's in database or not.
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
         while username not in data_file:
-            print(f'Sorry, Username:{username} not found on the system.')
-            username = input('Your username?: ')
+            print(f'Sorry, Username:{user_name} not found on the system.')
+            user_name = input('Your username?: ')
     password = input('And password?: ')
 
     # check the given password that if it's match with the username or not.
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
-        while password != data_file[username]['password']:
+        while password != data_file[user_name]['password']:
             print(f'Sorry, your given password does not match with the username, Please try again.')
             password = input('And password?: ')
-    return username
+    return user_name
 
 
 user_file_path = '../Drug4U/User_file/User_data.json'
@@ -97,7 +101,7 @@ while check_wheter_customer.lower() != 'y' and check_wheter_customer.lower() != 
     print('Please type (y/n)')
     check_wheter_customer = input('(y/n): ')
 
-if check_wheter_customer == 'n' or check_wheter_customer == 'N':
+if check_wheter_customer in ('n', 'N'):
     print('============================')
     print("Then you must be an admin :)")
     print("Please login")
@@ -126,7 +130,7 @@ customer.welcome_user()
 # show all categories then return chosen choice.
 
 menu_num_dict = {}
-with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+with open('../Drug4U/Medicine/Medicine_Data.json', 'r' ,encoding='utf-8') as medicine_data:
     med_data = json.load(medicine_data)
     count = 1
     for each_categories in med_data.keys():
@@ -135,7 +139,7 @@ with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
 
 while True:
     chose_menu = customer.menu()
-    while chose_menu == count or chose_menu == count+1 or chose_menu == count+2:
+    while chose_menu in (count, count + 1, count + 2):
         if chose_menu == count:
             clear()
             customer.setting()
@@ -159,7 +163,8 @@ while True:
     put_to_cart_or_not = medicine.ask_user_customer_like_products()
 
     if put_to_cart_or_not == 0:
-        customer_amount = medicine.ask_customer_want_buy_how_many(menu_num_dict[chose_menu], chose_med_name)
+        customer_amount = medicine.ask_customer_want_buy_how_many\
+            (menu_num_dict[chose_menu], chose_med_name)
         customer.add_to_cart(chosen_med, price, customer_amount)
 
     clear()

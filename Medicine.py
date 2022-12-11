@@ -3,16 +3,23 @@ import textwrap
 from Customer import Customer
 
 class Medicine:
+    """This class is a class for medicine all the methods about medication are in here.
+    such as show detail of the specific product that customer chose etc."""
+
     def __init__(self, username):
         self.__username = username
 
     @property
     def username(self):
+        """getter for username."""
         return self.__username
 
-    # This method allow user to choose each medicine from the chosen categories.
+
     def show_medicine_from_user_choice(self, user_choice):
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+        """# This method allow user to choose each medicine from the chosen categories."""
+
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r',
+                  encoding='utf-8') as medicine_data:
             med_data = json.load(medicine_data)
             availble_med = []
             menu_num_dict = {}
@@ -24,9 +31,10 @@ class Medicine:
             print(menu_num_dict[user_choice])
             print('====================')
             count = 1
-            for each_medicine_in_data, information in med_data[menu_num_dict[user_choice]].items():
+            for each_medicine_in_data, information in \
+                    med_data[menu_num_dict[user_choice]].items():
 
-                # Check stock of each that if it's lesser or equal to 0 it will not show that medicine.
+            # Check stock of each that if it's lesser or equal to 0 it will not show that medicine.
                 if information["amount"] <= 0:
                     continue
                 availble_med.append(each_medicine_in_data)
@@ -44,7 +52,7 @@ class Medicine:
                     num_med_list.append(count)
                     count += 1
             # check that choice is blank or not.
-            while choice == '' or choice == ' ':
+            while choice in ('', ' '):
                 print("Wrong Choice!!")
                 choice = input('Which one would you like to see the information ? ')
             choice = int(choice)
@@ -57,26 +65,29 @@ class Medicine:
                     # method return choice of the specific medicine.
                     return availble_med[choice-1]
 
-    # This method ask user that they would like to continue with this product or not.
+
     def ask_user_customer_like_products(self):
+        """This method ask user that they would like to continue with this product or not."""
+
         print('---> Do you like this product? <---')
         print('type 0 to add to the cart')
         print('type 1 to go back to main menu')
         like_it = input(':) ')
         while True:
-            if like_it == '1' or like_it == '0':
+            if like_it in ('1', '0'):
                 return int(like_it)
             print('please type 0 or 1 :( ')
             like_it = input(':( ')
 
-    # Ask customer how many do they want to buy the product and calculate the rest of the stock.
     def ask_customer_want_buy_how_many(self, chose_categories, chose_med_name):
+        """Ask customer how many do they want to buy the product and calculate the rest of the stock."""
+
         print("===============================")
         customer_amount = input('How many do you want to buy? ')
         print("===============================")
 
         # Check that choice is blank or not.
-        while customer_amount == '' or customer_amount == ' ':
+        while customer_amount in ('', ' '):
             print("You have to type in something !")
             customer_amount = input('How many do you want to buy? ')
 
@@ -86,12 +97,13 @@ class Medicine:
             print("Can't be zero !")
             customer_amount = int(input("How many do you want to buy? "))
 
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as medicine_data:
             med_data = json.load(medicine_data)
             # Notify customers if that medicines are not enough for the customer.
             while med_data[chose_categories][chose_med_name]["amount"] < customer_amount:
                 print("Sorry Insufficient supplies.")
-                print(f"For {chose_med_name} there are {med_data[chose_categories][chose_med_name]['amount']} in stock.")
+                print(f"For {chose_med_name} there are "
+                      f"{med_data[chose_categories][chose_med_name]['amount']} in stock.")
                 customer_amount = int(input('How many do you want to buy? '))
 
         new_data_for_used_information = {
@@ -105,7 +117,7 @@ class Medicine:
         }
 
         med_data[chose_categories].update(new_data_for_used_information)
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as new_med_data:
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'w', encoding='utf-8') as new_med_data:
             json.dump(med_data, new_med_data, indent=4)
 
         # Import class customer to use take_to_menu_animation method.
@@ -113,9 +125,11 @@ class Medicine:
         customer.take_to_menu_animation()
         return customer_amount
 
-    # Show information about the very specific medicine that user chose from categories.
+
     def show_detail_of_medicine(self, chose_categories, chose_med_name):
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as medicine_data:
+        """Show information about the very specific medicine that user chose from categories."""
+
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as medicine_data:
             med_data = json.load(medicine_data)
             for medicine in med_data[chose_categories]:
                 if medicine == chose_med_name:
@@ -141,7 +155,3 @@ class Medicine:
                     print('===========================================')
                     return medicine, med_data[chose_categories][medicine]['price']
 
-#
-# medicine = Medicine("nake")
-# medicine.ask_customer_want_buy_how_many("Digestive system", "2.Amazon Basic Care Loperamide Hydrochloride "
-#                                                             "Tablets, 2 mg, Anti-Diarrheal, 24 Count")

@@ -1,14 +1,16 @@
 import json
 from time import sleep
 
-
 class Admin:
     def __init__(self, admin_name):
         self.__admin_name = admin_name
         self.__med_num = []
 
     def welcome_admin(self):
-        with open('../Drug4U/Admin_file/Admin_data.json', 'r') as data:
+        """This method display welcome text to admin"""
+
+        with open('../Drug4U/Admin_file/Admin_data.json', 'r' ,
+                  encoding='utf-8') as data:
             admin_data = json.load(data)
             print('==============================')
             print(f"Hello {self.__admin_name} :) \n"
@@ -18,17 +20,22 @@ class Admin:
             print()
 
     def take_to_menu_animation(self):
+        """This method is a little animation before taking admin back to main menu."""
+
         for time in range(5, 0, -1):
             print(f"We'll take you back in main menu in {time}")
             sleep(1)
 
     def clear(self):
+        """This method use to clear the console page."""
         print('\n'*40)
 
     def add_new_category(self):
+        """This method allow admin to add new category to the Medicine.py"""
+
         print('What is the name of new category?')
         category_name = input(': ')
-        while category_name == "" or category_name == ' ':
+        while category_name in ('', ' '):
             print('Type something bruh :( ')
             category_name = input(': ')
         new_category = {
@@ -36,10 +43,10 @@ class Admin:
 
             }
         }
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as med:
             med_data = json.load(med)
             med_data.update(new_category)
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'w', encoding='utf-8') as med:
             json.dump(med_data, med, indent=4)
 
         print(f'{category_name} added!')
@@ -47,11 +54,13 @@ class Admin:
         self.clear()
 
     def add_new_product(self):
+        """This method allow admin to add new product to the specific category."""
+
         while True:
             print('===============================')
             print("Categories are the following :)")
             print('===============================')
-            with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+            with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as med:
                 med_data = json.load(med)
                 for each_categories in med_data.keys():
                     print(f'{each_categories}')
@@ -67,42 +76,42 @@ class Admin:
                 name_of_med = input(': ')
 
                 # Check in case that input is blank.
-                while name_of_med == "" or name_of_med == ' ':
+                while name_of_med in ('', ' '):
                     print('Type something bruh :( ')
                     name_of_med = input(': ')
 
                 # Ask and check the uses of medication in case it was blank.
                 print("Uses?")
                 uses = input(': ')
-                while uses == "" or uses == ' ':
+                while uses in ('', ' '):
                     print('Type something bruh :( ')
                     uses = input(': ')
 
                 # Ask and check the side effects of medication in case it was blank.
                 print("Side-effects?")
                 side_effect = input(': ')
-                while side_effect == "" or side_effect == ' ':
+                while side_effect in ('', ' '):
                     print('Type something bruh :( ')
                     side_effect = input(': ')
 
                 # Ask and check the precaution of medication in case it was blank.
                 print("Precautions?")
                 pre_caution = input(': ')
-                while pre_caution == "" or pre_caution == ' ':
+                while pre_caution in ('', ' '):
                     print('Type something bruh :( ')
                     pre_caution = input(': ')
 
                 # Ask and check the price of medication in case it was blank.
                 print("Price?")
                 price = input(': ')
-                while price == "" or price == ' ':
+                while price in ('', ' '):
                     print('Type something bruh :( ')
                     price = input(': ')
 
                 # Ask and check the amount of medication in case it was blank.
                 print("Amount of medicine?")
                 amount = input(': ')
-                while amount == "" or amount == ' ':
+                while amount in ('', ' '):
                     print('Type something bruh :( ')
                     amount = input(': ')
 
@@ -117,7 +126,7 @@ class Admin:
                 }
 
                 med_data[add_to_this_categories].update(new_product)
-                with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+                with open('../Drug4U/Medicine/Medicine_Data.json', 'w', encoding='utf-8') as med:
                     json.dump(med_data, med, indent=4)
 
                 #Ask and check whether admin want to add anything else.
@@ -139,10 +148,13 @@ class Admin:
 
 
     def modify_stock(self):
+        """This method allows admin to check or modify each product elements such as uses price
+        side effect or even stock of that product."""
+
         print('==================================')
         print("Which stock do you want to modify? ")
         print('==================================')
-        with open('../Drug4U/Medicine/Medicine_Data.json', 'r') as med:
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8') as med:
             med_data = json.load(med)
             for each_categories in med_data.keys():
                 print(f'{each_categories}')
@@ -165,7 +177,7 @@ class Admin:
             this_med = input("Type in number :) ")
 
             # Check in case of input is blank.
-            while this_med == '' or this_med == ' ':
+            while this_med in ('', ' '):
                 print('WRONG NUMBER !')
                 this_med = input("Type in number :( ")
 
@@ -181,7 +193,7 @@ class Admin:
             want_to_do = input(': ')
 
             # Check in case of input is wrong menu number.
-            while want_to_do != '1' and want_to_do != '2':
+            while want_to_do not in ('1', '2'):
                 print('WRONG NUMBER !')
                 want_to_do = input(': ')
 
@@ -195,7 +207,8 @@ class Admin:
                         print(f'The current stock of this product is ---> '
                               f'{med_data[modify_this_categories][each_med]["amount"]} <---')
 
-            # If admin want to change uses, side-effects, precautions, price, amount of the specific product.
+            # If admin want to change uses, side-effects, precautions,
+            # price, amount of the specific product.
             if want_to_do == '2':
                 for each_med in med_data[modify_this_categories].keys():
                     if each_med[0] == this_med:
@@ -205,9 +218,9 @@ class Admin:
                         print("Please type in ;)")
                         want_to_modify_this = input(':) ')
                         # Check input that
-                        while want_to_modify_this != "uses" and want_to_modify_this != "side-effects" and \
-                                want_to_modify_this != "precautions" and want_to_modify_this != "price" and \
-                                want_to_modify_this != "amount":
+                        while want_to_modify_this not in \
+                                ('uses', 'side-effects', 'precautions',
+                                 'price', 'amount'):
                             print("Wrong Choice!!!")
                             want_to_modify_this = input(':( ')
 
@@ -218,19 +231,20 @@ class Admin:
                         while modify_to == '' and modify_to == ' ':
                             print("You have to type in something !!")
                             modify_to = input(":) ")
-                        if want_to_modify_this == "amount" or want_to_modify_this == "price":
+                        if want_to_modify_this in ('amount', 'price'):
                             modify_to = int(modify_to)
                         med_data[modify_this_categories][each_med][want_to_modify_this] = modify_to
 
-            with open('../Drug4U/Medicine/Medicine_Data.json', 'w') as med:
+            with open('../Drug4U/Medicine/Medicine_Data.json', 'w', encoding='utf-8') as med:
                 json.dump(med_data, med, indent=4)
         print("DONE!!")
         self.take_to_menu_animation()
         self.clear()
 
-    # Show all confirmed orders from customers.
     def show_all_orders(self):
-        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+        """Show all confirmed orders from customers."""
+
+        with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
             order_data = json.load(order)
 
         # Loading animation
@@ -240,12 +254,13 @@ class Admin:
             sleep(0.5)
         self.clear()
         print("All of the order are the following :)\n")
-        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  "
+              f"{'| Price |':>45} "
               f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
         print('=========================================================================='
               '========================================================================='
               '======================================================')
-        with open('../Drug4U/User_file/User_data.json', 'r')as user:
+        with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as user:
             user_file = json.load(user)
         for user_name, info in order_data.items():
             for num in info.keys():
@@ -269,12 +284,14 @@ class Admin:
         self.take_to_menu_animation()
         self.clear()
 
-    # Show order from username.
+
     def show_specific_order(self):
-        with open('../Drug4U/User_file/User_data.json', 'r')as user:
+        """Show order from the specific username."""
+
+        with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as user:
             user_file = json.load(user)
 
-        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+        with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
             order_data = json.load(order)
 
         print("Please type in username")
@@ -296,7 +313,8 @@ class Admin:
             sleep(0.5)
         self.clear()
         print("All of the order are the following :)\n")
-        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+        print(f"{'| Username |':>10} | {'Order no.':>10} | "
+              f"{'| Medicine name |':>50}  {'| Price |':>45} "
               f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
         print('=========================================================================='
               '========================================================================='
@@ -324,8 +342,9 @@ class Admin:
         self.take_to_menu_animation()
         self.clear()
 
-    # Create new admin account only role "Admin" can use this method.
     def create_admin(self):
+        """Create new admin account but only role "Supreme-Admin" can use this method."""
+
         print('===================================')
         print('What role of this account would be?')
         print('===================================')
@@ -342,14 +361,14 @@ class Admin:
 
         print("And what should we call him/her?")
         name = input(': ')
-        while name == " " or name == "":
+        while name in (' ', ''):
             print("Name blank?")
             print("Please try again :(")
             name = input(': ')
 
         print("Password? ")
         password = input(': ')
-        while password == " " or password == "":
+        while password in (' ', ''):
             print("Password blank?")
             print("Please try again :(")
             password = input(': ')
@@ -360,18 +379,19 @@ class Admin:
                 "role": role
             }
         }
-        with open('../Drug4U/Admin_file/Admin_data.json', 'r')as data:
+        with open('../Drug4U/Admin_file/Admin_data.json', 'r', encoding='utf-8')as data:
             old_data = json.load(data)
             old_data.update(new_acc)
-        with open('../Drug4U/Admin_file/Admin_data.json', 'w')as new_data:
+        with open('../Drug4U/Admin_file/Admin_data.json', 'w', encoding='utf-8')as new_data:
             json.dump(old_data, new_data, indent=4)
         print("Complete the account created :)")
         self.take_to_menu_animation()
         self.clear()
 
-    # This method allow sender to delete specific order from specific customer.
     def delete_order(self):
-        with open('../Drug4U/Admin_file/Orders.json', 'r') as order:
+        """This method allow sender to delete specific order from specific customer."""
+
+        with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
             order_data = json.load(order)
         print("Retrieving data please wait ", end='')
         for time in range(0, 5):
@@ -381,12 +401,13 @@ class Admin:
 
         # Display all the order.
         print("All of the order are the following :)\n")
-        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+        print(f"{'| Username |':>10} | {'Order no.':>10} | "
+              f"{'| Medicine name |':>50}  {'| Price |':>45} "
               f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
         print('=========================================================================='
               '========================================================================='
               '======================================================')
-        with open('../Drug4U/User_file/User_data.json', 'r') as user:
+        with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8') as user:
             user_file = json.load(user)
         for user_name, info in order_data.items():
             for num in info.keys():
@@ -427,7 +448,7 @@ class Admin:
         # Delete order from user then update into Order.json
         order_data[username].pop(order_num)
         order_data.update()
-        with open('../Drug4U/Admin_file/Orders.json', 'w') as new_data:
+        with open('../Drug4U/Admin_file/Orders.json', 'w', encoding='utf-8') as new_data:
             json.dump(order_data, new_data, indent=4)
 
         print()
@@ -439,15 +460,15 @@ class Admin:
             sleep(0.5)
         self.clear()
 
-
         # Display all the remaining orders.
         print("All of the order are the following :)\n")
-        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  {'| Price |':>45} "
+        print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50} "
+              f" {'| Price |':>45} "
               f"{'| Amount |'} {'| Address |':>13} {'| Telephone |':>33}")
         print('=========================================================================='
               '========================================================================='
               '======================================================')
-        with open('../Drug4U/User_file/User_data.json', 'r') as user:
+        with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8') as user:
             user_file = json.load(user)
         for user_name, info in order_data.items():
             for num in info.keys():
@@ -474,10 +495,16 @@ class Admin:
         self.clear()
 
 class Stock_Manager(Admin):
+    """This class is a stock_manager class which is a sub-class from admin.Only role
+    'Stock_Manager' can use this class."""
+
     def __init__(self, admin_name):
         super().__init__(admin_name)
 
     def operate(self):
+        """This is the main method for stock_manger class which contains all the methods that
+        stock_manager need."""
+
         self.welcome_admin()
         while True:
             print('==============================')
@@ -490,8 +517,7 @@ class Stock_Manager(Admin):
             print('==============================')
             print('Please type in menu number :)')
             menu_num = input(': ')
-            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
-                    menu_num != '4':
+            while menu_num not in ('1', '2', '3', '4'):
                 print("Wrong menu!")
                 menu_num = input(': ')
             if menu_num == '4':
@@ -507,10 +533,16 @@ class Stock_Manager(Admin):
                 self.add_new_product()
 
 class Sender(Admin):
+    """This class is Sender class which is a sub-class from admin.Only role 'Sender'
+    can access and use this class."""
+
     def __init__(self, admin_name):
         super().__init__(admin_name)
 
     def operate(self):
+        """This is the main method for Sender class which contains all the methods that
+        Sender need."""
+
         self.welcome_admin()
         while True:
             print('==============================')
@@ -523,8 +555,7 @@ class Sender(Admin):
             print('==============================')
             print('Please type in menu number :)')
             menu_num = input(': ')
-            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
-                    menu_num != '4':
+            while menu_num not in ('1', '2', '3', '4'):
                 print("Wrong menu!")
                 menu_num = input(': ')
             if menu_num == '4':
@@ -540,10 +571,15 @@ class Sender(Admin):
                 self.delete_order()
 
 class Supreme_Admin(Admin):
+    """This is the class for Supreme-Admin which is basically the owner of the store.
+    This class will contain all the methods from parent class admin including a special
+    method that can crate new accounts  for admin."""
     def __init__(self, admin_name):
         super().__init__(admin_name)
 
     def operate(self):
+        """This is the main method that opearte Supreme-Admin class only role 'Supreme-Admin'
+        can access this class"""
         self.welcome_admin()
         while True:
             print('==============================')
@@ -560,9 +596,8 @@ class Supreme_Admin(Admin):
             print('==============================')
             print('Please type in menu number :)')
             menu_num = input(': ')
-            while menu_num != '1' and menu_num != '2' and menu_num != '3' and \
-                    menu_num != '4' and menu_num != '5'and menu_num != '6'and \
-                    menu_num != '7'and menu_num != '8':
+            while menu_num not in ('1', '2', '3', '4', '5',
+                                   '6', '7', '8'):
                 print("Wrong menu!")
                 menu_num = input(': ')
             if menu_num == '8':
@@ -588,11 +623,4 @@ class Supreme_Admin(Admin):
             elif menu_num == '7':
                 self.clear()
                 self.create_admin()
-
-# admin = Admin('broke')
-# admin.delete_order()
-# sender = Sender("sender")
-# sender.operate()
-# admin = Supreme_Admin("admin")
-# admin.operate()
 
