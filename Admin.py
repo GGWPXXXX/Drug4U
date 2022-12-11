@@ -8,7 +8,7 @@ class Admin:
 
     def welcome_admin(self):
         """This method display welcome text to admin"""
-
+        self.clear()
         with open('../Drug4U/Admin_file/Admin_data.json', 'r' ,
                   encoding='utf-8') as data:
             admin_data = json.load(data)
@@ -147,7 +147,7 @@ class Admin:
                     self.clear()
 
 
-    def modify_stock(self):
+    def modify_product(self):
         """This method allows admin to check or modify each product elements such as uses price
         side effect or even stock of that product."""
 
@@ -246,7 +246,6 @@ class Admin:
 
         with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
             order_data = json.load(order)
-
         # Loading animation
         print("Retrieving data please wait ",end='')
         for time in range(0, 5):
@@ -262,6 +261,8 @@ class Admin:
               '======================================================')
         with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as user:
             user_file = json.load(user)
+
+        # Display all the medicine including its category and amount.
         for user_name, info in order_data.items():
             for num in info.keys():
                 for order_num in order_data[user_name][num]:
@@ -494,6 +495,41 @@ class Admin:
         self.take_to_menu_animation()
         self.clear()
 
+    def show_remaning_stock_of_all_product(self):
+        """ This method will show all the remaining stock of every
+        medicine."""
+
+        # Loading animation
+        print("Retrieving data please wait ",end='')
+        for time in range(0, 5):
+            print(".", end='')
+            sleep(0.5)
+        self.clear()
+        print("All of stock are the following :)\n")
+        print(f"{'| Category |':>10} {'| Amount |':>40}  {'| Medicine name |':>80}  ")
+        print('=========================================================================='
+              '========================================================================='
+              '======================================================')
+        with open('../Drug4U/Medicine/Medicine_Data.json', 'r', encoding='utf-8')as med:
+            med_data = json.load(med)
+        for categories, all_meds in med_data.items():
+            for med_name, med_info in all_meds.items():
+                print(f'{categories:<0}', end='')
+                print(f'{str(med_info["amount"]):>30}',end='')
+                print(f'{med_name:^140}')
+
+            print('----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '----------------------------------------------------------'
+                  '---------------------------')
+        print("Type 'back' to go back to the main menu :) ")
+        back = input(': ')
+        while back.lower() != "back":
+            print("Type back bruh :(")
+            back = input(': ')
+        self.take_to_menu_animation()
+        self.clear()
+
 class Stock_Manager(Admin):
     """This class is a stock_manager class which is a sub-class from admin.Only role
     'Stock_Manager' can use this class."""
@@ -510,27 +546,31 @@ class Stock_Manager(Admin):
             print('==============================')
             print("Your Menu are the following :)")
             print('==============================')
-            print("1.Modify stock")
+            print("1.Modify product")
             print("2.Add new category")
             print("3.Add new product")
-            print("4.Exit")
+            print("4.Show all remaining products.")
+            print("5.Exit")
             print('==============================')
             print('Please type in menu number :)')
             menu_num = input(': ')
-            while menu_num not in ('1', '2', '3', '4'):
+            while menu_num not in ('1', '2', '3', '4', '5'):
                 print("Wrong menu!")
                 menu_num = input(': ')
-            if menu_num == '4':
+            if menu_num == '5':
                 exit()
             elif menu_num == '1':
                 self.clear()
-                self.modify_stock()
+                self.modify_product()
             elif menu_num == '2':
                 self.clear()
                 self.add_new_category()
             elif menu_num == '3':
                 self.clear()
                 self.add_new_product()
+            elif menu_num == '4':
+                self.clear()
+                self.show_remaning_stock_of_all_product()
 
 class Sender(Admin):
     """This class is Sender class which is a sub-class from admin.Only role 'Sender'
@@ -588,19 +628,20 @@ class Supreme_Admin(Admin):
             print("1.Show all orders")
             print("2.Show the specific order")
             print("3.Delete order")
-            print("4.Modify stock")
+            print("4.Modify product")
             print("5.Add new category")
             print("6.Add new product")
             print("7.Create new admin")
-            print("8.Exit")
+            print("8.Show all remaining product")
+            print("9.Exit")
             print('==============================')
             print('Please type in menu number :)')
             menu_num = input(': ')
             while menu_num not in ('1', '2', '3', '4', '5',
-                                   '6', '7', '8'):
+                                   '6', '7', '8', '9'):
                 print("Wrong menu!")
                 menu_num = input(': ')
-            if menu_num == '8':
+            if menu_num == '9':
                 exit()
             elif menu_num == '1':
                 self.clear()
@@ -613,7 +654,7 @@ class Supreme_Admin(Admin):
                 self.delete_order()
             elif menu_num == '4':
                 self.clear()
-                self.modify_stock()
+                self.modify_product()
             elif menu_num == '5':
                 self.clear()
                 self.add_new_category()
@@ -623,4 +664,7 @@ class Supreme_Admin(Admin):
             elif menu_num == '7':
                 self.clear()
                 self.create_admin()
+            elif menu_num == '8':
+                self.clear()
+                self.show_remaning_stock_of_all_product()
 

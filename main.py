@@ -2,6 +2,7 @@ import json
 from time import sleep
 from Customer import Customer
 from Medicine import Medicine
+import Admin
 
 
 
@@ -75,7 +76,7 @@ def login(file_path):
     # check username that if it's in database or not.
     with open(file_path, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
-        while username not in data_file:
+        while user_name not in data_file:
             print(f'Sorry, Username:{user_name} not found on the system.')
             user_name = input('Your username?: ')
     password = input('And password?: ')
@@ -91,7 +92,6 @@ def login(file_path):
 
 user_file_path = '../Drug4U/User_file/User_data.json'
 customer_data = (read_external_file(user_file_path))
-admin_data = read_external_file('../Drug4U/Admin_file/Admin_data.json')
 print('''
 ===========================
 Welcome to My DRUG4U Shop!
@@ -103,12 +103,25 @@ while check_wheter_customer.lower() != 'y' and check_wheter_customer.lower() != 
     print('Please type (y/n)')
     check_wheter_customer = input('(y/n): ')
 
-if check_wheter_customer in ('n', 'N'):
+# This part is for admin only
+if check_wheter_customer.lower() == 'n':
     print('============================')
     print("Then you must be an admin :)")
     print("Please login")
     print('============================')
-    username = login(admin_data)
+    admin_name = login('../Drug4U/Admin_file/Admin_data.json')
+    with open('../Drug4U/Admin_file/Admin_data.json', 'r', encoding='utf-8') as data:
+        admin_data = json.load(data)
+    if admin_data[admin_name]["role"] == "Supreme-Admin":
+        admin = Admin.Supreme_Admin(admin_name)
+        admin.operate()
+    elif admin_data[admin_name]["role"] == "Stock_Manager":
+        admin = Admin.Stock_Manager(admin_name)
+        admin.operate()
+    else:
+        admin = Admin.Sender(admin_name)
+        admin.operate()
+
 
 if check_wheter_customer.lower() == 'y':
     print('Do you have an account?')
@@ -119,6 +132,7 @@ if check_wheter_customer.lower() == 'y':
     if check_account.lower() == 'n':
         create_an_account(user_file_path)
         customer_data = (read_external_file(user_file_path))
+
 print('============================')
 print("Please login")
 username = login(user_file_path)
