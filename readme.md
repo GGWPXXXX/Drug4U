@@ -66,6 +66,8 @@ This method will show a prescription for the selected medication. It will also d
 
 Admin.py is going to have a parent class named Admin and three sub-classes named, respectively,
 
+### Roles
+
 1.Stock manager : This role can modify each medication in medication database, add new category, add new product and  show all remaining product.
 
 2.Sender : This role can see all of incoming orders as well as the specific order that required username of the customer and can delete the specific order.
