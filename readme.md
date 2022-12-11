@@ -8,7 +8,14 @@ This program is an online drug store system which have customer, medicine and ad
 >pip install -r requirements.txt
 
 ## Main.py
-The file named "Main.py" is the "main" that brings together the three classes and two subclasses from the three different Python files.
+The file named "Main.py" is the "main" program that brings together the three classes and two subclasses from the three different Python files.
+
+### Main Functions
+#### 1.Register 
+This function will write new data account into file User_file/User_data.json
+
+#### 2.Login 
+This function will read the customer's username and check User data.json to see if it exists. If not, the program will ask the customer to type in a new username. If the username is correct, the program will ask for the password. If the password doesn't match the username, the program will alert the customer and ask for a new password if all of that complete the function will return username.
 
 ## Customer.py
 Customer.py will have the customer class, which is for customers, and it will include a total of six methods and have a single attribute for it, which is the customer's name.
