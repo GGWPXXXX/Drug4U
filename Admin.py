@@ -6,9 +6,9 @@ class Admin:
         self.__admin_name = admin_name
         self.__med_num = []
 
-    def welcome_admin(self):
+    def _welcome_admin(self):
         """This method display welcome text to admin"""
-        self.clear()
+        self._clear()
         with open('../Drug4U/Admin_file/Admin_data.json', 'r' ,
                   encoding='utf-8') as data:
             admin_data = json.load(data)
@@ -19,18 +19,18 @@ class Admin:
             print('==============================')
             print()
 
-    def take_to_menu_animation(self):
+    def _take_to_menu_animation(self):
         """This method is a little animation before taking admin back to main menu."""
 
         for time in range(5, 0, -1):
             print(f"We'll take you back in main menu in {time}")
             sleep(1)
 
-    def clear(self):
+    def _clear(self):
         """This method use to clear the console page."""
         print('\n'*40)
 
-    def add_new_category(self):
+    def _add_new_category(self):
         """This method allow admin to add new category to the Medicine.py"""
 
         print('What is the name of new category?')
@@ -50,10 +50,10 @@ class Admin:
             json.dump(med_data, med, indent=4)
 
         print(f'{category_name} added!')
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
-    def add_new_product(self):
+    def _add_new_product(self):
         """This method allow admin to add new product to the specific category."""
 
         while True:
@@ -140,14 +140,14 @@ class Admin:
                     add_more_or_not = input('(y/n): ')
 
                 if add_more_or_not == 'n'.lower():
-                    self.take_to_menu_animation()
-                    self.clear()
+                    self._take_to_menu_animation()
+                    self._clear()
                     break
                 else:
-                    self.clear()
+                    self._clear()
 
 
-    def modify_product(self):
+    def _modify_product(self):
         """This method allows admin to check or modify each product elements such as uses price
         side effect or even stock of that product."""
 
@@ -167,7 +167,7 @@ class Admin:
                 print("Wrong Stock!!!")
                 modify_this_categories = input(': ')
 
-            self.clear()
+            self._clear()
             # Print all the drug name from the specific category.
             for each_med in med_data[modify_this_categories].keys():
                 print(each_med)
@@ -185,7 +185,7 @@ class Admin:
             while this_med[0] not in self.__med_num:
                 print('WRONG NUMBER !')
                 this_med = input("Type in number :( ")
-            self.clear()
+            self._clear()
 
             print('What do you want to do')
             print(f'1. Check remaining stock')
@@ -238,10 +238,10 @@ class Admin:
             with open('../Drug4U/Medicine/Medicine_Data.json', 'w', encoding='utf-8') as med:
                 json.dump(med_data, med, indent=4)
         print("DONE!!")
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
-    def show_all_orders(self):
+    def _show_all_orders(self):
         """Show all confirmed orders from customers."""
 
         with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
@@ -251,7 +251,7 @@ class Admin:
         for time in range(0, 5):
             print(".", end='')
             sleep(0.5)
-        self.clear()
+        self._clear()
         print("All of the order are the following :)\n")
         print(f"{'| Username |':>10} | {'Order no.':>10} | {'| Medicine name |':>50}  "
               f"{'| Price |':>45} "
@@ -282,11 +282,11 @@ class Admin:
         while back.lower() != "back":
             print("Type back bruh :(")
             back = input(': ')
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
 
-    def show_specific_order(self):
+    def _show_specific_order(self):
         """Show order from the specific username."""
 
         with open('../Drug4U/User_file/User_data.json', 'r', encoding='utf-8')as user:
@@ -312,7 +312,7 @@ class Admin:
         for time in range(0, 5):
             print(".", end='')
             sleep(0.5)
-        self.clear()
+        self._clear()
         print("All of the order are the following :)\n")
         print(f"{'| Username |':>10} | {'Order no.':>10} | "
               f"{'| Medicine name |':>50}  {'| Price |':>45} "
@@ -340,10 +340,10 @@ class Admin:
         while back.lower() != "back":
             print("Type back bruh :(")
             back = input(': ')
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
-    def create_admin(self):
+    def _create_admin(self):
         """Create new admin account but only role "Supreme-Admin" can use this method."""
 
         print('===================================')
@@ -386,10 +386,10 @@ class Admin:
         with open('../Drug4U/Admin_file/Admin_data.json', 'w', encoding='utf-8')as new_data:
             json.dump(old_data, new_data, indent=4)
         print("Complete the account created :)")
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
-    def delete_order(self):
+    def _delete_order(self):
         """This method allow sender to delete specific order from specific customer."""
 
         with open('../Drug4U/Admin_file/Orders.json', 'r', encoding='utf-8') as order:
@@ -398,7 +398,7 @@ class Admin:
         for time in range(0, 5):
             print(".", end='')
             sleep(0.5)
-        self.clear()
+        self._clear()
 
         # Display all the order.
         print("All of the order are the following :)\n")
@@ -459,7 +459,7 @@ class Admin:
         for time in range(0, 5):
             print(".", end='')
             sleep(0.5)
-        self.clear()
+        self._clear()
 
         # Display all the remaining orders.
         print("All of the order are the following :)\n")
@@ -492,10 +492,10 @@ class Admin:
         while back.lower() != 'back':
             print("Type BACK when you're READY.")
             back = input(': ')
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
-    def show_remaning_stock_of_all_product(self):
+    def _show_remaning_stock_of_all_product(self):
         """ This method will show all the remaining stock of every
         medicine."""
 
@@ -504,7 +504,7 @@ class Admin:
         for time in range(0, 5):
             print(".", end='')
             sleep(0.5)
-        self.clear()
+        self._clear()
         print("All of stock are the following :)\n")
         print(f"{'| Category |':>10} {'| Amount |':>40}  {'| Medicine name |':>80}  ")
         print('=========================================================================='
@@ -527,8 +527,8 @@ class Admin:
         while back.lower() != "back":
             print("Type back bruh :(")
             back = input(': ')
-        self.take_to_menu_animation()
-        self.clear()
+        self._take_to_menu_animation()
+        self._clear()
 
 class Stock_Manager(Admin):
     """This class is a stock_manager class which is a sub-class from admin.Only role
@@ -541,7 +541,7 @@ class Stock_Manager(Admin):
         """This is the main method for stock_manger class which contains all the methods that
         stock_manager need."""
 
-        self.welcome_admin()
+        self._welcome_admin()
         while True:
             print('==============================')
             print("Your Menu are the following :)")
@@ -560,17 +560,17 @@ class Stock_Manager(Admin):
             if menu_num == '5':
                 exit()
             elif menu_num == '1':
-                self.clear()
-                self.modify_product()
+                self._clear()
+                self._modify_product()
             elif menu_num == '2':
-                self.clear()
-                self.add_new_category()
+                self._clear()
+                self._add_new_category()
             elif menu_num == '3':
-                self.clear()
-                self.add_new_product()
+                self._clear()
+                self._add_new_product()
             elif menu_num == '4':
-                self.clear()
-                self.show_remaning_stock_of_all_product()
+                self._clear()
+                self._show_remaning_stock_of_all_product()
 
 class Sender(Admin):
     """This class is Sender class which is a sub-class from admin.Only role 'Sender'
@@ -583,7 +583,7 @@ class Sender(Admin):
         """This is the main method for Sender class which contains all the methods that
         Sender need."""
 
-        self.welcome_admin()
+        self._welcome_admin()
         while True:
             print('==============================')
             print("Your Menu are the following :)")
@@ -601,14 +601,14 @@ class Sender(Admin):
             if menu_num == '4':
                 exit()
             elif menu_num == '1':
-                self.clear()
-                self.show_all_orders()
+                self._clear()
+                self._show_all_orders()
             elif menu_num == '2':
-                self.clear()
-                self.show_specific_order()
+                self._clear()
+                self._show_specific_order()
             elif menu_num == '3':
-                self.clear()
-                self.delete_order()
+                self._clear()
+                self._delete_order()
 
 class Supreme_Admin(Admin):
     """This is the class for Supreme-Admin which is basically the owner of the store.
@@ -620,7 +620,7 @@ class Supreme_Admin(Admin):
     def operate(self):
         """This is the main method that opearte Supreme-Admin class only role 'Supreme-Admin'
         can access this class"""
-        self.welcome_admin()
+        self._welcome_admin()
         while True:
             print('==============================')
             print("Your Menu are the following :)")
@@ -644,27 +644,27 @@ class Supreme_Admin(Admin):
             if menu_num == '9':
                 exit()
             elif menu_num == '1':
-                self.clear()
-                self.show_all_orders()
+                self._clear()
+                self._show_all_orders()
             elif menu_num == '2':
-                self.clear()
-                self.show_specific_order()
+                self._clear()
+                self._show_specific_order()
             elif menu_num == '3':
-                self.clear()
-                self.delete_order()
+                self._clear()
+                self._delete_order()
             elif menu_num == '4':
-                self.clear()
-                self.modify_product()
+                self._clear()
+                self._modify_product()
             elif menu_num == '5':
-                self.clear()
-                self.add_new_category()
+                self._clear()
+                self._add_new_category()
             elif menu_num == '6':
-                self.clear()
-                self.add_new_product()
+                self._clear()
+                self._add_new_product()
             elif menu_num == '7':
-                self.clear()
-                self.create_admin()
+                self._clear()
+                self._create_admin()
             elif menu_num == '8':
-                self.clear()
-                self.show_remaning_stock_of_all_product()
+                self._clear()
+                self._show_remaning_stock_of_all_product()
 

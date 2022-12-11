@@ -4,8 +4,6 @@ from Customer import Customer
 from Medicine import Medicine
 import Admin
 
-
-
 def read_external_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:
         data_file = json.load(file)
@@ -137,8 +135,8 @@ print('============================')
 print("Please login")
 username = login(user_file_path)
 clear()
-load_animation(5)
 # Animation for loading data
+load_animation(5)
 clear()
 # Declare customer class from Customer.py
 customer = Customer(username)
