@@ -154,14 +154,17 @@ with open('../Drug4U/Medicine/Medicine_Data.json', 'r' ,encoding='utf-8') as med
 while True:
     chose_menu = customer.menu()
     while chose_menu in (count, count + 1, count + 2):
+        # Setting
         if chose_menu == count:
             clear()
             customer.setting()
             clear()
+        # Checkout
         elif chose_menu == count+1:
             clear()
             customer.checkout()
             clear()
+        # Exit program
         elif chose_menu == count+2:
             exit()
         chose_menu = customer.menu()

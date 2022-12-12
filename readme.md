@@ -5,7 +5,7 @@ This program is an online drug store system which have customer, medicine and ad
   --- Developed by GG_WPX (Under MIT-LICENSE) ---
 
 ## Requirements.txt
-Please the module in requirement.txt
+Please install the module in requirement.txt
 >pip install -r requirements.txt
 
 ## Main.py
@@ -72,7 +72,7 @@ This method will show a prescription for the selected medication. It will also d
 
 ## Admin.py
 
-Admin.py is going to have a parent class named Admin and three sub-classes named, respectively,
+Admin.py is  a parent class named Admin and three sub-classes named, respectively,
 
 ### Roles
 

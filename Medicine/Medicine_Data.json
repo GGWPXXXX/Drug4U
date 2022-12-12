@@ -19,7 +19,7 @@
             "side-effects": "Headache, dizziness, and diarrhea may occur. Tell your doctor or pharmacist if any of these symptoms last or worsen.If your doctor has prescribed this drug, remember that the benefits outweigh the risks. This drug seldom causes major adverse effects.",
             "precautions": "Before taking cimetidine, tell your doctor or pharmacist if you're allergic to it or other H2 blockers (famotidine, nizatidine, ranitidine). Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 300,
-            "amount": 96
+            "amount": 94
         }
     },
     "Pain": {
@@ -42,7 +42,7 @@
             "side-effects": "This drug usually has no side effects. If you have any unusual effects, contact your doctor or pharmacist promptly.",
             "precautions": "If you're allergic to acetaminophen, tell your doctor or pharmacist. Inactive ingredients in this product may cause allergic reactions or other issues. Your pharmacist can help.",
             "price": 14,
-            "amount": 96
+            "amount": 94
         }
     },
     "Infections and infestations": {
@@ -65,7 +65,7 @@
             "side-effects": "Nausea, vomiting, diarrhea, appetite loss, mouth sores, hairy tongue, sore throat, dizziness, headache, or rectal pain may occur. Tell your doctor or pharmacist if any of these problems persist or worsen.",
             "precautions": "Before using this drug, notify your doctor or pharmacist about any kidney, liver, swallowing, or esophageal difficulties (such as hiatal hernia, reflux disease-GERD).",
             "price": 750,
-            "amount": 9
+            "amount": 7
         }
     },
     "Allergic disorders": {
@@ -97,7 +97,7 @@
             "side-effects": "Vitamin C is generally harmless. Vitamin C can induce stomach cramps, nausea, heartburn, and headaches.",
             "precautions": "Vitamin C is safe to take by mouth during pregnancy in doses up to 2000 mg for those 19 and older and 1800 mg for those 14-18.",
             "price": 1000,
-            "amount": 8
+            "amount": 7
         },
         "2.Now Foods, Vitamin A, 10,000 IU, 100 Softgels": {
             "uses": "Vitamin A is needed for the proper growth and functioning of many parts of the body, including the eyes, skin, and immune system.",
