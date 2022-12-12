@@ -10,5 +10,9 @@
     "sender": {
         "password": "123",
         "role": "Sender"
+    },
+    "GG_WPX": {
+        "password": "123",
+        "role": "Supreme-Admin"
     }
 }

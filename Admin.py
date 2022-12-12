@@ -355,7 +355,7 @@ class Admin:
         print('Sender')
         print('===================================')
         role = input(': ')
-        while role.lower() != 'admin' and role.lower() != 'sender'.lower() \
+        while role.lower() != 'supreme-admin' and role.lower() != 'sender'.lower() \
             and role.lower() != 'stock_manager':
             print("Wrong choice !!")
             print("Please try again :(")
