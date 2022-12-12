@@ -127,5 +127,6 @@ The primary database for a customer's confirmed order is stored in the Order.jso
             "1.Amazon Elements Vitamin C 1000mg 300 Tablets",
             1000,
             1
+    }
 
 This shows that the customer with the username a123 placed two separate orders on their initial purchase. They first ordered Amazon Basic Care Loperamide Hydrochloride Tablets, which have a price of 250 baht for two pieces, and then they ordered Amazon Elements Vitamin C 1000mg, which has a price of 1000 baht for one piece.
