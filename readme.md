@@ -1,6 +1,6 @@
 # Drug4U
 ## Overview
-This program is an online drug store system which have customer, medicine and admin class.
+This program is an online drug store system which have (almost) everything to open legit store such as customer, medicine and admin class.
 
   --- Developed by GG_WPX (Under MIT-LICENSE) ---
 
@@ -108,3 +108,24 @@ This method enables the sender to delete a particular order placed by a certain 
 
 #### 8.Show remaining stock of all product
 This method will show every single in every category including its amount.
+
+## Cart.json
+
+Cart. json is the primary shopping cart system for each individual customer. When they add a product to their cart, it will immediately write the new product down in the customer's cart. In the event that a customer adds an item to their shopping cart but does not complete their purchase, the information will be saved in a JSON file.
+
+## Orders.json
+
+The primary database for a customer's confirmed order is stored in the Order.json file. The following steps describe the pattern that the information follows.
+
+    "a123": {
+        "1": [
+            "2.Amazon Basic Care Loperamide Hydrochloride Tablets, 2 mg, Anti-Diarrheal, 24 Count",
+            250,
+            2
+        ],
+        "2": [
+            "1.Amazon Elements Vitamin C 1000mg 300 Tablets",
+            1000,
+            1
+
+This shows that the customer with the username a123 placed two separate orders on their initial purchase. They first ordered Amazon Basic Care Loperamide Hydrochloride Tablets, which have a price of 250 baht for two pieces, and then they ordered Amazon Elements Vitamin C 1000mg, which has a price of 1000 baht for one piece.
