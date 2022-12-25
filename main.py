@@ -30,7 +30,7 @@ def create_an_account(file_path):
     # Check if the username has been used.
     with open(file_path, 'r') as file:
         data_file = json.load(file)
-        while username in data_file:
+        while user_name in data_file:
             print('Sorry, this username has already been used.')
             user_name = input('What should we call you?: ')
 
